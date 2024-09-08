@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence"
+<persistence version="3.0" 
+             xmlns="https://jakarta.ee/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
-             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
 
   <!-- Persistence unit for the Rent Application -->
   <persistence-unit name="rentdbPersistence">
@@ -11,9 +11,8 @@
       <!-- Database Connection Settings -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/${DATABASE_NAME:rentdb}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true" />
-	  <property name="jakarta.persistence.jdbc.user" value="${DATABASE_USER:root}" />
-	  <property name="jakarta.persistence.jdbc.password" value="${DATABASE_PASSWORD:tiger}" />
-      
+      <property name="jakarta.persistence.jdbc.user" value="${DATABASE_USER:root}" />
+      <property name="jakarta.persistence.jdbc.password" value="${DATABASE_PASSWORD:tiger}" />
 
       <!-- Hibernate Settings -->
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
@@ -23,10 +22,8 @@
 
       <!-- Cache Settings -->
       <property name="hibernate.cache.use_second_level_cache" value="true" />
-      <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhcacheRegionFactory"/>
+      <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.EhcacheRegionFactory" />
     </properties>
   </persistence-unit>
-
-  <!-- Persistence unit for a different project or module -->
 
 </persistence>
