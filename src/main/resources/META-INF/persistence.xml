@@ -10,13 +10,13 @@
     <properties>
       <!-- Database Connection Settings -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/rentdb?createDatabaseIfNotExist=true" />
-	  <property name="jakarta.persistence.jdbc.user" value="${DB_USER:root}" />
-	  <property name="jakarta.persistence.jdbc.password" value="${DB_PASSWORD:tiger}" />
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/${DATABASE_NAME:rentdb}?createDatabaseIfNotExist=true" />
+	  <property name="jakarta.persistence.jdbc.user" value="${DATABASE_USER:root}" />
+	  <property name="jakarta.persistence.jdbc.password" value="${DATABASE_PASSWORD:tiger}" />
       
 
       <!-- Hibernate Settings -->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
       <property name="hibernate.show_sql" value="true" />
       <property name="hibernate.format_sql" value="true" />
       <property name="hibernate.hbm2ddl.auto" value="update" />
