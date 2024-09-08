@@ -10,9 +10,10 @@ This API allows you to manage orders, vehicles, and customers. Below are the det
 
 All API endpoints are prefixed with the base URL:  
 `[https://rent-jr48.onrender.com]`
+## getApi examplrs
 https://rent-jr48.onrender.com/ord/
 https://rent-jr48.onrender.com/veh
-https://rent-jr48.onrender.com/cus
+https://rent-jr48.onrender.com/cus/
 
 ## Endpoints
 
