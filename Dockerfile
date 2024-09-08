@@ -4,12 +4,9 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -DskipTests
 
-# Check if JAR exists
-RUN ls -la /app/target/
-
 # Run stage
 FROM eclipse-temurin:17-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar spring-rent.jar
+COPY --from=build /app/target/spring-rent.jar /app/spring-rent.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/spring-rent.jar"]
+ENTRYPOINT ["java", "-jar", "/app/spring-rent.jar"]
