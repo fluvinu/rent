@@ -74,9 +74,11 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<mainClass>com.rnt.rent.RentApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>spring-rent</finalName>
 	</build>
 
 </project>
