@@ -10,7 +10,7 @@
     <properties>
       <!-- Database Connection Settings -->
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/${DATABASE_NAME:rentdb}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true" />
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}/${DATABASE_NAME:rentdb}?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true" />
       <property name="jakarta.persistence.jdbc.user" value="${DATABASE_USER:root}" />
       <property name="jakarta.persistence.jdbc.password" value="${DATABASE_PASSWORD:tiger}" />
 
