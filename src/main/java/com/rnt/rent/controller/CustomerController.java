@@ -27,7 +27,7 @@ public class CustomerController {
 	
 		@GetMapping("/hi")
 	    public String test() {
-	    	return "customer Controller";
+	    	return "customer Controller is this";
 	    }
 	
 		
