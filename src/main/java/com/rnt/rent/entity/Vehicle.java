@@ -1,11 +1,11 @@
 package com.rnt.rent.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.TenantId;
 
 @Entity
 @Table(name = "vehicle")
@@ -16,11 +16,14 @@ public class Vehicle {
 
     private String vType;
 
-    private boolean isAvailable; // Renamed for clarity
+    private boolean isAvailable;
 
     private String vName;
 
     private double vPrice;
+
+    @TenantId
+    private String tenantId;
 
     // Getters and setters
     public Long getId() {
@@ -61,5 +64,13 @@ public class Vehicle {
 
     public void setvPrice(double vPrice) {
         this.vPrice = vPrice;
+    }
+
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
     }
 }

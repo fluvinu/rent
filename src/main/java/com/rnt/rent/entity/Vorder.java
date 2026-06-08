@@ -1,7 +1,6 @@
 package com.rnt.rent.entity;
 
 import java.sql.Timestamp;
-//Added semicolon here
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,88 +8,95 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinColumn;
+import org.hibernate.annotations.TenantId;
 
 @Entity
 @Table(name = "vorder")
 public class Vorder {
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private Long oId;
-	
-	 private String cName; 
-	
-	 private Timestamp tDate;
-	 private Timestamp rDate;
-	
-	 @OneToOne
-	 @JoinColumn(name = "vehicle_id") // Use a proper join column
-	 private Vehicle vehicle;
-	
-	 @OneToOne
-	 @JoinColumn(name = "customer_id") // Use a proper join column
-	 private Customer customer;
-	 
-	 
-	 private double total;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long oId;
 
+    private String cName;
 
+    private Timestamp tDate;
+    private Timestamp rDate;
 
-// Getters and Setters
- 
- public Long getoId() {
-     return oId;
- }
+    @OneToOne
+    @JoinColumn(name = "vehicle_id")
+    private Vehicle vehicle;
 
- public void setoId(Long oId) {
-     this.oId = oId;
- }
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
- public String getcName() {
-     return cName;
- }
+    private double total;
 
- public void setcName(String cName) {
-     this.cName = cName;
- }
+    @TenantId
+    private String tenantId;
 
- public Timestamp gettDate() {
-     return tDate;
- }
+    // Getters and Setters
+    public Long getoId() {
+        return oId;
+    }
 
- public void settDate(Timestamp tDate) {
-     this.tDate = tDate;
- }
+    public void setoId(Long oId) {
+        this.oId = oId;
+    }
 
- public Timestamp getrDate() {
-     return rDate;
- }
+    public String getcName() {
+        return cName;
+    }
 
- public void setrDate(Timestamp rDate) {
-     this.rDate = rDate;
- }
+    public void setcName(String cName) {
+        this.cName = cName;
+    }
 
- public Vehicle getVehicle() {
-     return vehicle;
- }
+    public Timestamp gettDate() {
+        return tDate;
+    }
 
- public void setVehicle(Vehicle vehicle) {
-     this.vehicle = vehicle; // Removed the extra 'a'
- }
+    public void settDate(Timestamp tDate) {
+        this.tDate = tDate;
+    }
 
- public Customer getCustomer() {
-     return customer;
- }
+    public Timestamp getrDate() {
+        return rDate;
+    }
 
- public void setCustomer(Customer customer) {
-     this.customer = customer;
- }
- 
- public double getTotal() {
-	return total;
-}
+    public void setrDate(Timestamp rDate) {
+        this.rDate = rDate;
+    }
 
- public void setTotal(double total) {
-	this.total = total;
-}
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
 }
