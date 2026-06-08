@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rnt.rent.entity.Customer;
 import com.rnt.rent.repository.CustomerRepository;
+import com.rnt.rent.tenant.TenantContext;
 
 @Service
 public class CustomerServiceImpl implements CustomerServices{
@@ -16,29 +18,27 @@ public class CustomerServiceImpl implements CustomerServices{
     private CustomerRepository cusromerRepo;
 	
 	@Override
+	@Transactional
 	public Customer saveCustomer(Customer cus) {
-		// TODO Auto-generated method stub
+        if (cus.getTenantId() == null) {
+            cus.setTenantId(TenantContext.getTenantId());
+        }
 		return cusromerRepo.save(cus);
 	}
 
 	@Override
 	public Optional<Customer> getCustomerById(Long id) {
-		// TODO Auto-generated method stub
-		return cusromerRepo.findById(id);
+		return cusromerRepo.findByCIdAndTenantId(id, TenantContext.getTenantId());
 	}
 
 	@Override
+	@Transactional
 	public void deleteCustomer(Long id) {
-		// TODO Auto-generated method stub
-		cusromerRepo.deleteById(id);
-		
+		cusromerRepo.deleteByCIdAndTenantId(id, TenantContext.getTenantId());
 	}
 
 	@Override
 	public List<Customer> getAllCustomer() {
-		// TODO Auto-generated method stub
 		return cusromerRepo.findAll();
 	}
-
-
 }
