@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; }
+        .form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; }
+        .btn { padding: 10px 15px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .btn:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rent Management System</h1>
+
+        <div class="form-group">
+            <label for="tenantId">Tenant ID:</label>
+            <input type="text" id="tenantId" placeholder="Enter Tenant ID (e.g., tenant1)" value="public">
+        </div>
+
+        <h2>Vehicles</h2>
+        <div class="form-group">
+            <input type="text" id="vType" placeholder="Vehicle Type">
+            <input type="text" id="vName" placeholder="Vehicle Name">
+            <input type="number" id="vPrice" placeholder="Vehicle Price">
+            <button class="btn" onclick="addVehicle()">Add Vehicle</button>
+        </div>
+        <table id="vehiclesTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Available</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>Customers</h2>
+        <div class="form-group">
+            <input type="text" id="cName" placeholder="Customer Name">
+            <input type="number" id="mobileNo" placeholder="Mobile Number">
+            <button class="btn" onclick="addCustomer()">Add Customer</button>
+        </div>
+        <table id="customersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mobile No</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>Orders</h2>
+        <div class="form-group">
+            <input type="number" id="vehicleId" placeholder="Vehicle ID">
+            <input type="number" id="customerId" placeholder="Customer ID">
+            <button class="btn" onclick="createOrder()">Create Order</button>
+        </div>
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer Name</th>
+                    <th>Vehicle</th>
+                    <th>Take Date</th>
+                    <th>Return Date</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        const baseUrl = '';
+
+        function getHeaders() {
+            const tenantId = document.getElementById('tenantId').value;
+            return {
+                'Content-Type': 'application/json',
+                'X-Tenant-ID': tenantId
+            };
+        }
+
+        async function fetchVehicles() {
+            const response = await fetch(`${baseUrl}/veh`, { headers: getHeaders() });
+            const data = await response.json();
+            const tbody = document.querySelector('#vehiclesTable tbody');
+            tbody.innerHTML = '';
+            data.forEach(v => {
+                tbody.innerHTML += `<tr>
+                    <td>${v.id}</td>
+                    <td>${v.vType}</td>
+                    <td>${v.vName}</td>
+                    <td>${v.vPrice}</td>
+                    <td>${v.available}</td>
+                </tr>`;
+            });
+        }
+
+        async function addVehicle() {
+            const vType = document.getElementById('vType').value;
+            const vName = document.getElementById('vName').value;
+            const vPrice = document.getElementById('vPrice').value;
+
+            await fetch(`${baseUrl}/veh`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({ vType, vName, vPrice, available: true })
+            });
+            fetchVehicles();
+        }
+
+        async function fetchCustomers() {
+            const response = await fetch(`${baseUrl}/cus/`, { headers: getHeaders() });
+            const data = await response.json();
+            const tbody = document.querySelector('#customersTable tbody');
+            tbody.innerHTML = '';
+            data.forEach(c => {
+                tbody.innerHTML += `<tr>
+                    <td>${c.cId}</td>
+                    <td>${c.cName}</td>
+                    <td>${c.mobileNo}</td>
+                </tr>`;
+            });
+        }
+
+        async function addCustomer() {
+            const cName = document.getElementById('cName').value;
+            const mobileNo = document.getElementById('mobileNo').value;
+
+            await fetch(`${baseUrl}/cus`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({ cName, mobileNo })
+            });
+            fetchCustomers();
+        }
+
+        async function fetchOrders() {
+            const response = await fetch(`${baseUrl}/ord/`, { headers: getHeaders() });
+            const data = await response.json();
+            const tbody = document.querySelector('#ordersTable tbody');
+            tbody.innerHTML = '';
+            data.forEach(o => {
+                tbody.innerHTML += `<tr>
+                    <td>${o.oId}</td>
+                    <td>${o.cName}</td>
+                    <td>${o.vehicle ? o.vehicle.vName : ''}</td>
+                    <td>${new Date(o.tDate).toLocaleString()}</td>
+                    <td>${o.rDate ? new Date(o.rDate).toLocaleString() : 'Not returned'}</td>
+                    <td>${o.total}</td>
+                    <td>
+                        ${!o.rDate ? `<button class="btn" onclick="submitVehicle(${o.oId})">Return Vehicle</button>` : ''}
+                    </td>
+                </tr>`;
+            });
+        }
+
+        async function createOrder() {
+            const vehicleId = document.getElementById('vehicleId').value;
+            const customerId = document.getElementById('customerId').value;
+
+            await fetch(`${baseUrl}/ord/${vehicleId}/${customerId}`, {
+                method: 'POST',
+                headers: getHeaders(),
+                body: JSON.stringify({})
+            });
+            fetchOrders();
+        }
+
+        async function submitVehicle(id) {
+            await fetch(`${baseUrl}/ord/${id}`, {
+                method: 'PUT',
+                headers: getHeaders(),
+                body: JSON.stringify({})
+            });
+            fetchOrders();
+        }
+
+        document.getElementById('tenantId').addEventListener('change', () => {
+            fetchVehicles();
+            fetchCustomers();
+            fetchOrders();
+        });
+
+        // Initial load
+        fetchVehicles();
+        fetchCustomers();
+        fetchOrders();
+    </script>
+</body>
+</html>

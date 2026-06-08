@@ -1,11 +1,11 @@
 package com.rnt.rent.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import org.hibernate.annotations.TenantId;
 
 @Entity
 @Table(name = "customer")
@@ -14,9 +14,12 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cId;
 
-    private String cName; // Fixed typo
+    private String cName;
 
     private long mobileNo;
+
+    @TenantId
+    private String tenantId;
 
     // Getters and setters
     public Long getcId() {
@@ -43,5 +46,11 @@ public class Customer {
         this.mobileNo = mobileNo;
     }
 
-	
+    public String getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(String tenantId) {
+        this.tenantId = tenantId;
+    }
 }

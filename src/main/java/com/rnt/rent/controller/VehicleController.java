@@ -1,8 +1,5 @@
 package com.rnt.rent.controller;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +16,6 @@ public class VehicleController {
 
     @Autowired
     private VehicleService vehicleService;
-    
-    
     
     @GetMapping("/hi")
     public String test() {
@@ -61,12 +56,4 @@ public class VehicleController {
         vehicleService.deleteVehicle(id);
         return ResponseEntity.noContent().build();
     }
-    
-    
-    // cutomer controlller 
-    
-   
-    
-    
 }
-
