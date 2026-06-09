@@ -38,11 +38,10 @@ All endpoints (except `/auth/**`) require a valid JWT passed in the `Authorizati
 ## Base URL
 
 All API endpoints are prefixed with the base URL:  
-`[https://rent-jr48.onrender.com]`
+`[https://rent-0xm8.onrender.com]`
 ## getApi examplrs
-https://rent-jr48.onrender.com/ord/
-https://rent-jr48.onrender.com/veh
-https://rent-jr48.onrender.com/cus/
+https://rent-0xm8.onrender.com/ord/
+https://rent-0xm8.onrender.com/veh
 
 ## Endpoints
 
