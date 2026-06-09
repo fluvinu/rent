@@ -4,7 +4,36 @@ Certainly! Below is a `README.md` file that combines all the REST API endpoints 
 
 # API Documentation
 
-This API allows you to manage orders, vehicles, and customers. Below are the details of each endpoint.
+This API allows you to manage orders, vehicles, and customers, segmented per tenant using MongoDB.
+
+## Authentication
+
+All endpoints (except `/auth/**`) require a valid JWT passed in the `Authorization` header as a Bearer token.
+
+### Register Tenant
+- **Method:** `POST`
+- **Endpoint:** `/auth/register`
+- **Body:**
+  ```json
+  {
+    "username": "tenant1",
+    "password": "password123",
+    "tenantName": "tenant_1_db"
+  }
+  ```
+- **Description:** Registers a new tenant and provisions access to the specified tenant database (e.g., `tenant_1_db`). If `tenantName` is not provided, one will be generated based on the username.
+
+### Login Tenant
+- **Method:** `POST`
+- **Endpoint:** `/auth/login`
+- **Body:**
+  ```json
+  {
+    "username": "tenant1",
+    "password": "password123"
+  }
+  ```
+- **Description:** Authenticates a tenant and returns a JWT token. This token should be included in the `Authorization` header (`Bearer <token>`) for all subsequent requests to access the specific tenant's data.
 
 ## Base URL
 

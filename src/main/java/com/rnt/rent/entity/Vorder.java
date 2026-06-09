@@ -1,46 +1,34 @@
 package com.rnt.rent.entity;
 
-import java.sql.Timestamp;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.persistence.JoinColumn;
-import org.hibernate.annotations.TenantId;
+import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "vorder")
+@Document(collection = "vorder")
 public class Vorder {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long oId;
+    private String oId;
 
     private String cName;
 
-    private Timestamp tDate;
-    private Timestamp rDate;
+    private Date tDate;
+    private Date rDate;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_id")
+    @DBRef
     private Vehicle vehicle;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @DBRef
     private Customer customer;
 
     private double total;
 
-    @TenantId
-    private String tenantId;
-
     // Getters and Setters
-    public Long getoId() {
+    public String getoId() {
         return oId;
     }
 
-    public void setoId(Long oId) {
+    public void setoId(String oId) {
         this.oId = oId;
     }
 
@@ -52,19 +40,19 @@ public class Vorder {
         this.cName = cName;
     }
 
-    public Timestamp gettDate() {
+    public Date gettDate() {
         return tDate;
     }
 
-    public void settDate(Timestamp tDate) {
+    public void settDate(Date tDate) {
         this.tDate = tDate;
     }
 
-    public Timestamp getrDate() {
+    public Date getrDate() {
         return rDate;
     }
 
-    public void setrDate(Timestamp rDate) {
+    public void setrDate(Date rDate) {
         this.rDate = rDate;
     }
 
@@ -90,13 +78,5 @@ public class Vorder {
 
     public void setTotal(double total) {
         this.total = total;
-    }
-
-    public String getTenantId() {
-        return tenantId;
-    }
-
-    public void setTenantId(String tenantId) {
-        this.tenantId = tenantId;
     }
 }

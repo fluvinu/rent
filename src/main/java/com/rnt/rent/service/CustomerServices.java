@@ -9,13 +9,10 @@ public interface CustomerServices {
 	
 	public Customer saveCustomer(Customer cus);
     
-    public Optional <Customer> getCustomerById(Long id);
+    public Optional <Customer> getCustomerById(String id);
 
-	public void deleteCustomer(Long id);
+	public void deleteCustomer(String id);
 
 	public List<Customer> getAllCustomer();
-
-	
-	
 
 }

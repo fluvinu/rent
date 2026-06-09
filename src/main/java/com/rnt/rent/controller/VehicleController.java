@@ -28,7 +28,7 @@ public class VehicleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable String id) {
         Optional<Vehicle> vehicle = vehicleService.getVehicleById(id);
         return vehicle.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -39,7 +39,7 @@ public class VehicleController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle vehicle) {
+    public ResponseEntity<Vehicle> updateVehicle(@PathVariable String id, @RequestBody Vehicle vehicle) {
         if (!vehicleService.getVehicleById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
@@ -49,7 +49,7 @@ public class VehicleController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteVehicle(@PathVariable String id) {
         if (!vehicleService.getVehicleById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }

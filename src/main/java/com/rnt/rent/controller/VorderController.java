@@ -1,8 +1,7 @@
 package com.rnt.rent.controller;
 
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +47,7 @@ public class VorderController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Vorder> getVOrderById(@PathVariable Long id){
+	public ResponseEntity<Vorder> getVOrderById(@PathVariable String id){
 		
 		Optional<Vorder> cus=vorder.getVorderById(id);
 		
@@ -57,7 +56,7 @@ public class VorderController {
 	}
 	
 	@PostMapping("/{vId}/{cId}")
-	public ResponseEntity<Vorder> creatrVorder(@RequestBody Vorder vord, @PathVariable Long vId, @PathVariable Long cId) {
+	public ResponseEntity<Vorder> creatrVorder(@RequestBody Vorder vord, @PathVariable String vId, @PathVariable String cId) {
 	    
 
 	    // Fetch customer and vehicle using their IDs
@@ -77,7 +76,7 @@ public class VorderController {
 	    Vehicle veh = optionalVehicle.get();
 	    vord.setCustomer(cu); // Assuming there's a setCustomer method in Vorder
 	    vord.setVehicle(veh); // Assuming there's a setVehicle method in Vorder
-	    vord.settDate(Timestamp.valueOf(LocalDateTime.now()));
+	    vord.settDate(new Date());
 	    vord.setcName(cu.getcName());
 	    Vorder createdVorder = vorder.createVorder(vord);
 	    return ResponseEntity.ok(createdVorder);
@@ -85,7 +84,7 @@ public class VorderController {
 
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Vorder> submitVehical(@RequestBody Vorder v,@PathVariable Long id){
+	public ResponseEntity<Vorder> submitVehical(@RequestBody Vorder v,@PathVariable String id){
 		
 		// if not worki we hav to create a local varealte of time stem then  fatch the stored value of time then stor it on local 
 		// vareable and then reuse it and set thet vare to over object
@@ -98,7 +97,7 @@ public class VorderController {
 		
 		
 		
-		Timestamp retunDate=Timestamp.valueOf(LocalDateTime.now());
+		Date retunDate = new Date();
 		v.setrDate(retunDate);
 		double totalamt=getAmtByTime(v.gettDate(),retunDate);
 		v.setTotal(totalamt);
@@ -111,7 +110,7 @@ public class VorderController {
 	
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteOrder(@PathVariable String id) {
 		if(!vorder.getVorderById(id).isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
@@ -121,7 +120,7 @@ public class VorderController {
 	}
 	
 	
-	private double getAmtByTime(Timestamp take, Timestamp retune) {
+	private double getAmtByTime(Date take, Date retune) {
 	    // Validate that return time is not before the take time
 	    if (retune.before(take)) {
 	        throw new IllegalArgumentException("Return time cannot be before take time");
