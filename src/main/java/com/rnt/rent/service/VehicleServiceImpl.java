@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rnt.rent.entity.Vehicle;
 import com.rnt.rent.repository.VehicleRepository;
-import com.rnt.rent.tenant.TenantContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,22 +22,19 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Optional<Vehicle> getVehicleById(Long id) {
-        return vehicleRepository.findByIdAndTenantId(id, TenantContext.getTenantId());
+    public Optional<Vehicle> getVehicleById(String id) {
+        return vehicleRepository.findById(id);
     }
 
     @Override
     @Transactional
     public Vehicle saveVehicle(Vehicle vehicle) {
-        if (vehicle.getTenantId() == null) {
-            vehicle.setTenantId(TenantContext.getTenantId());
-        }
         return vehicleRepository.save(vehicle);
     }
 
     @Override
     @Transactional
-    public void deleteVehicle(Long id) {
-        vehicleRepository.deleteByIdAndTenantId(id, TenantContext.getTenantId());
+    public void deleteVehicle(String id) {
+        vehicleRepository.deleteById(id);
     }
 }

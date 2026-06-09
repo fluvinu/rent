@@ -36,7 +36,7 @@ public class CustomerController {
 	    }
 	
 	    @GetMapping("/{id}")
-	    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+	    public ResponseEntity<Customer> getCustomerById(@PathVariable String id) {
 	        Optional<Customer> customer = customerrepo.getCustomerById(id);
 	        return customer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build()); // checked
 	    }
@@ -48,7 +48,7 @@ public class CustomerController {
 	    }
 	    
 	    @PutMapping("/{id}")
-	    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer ){
+	    public ResponseEntity<Customer> updateCustomer(@PathVariable String id, @RequestBody Customer customer ){
 	    	
 			if(!customerrepo.getCustomerById(id).isPresent()) {
 				return ResponseEntity.notFound().build();
@@ -61,7 +61,7 @@ public class CustomerController {
 	    }
 	    
 	    @DeleteMapping("/{id}")
-	    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
+	    public ResponseEntity<Void> deleteCustomer(@PathVariable String id) {
 	        if (!customerrepo.getCustomerById(id).isPresent()) {
 	            return ResponseEntity.notFound().build();
 	        }

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rnt.rent.entity.Vorder;
 import com.rnt.rent.repository.VorderRepository;
-import com.rnt.rent.tenant.TenantContext;
 
 @Service
 public class VorderServicesImpl implements VorderServices{
@@ -20,15 +19,12 @@ public class VorderServicesImpl implements VorderServices{
 	@Override
 	@Transactional
 	public Vorder createVorder(Vorder v) {
-        if (v.getTenantId() == null) {
-            v.setTenantId(TenantContext.getTenantId());
-        }
 		return vorderRepo.save(v);
 	}
 
 	@Override
-	public Optional<Vorder> getVorderById(Long id) {
-		return vorderRepo.findByOIdAndTenantId(id, TenantContext.getTenantId());
+	public Optional<Vorder> getVorderById(String id) {
+		return vorderRepo.findById(id);
 	}
 
 	@Override
@@ -38,7 +34,7 @@ public class VorderServicesImpl implements VorderServices{
 
 	@Override
 	@Transactional
-	public void deleteOrderById(Long id) {
-		vorderRepo.deleteByOIdAndTenantId(id, TenantContext.getTenantId());
+	public void deleteOrderById(String id) {
+		vorderRepo.deleteById(id);
 	}
 }

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.rnt.rent.entity.Customer;
 import com.rnt.rent.repository.CustomerRepository;
-import com.rnt.rent.tenant.TenantContext;
 
 @Service
 public class CustomerServiceImpl implements CustomerServices{
@@ -20,21 +19,18 @@ public class CustomerServiceImpl implements CustomerServices{
 	@Override
 	@Transactional
 	public Customer saveCustomer(Customer cus) {
-        if (cus.getTenantId() == null) {
-            cus.setTenantId(TenantContext.getTenantId());
-        }
 		return cusromerRepo.save(cus);
 	}
 
 	@Override
-	public Optional<Customer> getCustomerById(Long id) {
-		return cusromerRepo.findByCIdAndTenantId(id, TenantContext.getTenantId());
+	public Optional<Customer> getCustomerById(String id) {
+		return cusromerRepo.findById(id);
 	}
 
 	@Override
 	@Transactional
-	public void deleteCustomer(Long id) {
-		cusromerRepo.deleteByCIdAndTenantId(id, TenantContext.getTenantId());
+	public void deleteCustomer(String id) {
+		cusromerRepo.deleteById(id);
 	}
 
 	@Override

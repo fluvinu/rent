@@ -8,10 +8,10 @@ public interface VorderServices {
 	
 	Vorder createVorder(Vorder v);
 
-	Optional<Vorder> getVorderById(Long id);
+	Optional<Vorder> getVorderById(String id);
 
 	List<Vorder> allorder();
 
-	void deleteOrderById(Long id);
+	void deleteOrderById(String id);
 
 }
