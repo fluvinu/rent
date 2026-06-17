@@ -1,9 +1,9 @@
 package com.rnt.rent.repository;
 
+import com.rnt.rent.entity.EntityType;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-import com.rnt.rent.entity.Customer;
 
 @Repository
-public interface CustomerRepository extends MongoRepository<Customer, String> {
+public interface EntityTypeRepository extends MongoRepository<EntityType, String> {
 }
