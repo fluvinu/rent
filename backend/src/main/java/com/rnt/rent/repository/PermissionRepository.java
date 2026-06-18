@@ -10,4 +10,5 @@ import java.util.List;
 public interface PermissionRepository extends MongoRepository<Permission, String> {
     List<Permission> findByRole(String role);
     List<Permission> findByEntityTypeId(String entityTypeId);
+    List<Permission> findByRoleAndEntityTypeId(String role, String entityTypeId);
 }

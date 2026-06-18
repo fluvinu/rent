@@ -18,4 +18,5 @@ jobs:
           java-version: '17'
 
       - name: Build
+        working-directory: backend
         run: mvn clean package -DskipTests

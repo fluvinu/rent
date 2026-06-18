@@ -18,6 +18,7 @@ jobs:
           java-version: '17'
 
       - name: Build Jar
+        working-directory: backend
         run: mvn clean package -DskipTests
 
       - name: Login to Docker Hub

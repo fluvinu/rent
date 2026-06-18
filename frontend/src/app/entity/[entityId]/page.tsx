@@ -1,11 +1,23 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { fetchRecordsByEntityType, fetchEntityTypes, createEntityRecord } from '../../api';
 import Link from 'next/link';
 
-export default function EntityPage({ params }: { params: { entityId: string } }) {
-  const { entityId } = params;
+type FieldDef = {
+  key?: string;
+  name: string;
+  type: string;
+  required?: boolean;
+  options?: string[];
+};
+
+function fieldKey(field: FieldDef): string {
+  return field.key || field.name;
+}
+
+export default function EntityPage({ params }: { params: Promise<{ entityId: string }> }) {
+  const { entityId } = use(params);
   const [entityType, setEntityType] = useState<any>(null);
   const [records, setRecords] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +47,7 @@ export default function EntityPage({ params }: { params: { entityId: string } })
       await createEntityRecord(entityId, formData);
       setIsCreating(false);
       setFormData({});
+      setError(null);
       loadData();
     } catch (err: any) {
       setError(err.message || "Failed to create record");
@@ -43,11 +56,50 @@ export default function EntityPage({ params }: { params: { entityId: string } })
 
   if (!entityType) return <div className="p-8">Loading...</div>;
 
-  const fields = entityType.fields || [];
-  let tableHeaders = fields.map((f: any) => f.name);
+  const fields: FieldDef[] = entityType.fields || [];
+  let tableHeaders = fields.map((f) => ({ key: fieldKey(f), label: f.name }));
   if (tableHeaders.length === 0 && records.length > 0 && records[0].data) {
-      tableHeaders = Object.keys(records[0].data);
+    tableHeaders = Object.keys(records[0].data).map((k) => ({ key: k, label: k }));
   }
+
+  const renderInput = (field: FieldDef) => {
+    const key = fieldKey(field);
+    const set = (value: any) => setFormData({ ...formData, [key]: value });
+    switch (field.type) {
+      case 'BOOLEAN':
+        return (
+          <input type="checkbox" checked={formData[key] || false}
+            onChange={(e) => set(e.target.checked)} className="mt-1" />
+        );
+      case 'DATE':
+        return (
+          <input type="date" required={field.required} value={formData[key] || ''}
+            onChange={(e) => set(e.target.value)} className="w-full border rounded p-2" />
+        );
+      case 'SELECT':
+        return (
+          <select required={field.required} value={formData[key] || ''}
+            onChange={(e) => set(e.target.value)} className="w-full border rounded p-2">
+            <option value="">Select...</option>
+            {(field.options || []).map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+        );
+      case 'MULTI_SELECT':
+        return (
+          <select multiple value={formData[key] || []}
+            onChange={(e) => set(Array.from(e.target.selectedOptions, (o) => o.value))}
+            className="w-full border rounded p-2">
+            {(field.options || []).map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+          </select>
+        );
+      default:
+        return (
+          <input type={field.type === 'NUMBER' ? 'number' : 'text'} required={field.required}
+            value={formData[key] || ''} onChange={(e) => set(e.target.value)}
+            className="w-full border rounded p-2" />
+        );
+    }
+  };
 
   return (
     <div className="p-8 font-[family-name:var(--font-geist-sans)] max-w-6xl mx-auto">
@@ -70,27 +122,12 @@ export default function EntityPage({ params }: { params: { entityId: string } })
         <div className="mb-8 p-6 bg-white rounded shadow border">
           <h2 className="text-xl font-bold mb-4">Create New {entityType.name}</h2>
           <form onSubmit={handleCreateRecord} className="space-y-4">
-            {fields.map((field: any) => (
-              <div key={field.name}>
+            {fields.map((field) => (
+              <div key={fieldKey(field)}>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {field.name} {field.required && <span className="text-red-500">*</span>}
                 </label>
-                {field.type === 'BOOLEAN' ? (
-                  <input
-                    type="checkbox"
-                    checked={formData[field.name] || false}
-                    onChange={(e) => setFormData({...formData, [field.name]: e.target.checked})}
-                    className="mt-1"
-                  />
-                ) : (
-                  <input
-                    type={field.type === 'NUMBER' ? 'number' : 'text'}
-                    required={field.required}
-                    value={formData[field.name] || ''}
-                    onChange={(e) => setFormData({...formData, [field.name]: e.target.value})}
-                    className="w-full border rounded p-2"
-                  />
-                )}
+                {renderInput(field)}
               </div>
             ))}
             <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Save Record</button>
@@ -106,8 +143,8 @@ export default function EntityPage({ params }: { params: { entityId: string } })
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" className="px-6 py-3">ID</th>
-                        {tableHeaders.map((header: string) => (
-                            <th key={header} scope="col" className="px-6 py-3">{header}</th>
+                        {tableHeaders.map((header) => (
+                            <th key={header.key} scope="col" className="px-6 py-3">{header.label}</th>
                         ))}
                     </tr>
                 </thead>
@@ -115,10 +152,10 @@ export default function EntityPage({ params }: { params: { entityId: string } })
                     {records.map((record: any) => (
                         <tr key={record.id} className="bg-white border-b hover:bg-gray-50">
                             <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{record.id}</td>
-                            {tableHeaders.map((header: string) => {
-                                const val = record.data?.[header];
+                            {tableHeaders.map((header) => {
+                                const val = record.data?.[header.key];
                                 return (
-                                    <td key={header} className="px-6 py-4">
+                                    <td key={header.key} className="px-6 py-4">
                                         {typeof val === 'object' ? JSON.stringify(val) : String(val ?? '')}
                                     </td>
                                 );

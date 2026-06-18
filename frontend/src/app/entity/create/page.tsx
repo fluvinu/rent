@@ -26,7 +26,18 @@ export default function CreateEntityPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createEntityType({ name, description, fields });
+      const payload = fields.map((f) => {
+        const field: any = { name: f.name, type: f.type, required: f.required };
+        if ((f.type === 'SELECT' || f.type === 'MULTI_SELECT') && f.optionsText) {
+          field.options = f.optionsText.split(',').map((o: string) => o.trim()).filter(Boolean);
+        }
+        if (f.type === 'RELATION') {
+          field.relationTargetType = f.relationTargetType;
+          field.relationCardinality = f.relationCardinality || 'ONE';
+        }
+        return field;
+      });
+      await createEntityType({ name, description, fields: payload });
       setSuccess(true);
       setError(null);
     } catch (err: any) {
@@ -97,11 +108,33 @@ export default function CreateEntityPage() {
                     onChange={(e) => updateField(index, 'type', e.target.value)}
                     className="border rounded p-2 text-sm bg-white"
                   >
-                    {['TEXT', 'NUMBER', 'BOOLEAN', 'DATE', 'JSON'].map(t => (
+                    {['TEXT', 'NUMBER', 'BOOLEAN', 'DATE', 'SELECT', 'MULTI_SELECT', 'RELATION', 'FILE', 'JSON'].map(t => (
                       <option key={t} value={t}>{t}</option>
                     ))}
                   </select>
                 </div>
+                {(field.type === 'SELECT' || field.type === 'MULTI_SELECT') && (
+                  <div className="flex-1">
+                    <input
+                      type="text"
+                      placeholder="Options (comma separated)"
+                      value={field.optionsText || ''}
+                      onChange={(e) => updateField(index, 'optionsText', e.target.value)}
+                      className="w-full border rounded p-2 text-sm"
+                    />
+                  </div>
+                )}
+                {field.type === 'RELATION' && (
+                  <div className="flex-1">
+                    <input
+                      type="text"
+                      placeholder="Target entity type id"
+                      value={field.relationTargetType || ''}
+                      onChange={(e) => updateField(index, 'relationTargetType', e.target.value)}
+                      className="w-full border rounded p-2 text-sm"
+                    />
+                  </div>
+                )}
                 <div className="flex items-center gap-2">
                   <input
                     type="checkbox"

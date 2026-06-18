@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.util.Map;
 
 @Data
@@ -13,4 +14,7 @@ public class EntityRecord {
     private String id;
     private String entityTypeId;
     private Map<String, Object> data;
+    private Instant createdAt;
+    private Instant updatedAt;
+    private long version;
 }
