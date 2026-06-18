@@ -1,11 +1,13 @@
 package com.rnt.rent.controller;
 
 import com.rnt.rent.entity.EntityRecord;
+import com.rnt.rent.query.QueryRequest;
 import com.rnt.rent.service.EntityRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/records")
@@ -17,6 +19,12 @@ public class EntityRecordController {
     @GetMapping("/entity/{entityTypeId}")
     public List<EntityRecord> getByEntityType(@PathVariable String entityTypeId) {
         return entityRecordService.getByEntityTypeId(entityTypeId);
+    }
+
+    @PostMapping("/entity/{entityTypeId}/query")
+    public List<Map<String, Object>> query(@PathVariable String entityTypeId,
+                                           @RequestBody(required = false) QueryRequest request) {
+        return entityRecordService.queryExpanded(entityTypeId, request);
     }
 
     @PostMapping("/entity/{entityTypeId}")

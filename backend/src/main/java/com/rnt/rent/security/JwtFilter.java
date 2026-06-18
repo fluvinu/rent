@@ -35,12 +35,14 @@ public class JwtFilter extends OncePerRequestFilter {
         String username = null;
         String jwt = null;
         String tenantName = null;
+        String role = null;
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7);
             try {
                 username = jwtUtil.extractUsername(jwt);
                 tenantName = jwtUtil.extractTenantName(jwt);
+                role = jwtUtil.extractRole(jwt);
             } catch (Exception e) {
                 // Invalid token
             }
@@ -53,6 +55,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 if (tenantName != null) {
                     TenantContext.setTenantId(tenantName);
                 }
+                TenantContext.setRole(role != null ? role : "ADMIN");
 
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                         new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());

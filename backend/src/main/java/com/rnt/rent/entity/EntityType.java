@@ -14,13 +14,26 @@ public class EntityType {
     private String name; // e.g. Customer, Task
     private String description;
     private List<FieldDefinition> fields;
+    private int version;
 
     @Data
     public static class FieldDefinition {
-        private String name;
+        private String key;  // stable, immutable storage key used in record.data
+        private String name; // display label (renamable)
         private FieldType type;
         private boolean required;
-        private String relationTargetType; // Optional: If type is RELATION, the ID of the target EntityType
+        private boolean unique;
+        private Object defaultValue;
+
+        // SELECT / MULTI_SELECT allowed values
+        private List<String> options;
+
+        // RELATION: id of the target EntityType and cardinality (ONE | MANY)
+        private String relationTargetType;
+        private String relationCardinality;
+
+        // Type-specific constraints (min, max, regex, maxLength, ...)
+        private java.util.Map<String, Object> config;
     }
 
     public enum FieldType {
