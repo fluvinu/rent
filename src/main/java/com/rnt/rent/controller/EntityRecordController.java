@@ -1,6 +1,8 @@
 package com.rnt.rent.controller;
 
 import com.rnt.rent.entity.EntityRecord;
+import com.rnt.rent.query.QueryResult;
+import com.rnt.rent.query.RecordQuery;
 import com.rnt.rent.service.EntityRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +26,15 @@ public class EntityRecordController {
         return entityRecordService.create(entityTypeId, record);
     }
 
+    @PostMapping("/entity/{entityTypeId}/query")
+    public QueryResult query(@PathVariable String entityTypeId, @RequestBody(required = false) RecordQuery query) {
+        return entityRecordService.query(entityTypeId, query == null ? new RecordQuery() : query);
+    }
+
     @GetMapping("/{id}")
-    public EntityRecord getById(@PathVariable String id) {
-        return entityRecordService.getById(id);
+    public EntityRecord getById(@PathVariable String id,
+                                @RequestParam(required = false) List<String> expand) {
+        return entityRecordService.getById(id, expand);
     }
 
     @PutMapping("/{id}")

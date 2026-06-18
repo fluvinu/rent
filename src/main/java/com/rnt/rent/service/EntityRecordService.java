@@ -2,69 +2,100 @@ package com.rnt.rent.service;
 
 import com.rnt.rent.entity.EntityRecord;
 import com.rnt.rent.entity.EntityType;
+import com.rnt.rent.metadata.MetadataValidator;
+import com.rnt.rent.metadata.NotFoundException;
+import com.rnt.rent.metadata.RelationResolver;
+import com.rnt.rent.query.QueryResult;
+import com.rnt.rent.query.QueryTranslator;
+import com.rnt.rent.query.RecordQuery;
 import com.rnt.rent.repository.EntityRecordRepository;
 import com.rnt.rent.repository.EntityTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class EntityRecordService {
 
-    @Autowired
-    private EntityRecordRepository entityRecordRepository;
+    private final EntityRecordRepository entityRecordRepository;
+    private final EntityTypeRepository entityTypeRepository;
+    private final MetadataValidator metadataValidator;
+    private final QueryTranslator queryTranslator;
+    private final RelationResolver relationResolver;
+    private final MongoTemplate mongoTemplate;
 
-    @Autowired
-    private EntityTypeRepository entityTypeRepository;
+    public EntityRecordService(EntityRecordRepository entityRecordRepository,
+                               EntityTypeRepository entityTypeRepository,
+                               MetadataValidator metadataValidator,
+                               QueryTranslator queryTranslator,
+                               RelationResolver relationResolver,
+                               MongoTemplate mongoTemplate) {
+        this.entityRecordRepository = entityRecordRepository;
+        this.entityTypeRepository = entityTypeRepository;
+        this.metadataValidator = metadataValidator;
+        this.queryTranslator = queryTranslator;
+        this.relationResolver = relationResolver;
+        this.mongoTemplate = mongoTemplate;
+    }
 
     public List<EntityRecord> getByEntityTypeId(String entityTypeId) {
         return entityRecordRepository.findByEntityTypeId(entityTypeId);
     }
 
     public EntityRecord getById(String id) {
-        return entityRecordRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Record not found"));
+        return entityRecordRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Record not found: " + id));
+    }
+
+    public EntityRecord getById(String id, List<String> expand) {
+        EntityRecord record = getById(id);
+        EntityType entityType = requireEntityType(record.getEntityTypeId());
+        relationResolver.expand(List.of(record), entityType, expand);
+        return record;
     }
 
     public EntityRecord create(String entityTypeId, EntityRecord record) {
-        EntityType entityType = entityTypeRepository.findById(entityTypeId)
-                .orElseThrow(() -> new IllegalArgumentException("Entity Type not found"));
-
-        validateRecordData(record.getData(), entityType);
-
+        EntityType entityType = requireEntityType(entityTypeId);
+        record.setData(metadataValidator.validateAndCoerce(record.getData(), entityType));
         record.setEntityTypeId(entityTypeId);
+        record.setId(null);
         return entityRecordRepository.save(record);
     }
 
     public EntityRecord update(String id, EntityRecord record) {
         EntityRecord existing = getById(id);
-        EntityType entityType = entityTypeRepository.findById(existing.getEntityTypeId())
-                .orElseThrow(() -> new IllegalArgumentException("Entity Type not found"));
-
-        validateRecordData(record.getData(), entityType);
-
+        EntityType entityType = requireEntityType(existing.getEntityTypeId());
+        record.setData(metadataValidator.validateAndCoerce(record.getData(), entityType));
         record.setId(id);
         record.setEntityTypeId(existing.getEntityTypeId());
         return entityRecordRepository.save(record);
     }
 
     public void delete(String id) {
+        getById(id);
         entityRecordRepository.deleteById(id);
     }
 
-    private void validateRecordData(Map<String, Object> data, EntityType entityType) {
-        if (data == null) {
-            data = Map.of();
-        }
+    public QueryResult query(String entityTypeId, RecordQuery request) {
+        EntityType entityType = requireEntityType(entityTypeId);
+        Query query = queryTranslator.toQuery(request, entityType);
 
-        if (entityType.getFields() != null) {
-            for (EntityType.FieldDefinition field : entityType.getFields()) {
-                if (field.isRequired() && !data.containsKey(field.getName())) {
-                    throw new IllegalArgumentException("Missing required field: " + field.getName());
-                }
-                // We could add more robust type checking here based on field.getType()
-            }
-        }
+        // count ignores skip/limit; compute before paginating
+        long total = mongoTemplate.count(query, EntityRecord.class);
+
+        RecordQuery.Page page = queryTranslator.page(request);
+        query.skip(Math.max(0, page.getOffset())).limit(Math.max(0, page.getLimit()));
+
+        List<EntityRecord> data = mongoTemplate.find(query, EntityRecord.class);
+        relationResolver.expand(data, entityType, request.getExpand());
+
+        return new QueryResult(data, total, page.getLimit(), page.getOffset());
+    }
+
+    private EntityType requireEntityType(String entityTypeId) {
+        return entityTypeRepository.findById(entityTypeId)
+                .orElseThrow(() -> new NotFoundException("Entity Type not found: " + entityTypeId));
     }
 }
