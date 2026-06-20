@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
         List<String> origins = Arrays.asList(allowedOrigins.split(","));
 
         registry.addMapping("/**")
-                .allowedOrigins(origins.toArray(new String[0]))
+                .allowedOriginPatterns(origins.toArray(new String[0]))
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
