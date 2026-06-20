@@ -1,3 +1,6 @@
+test it once https://rentis.netlify.app/
+
+
 # Rent - Dynamic Metadata Platform
 
 This project is a dynamic metadata-driven web application composed of a **Spring Boot** backend and a **Next.js** frontend. It allows users (tenants) to define custom entity schemas (Entity Types) on the fly and create records corresponding to those schemas.
