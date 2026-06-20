@@ -1,147 +1,173 @@
-Certainly! Below is a `README.md` file that combines all the REST API endpoints for managing orders, vehicles, and customers, with proper descriptions :
+# Backend API Documentation (Low-Code Architecture)
+
+Welcome to the documentation for our Backend API! This guide is specifically written for Frontend Engineers to understand how our backend works.
+
+## 🚀 What is a "Low-Code" Backend?
+
+In standard applications, you might be used to having specific API URLs for different data, like:
+- `GET /veh` for Vehicles
+- `GET /cus` for Customers
+- `GET /ord` for Orders
+
+**Our backend is different: it is a "Low-Code" or "Metadata-Driven" platform.**
+This means there are no hardcoded URLs for Vehicles, Customers, or Orders. Instead, the backend provides a completely dynamic way to build your own database tables (which we call **Entity Types**) and add data to them (which we call **Entity Records**).
+
+You tell the backend what a "Vehicle" looks like, and then you can add "Vehicle" data!
+
+### The Two Main Steps
+1. **Define the Schema (`EntityType`)**: Tell the backend the name of the object (e.g., "Vehicle") and what fields it has (e.g., "license_plate", "price").
+2. **Manage Data (`EntityRecord`)**: Use the dynamic `EntityType ID` to create, read, update, or delete actual data (e.g., adding a specific Toyota car).
 
 ---
 
-# API Documentation
+## Base URL & Authentication
 
-This API allows you to manage orders, vehicles, and customers, segmented per tenant using MongoDB.
+All API endpoints start with:
+- **Local:** `http://localhost:8080` (Run with `cd backend && mvn spring-boot:run`)
+- **Production:** `https://rent-0xm8.onrender.com`
 
-## Authentication
+**Multi-Tenancy**: The application gives each company (tenant) its own database. You must log in first to get a token, and use that token to access the APIs.
 
-All endpoints (except `/auth/**`) require a valid JWT passed in the `Authorization` header as a Bearer token.
-
-### Register Tenant
-- **Method:** `POST`
-- **Endpoint:** `/auth/register`
+### 1. Register a Tenant
+- **Method:** `POST /auth/register`
 - **Body:**
   ```json
   {
-    "username": "tenant1",
-    "password": "password123",
-    "tenantName": "tenant_1_db"
-  }
-  ```
-- **Description:** Registers a new tenant and provisions access to the specified tenant database (e.g., `tenant_1_db`). If `tenantName` is not provided, one will be generated based on the username.
-
-### Login Tenant
-- **Method:** `POST`
-- **Endpoint:** `/auth/login`
-- **Body:**
-  ```json
-  {
-    "username": "tenant1",
+    "username": "mycompany",
     "password": "password123"
   }
   ```
-- **Description:** Authenticates a tenant and returns a JWT token. This token should be included in the `Authorization` header (`Bearer <token>`) for all subsequent requests to access the specific tenant's data.
 
-## Base URL
-
-All API endpoints are prefixed with the base URL:  
-`[https://rent-0xm8.onrender.com]`
-## getApi examplrs
-https://rent-0xm8.onrender.com/ord/
-https://rent-0xm8.onrender.com/veh
-
-## Endpoints
-
-### Orders
-
-1. **Test Endpoint**
-   - **Method:** `GET`
-   - **Endpoint:** `/ord/hi`
-   - **Description:** Test if the orders service is up.
-
-2. **Get All Orders**
-   - **Method:** `GET`
-   - **Endpoint:** `/ord/`
-   - **Description:** Retrieve a list of all orders.
-
-3. **Get Specific Order**
-   - **Method:** `GET`
-   - **Endpoint:** `/ord/{id}`
-   - **Description:** Retrieve details of a specific order by its ID.
-
-4. **Create Order (Take Vehicle)**
-   - **Method:** `POST`
-   - **Endpoint:** `/ord/{vehicleId}/{customerId}`
-   - **Description:** Create a new order by specifying the vehicle ID and customer ID.
-
-5. **Update Order (Submit Vehicle)**
-   - **Method:** `PUT`
-   - **Endpoint:** `/ord/{id}`
-   - **Description:** Update an existing order by its ID.
-
-6. **Delete Order**
-   - **Method:** `DELETE`
-   - **Endpoint:** `/ord/{id}`
-   - **Description:** Delete an order by its ID.
-
-### Vehicles
-
-1. **Test Endpoint**
-   - **Method:** `GET`
-   - **Endpoint:** `/veh/hi`
-   - **Description:** Test if the vehicles service is up.
-
-2. **Get All Vehicles**
-   - **Method:** `GET`
-   - **Endpoint:** `/veh/`
-   - **Description:** Retrieve a list of all vehicles.
-
-3. **Get One Vehicle**
-   - **Method:** `GET`
-   - **Endpoint:** `/veh/{id}`
-   - **Description:** Retrieve details of a specific vehicle by its ID.
-
-4. **Create Vehicle**
-   - **Method:** `POST`
-   - **Endpoint:** `/veh/`
-   - **Description:** Create a new vehicle record.
-
-5. **Update Vehicle**
-   - **Method:** `PUT`
-   - **Endpoint:** `/veh/{id}`
-   - **Description:** Update an existing vehicle by its ID.
-
-6. **Delete Vehicle**
-   - **Method:** `DELETE`
-   - **Endpoint:** `/veh/{id}`
-   - **Description:** Delete a vehicle by its ID.
-
-### Customers
-
-1. **Test Endpoint**
-   - **Method:** `GET`
-   - **Endpoint:** `/cus/hi`
-   - **Description:** Test if the customers service is up.
-
-2. **Get All Customers**
-   - **Method:** `GET`
-   - **Endpoint:** `/cus/`
-   - **Description:** Retrieve a list of all customers.
-
-3. **Get One Customer by ID**
-   - **Method:** `GET`
-   - **Endpoint:** `/cus/{id}`
-   - **Description:** Retrieve details of a specific customer by their ID.
-
-4. **Create Customer**
-   - **Method:** `POST`
-   - **Endpoint:** `/cus/`
-   - **Description:** Create a new customer record.
-
-5. **Update Customer**
-   - **Method:** `PUT`
-   - **Endpoint:** `/cus/{id}`
-   - **Description:** Update an existing customer by their ID.
-
-6. **Delete Customer**
-   - **Method:** `DELETE`
-   - **Endpoint:** `/cus/{id}`
-   - **Description:** Delete a customer by their ID.
+### 2. Login
+- **Method:** `POST /auth/login`
+- **Body:**
+  ```json
+  {
+    "username": "mycompany",
+    "password": "password123"
+  }
+  ```
+- **Response:** You will receive a JWT `token`.
+- **Important:** Add this to the header of all future requests:
+  `Authorization: Bearer <your_token>`
 
 ---
 
-Replace `{id}`, `{vehicleId}`, and `{customerId}` with the actual identifiers when making requests. 
-This documentation provides an overview of the available API endpoints for interacting with the order, vehicle, and customer resources.
+## 🏗️ Step 1: Creating Entity Types (Schemas)
+
+Before you can add a Vehicle or Customer, you must tell the backend what they are by creating an `EntityType`.
+
+### Create "Vehicle" Entity Type
+- **Method:** `POST /api/entity-types`
+- **Body:**
+  ```json
+  {
+    "name": "Vehicle",
+    "description": "Information about our cars",
+    "fields": [
+      { "key": "vName", "name": "Vehicle Name", "type": "TEXT" },
+      { "key": "vPrice", "name": "Price", "type": "NUMBER" },
+      { "key": "available", "name": "Is Available?", "type": "BOOLEAN" }
+    ]
+  }
+  ```
+- **Response:** You will get back an object containing an `"id"` (e.g., `64b5f9a...`). **Save this ID!** You will need it to add records.
+
+### Create "Customer" Entity Type
+- **Method:** `POST /api/entity-types`
+- **Body:**
+  ```json
+  {
+    "name": "Customer",
+    "description": "Our renters",
+    "fields": [
+      { "key": "cName", "name": "Customer Name", "type": "TEXT" },
+      { "key": "mobileNo", "name": "Mobile Number", "type": "TEXT" }
+    ]
+  }
+  ```
+
+### Create "Order" Entity Type
+- **Method:** `POST /api/entity-types`
+- **Body:**
+  ```json
+  {
+    "name": "Order",
+    "description": "Rental orders",
+    "fields": [
+      { "key": "vehicleId", "name": "Vehicle ID", "type": "TEXT" },
+      { "key": "customerId", "name": "Customer ID", "type": "TEXT" },
+      { "key": "total", "name": "Total Price", "type": "NUMBER" }
+    ]
+  }
+  ```
+
+### Get All Entity Types
+- **Method:** `GET /api/entity-types`
+- **Description:** Use this to see all the schemas you have created and find their IDs.
+
+---
+
+## 📝 Step 2: Creating Entity Records (Data)
+
+Now that the backend knows what a "Vehicle" is (and you have its EntityType ID), you can add actual vehicles.
+
+### Add a Vehicle (Create Record)
+- **Method:** `POST /api/records/entity/{vehicle_entity_type_id}`
+- **Body:**
+  ```json
+  {
+    "data": {
+      "vName": "Toyota Camry",
+      "vPrice": 50,
+      "available": true
+    }
+  }
+  ```
+
+### Get All Vehicles (Read Records)
+- **Method:** `GET /api/records/entity/{vehicle_entity_type_id}`
+- **Response:** Returns an array of records. Each record will have its own `"id"` which you use to update or delete it.
+
+### Update a Vehicle (Update Record)
+- **Method:** `PUT /api/records/{record_id}`
+- **Body:**
+  ```json
+  {
+    "data": {
+      "vName": "Toyota Camry",
+      "vPrice": 50,
+      "available": false
+    }
+  }
+  ```
+
+### Delete a Vehicle (Delete Record)
+- **Method:** `DELETE /api/records/{record_id}`
+
+---
+
+## 🚀 Example Frontend Workflow
+
+If you are building the frontend to replace the old `/veh`, `/cus`, `/ord` system, you will do this:
+
+1. Look up the `EntityType ID` for Vehicles (e.g., `id-veh-123`).
+2. When the user submits the "Add Vehicle" form, send a `POST` request to `/api/records/entity/id-veh-123` with the form data.
+3. When you want to list vehicles in a table, send a `GET` request to `/api/records/entity/id-veh-123` and display the data.
+
+### Need Advanced Queries?
+You can search, filter, and sort your data using the Query API!
+- **Method:** `POST /api/records/entity/{entity_type_id}/query`
+- **Body Example (Find available vehicles):**
+  ```json
+  {
+    "filter": {
+      "field": "available",
+      "op": "EQUALS",
+      "value": true
+    }
+  }
+  ```
+
+## Other Advanced Features
+The backend also supports setting up UI Views (`/api/views`), Workflows (`/api/workflows`), and Permissions (`/api/permissions`) to fully customize how data acts in the system. Use the same concepts: Create the configuration with a `POST`, and reference the EntityType ID!
