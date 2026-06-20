@@ -17,6 +17,8 @@ The backend uses **Spring Boot** and **MongoDB** for flexible schema-less data s
 
 ## 2. Backend APIs
 
+base url = https://rent-0xm8.onrender.com
+
 The backend exposes several REST APIs under `/api` and `/auth`.
 
 ### Authentication (`/auth`)
