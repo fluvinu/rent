@@ -1,6 +1,27 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL ||
   (process.env.NODE_ENV === 'production' ? "https://rent-0xm8.onrender.com" : "http://localhost:8080");
 
+export interface FieldDef {
+  name: string;
+  type: string;
+  required?: boolean;
+  options?: string[];
+  relationTargetType?: string;
+  relationCardinality?: string;
+}
+
+export interface EntityType {
+  id?: string;
+  name: string;
+  description?: string;
+  fields: FieldDef[];
+}
+
+export interface EntityRecord {
+  id?: string;
+  data: Record<string, unknown>;
+}
+
 export function getToken() {
   if (typeof window !== 'undefined') {
     return localStorage.getItem('token') || '';
@@ -62,7 +83,7 @@ export async function fetchEntityTypes() {
   return fetchWithAuth(`/api/entity-types`, { cache: 'no-store' });
 }
 
-export async function createEntityType(entityType: any) {
+export async function createEntityType(entityType: EntityType) {
   return fetchWithAuth(`/api/entity-types`, {
     method: 'POST',
     body: JSON.stringify(entityType),
@@ -73,7 +94,7 @@ export async function fetchRecordsByEntityType(entityTypeId: string) {
   return fetchWithAuth(`/api/records/entity/${entityTypeId}`, { cache: 'no-store' });
 }
 
-export async function createEntityRecord(entityTypeId: string, data: any) {
+export async function createEntityRecord(entityTypeId: string, data: Record<string, unknown>) {
   return fetchWithAuth(`/api/records/entity/${entityTypeId}`, {
     method: 'POST',
     body: JSON.stringify({ data }),
