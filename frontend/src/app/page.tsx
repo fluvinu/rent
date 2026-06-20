@@ -2,30 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { fetchEntityTypes, login, register, getToken, setToken } from './api';
+import { fetchEntityTypes, login, register, getToken, setToken, EntityType } from './api';
 
 export default function Home() {
-  const [entityTypes, setEntityTypes] = useState<any[]>([]);
+  const [entityTypes, setEntityTypes] = useState<EntityType[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const [username, setUsername] = useState('tenant1');
   const [password, setPassword] = useState('password123');
 
-  useEffect(() => {
-    if (getToken()) {
-      setIsLoggedIn(true);
-      loadEntityTypes();
-    }
-  }, []);
-
   const loadEntityTypes = async () => {
     try {
       const types = await fetchEntityTypes();
       setEntityTypes(types);
       setError(null);
-    } catch (err: any) {
-      if (err.message === 'Unauthorized') {
+    } catch (err: unknown) {
+      if (err instanceof Error && err.message === 'Unauthorized') {
         setIsLoggedIn(false);
       } else {
         setError("Failed to fetch entity types. Is the backend running?");
@@ -33,13 +26,27 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const checkAuthAndLoad = async () => {
+      if (getToken()) {
+        setTimeout(() => setIsLoggedIn(true), 0);
+        await loadEntityTypes();
+      }
+    };
+    checkAuthAndLoad();
+  }, []);
+
   const handleLogin = async () => {
     try {
       await login(username, password);
       setIsLoggedIn(true);
       loadEntityTypes();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(String(err));
+      }
     }
   };
 
@@ -47,8 +54,12 @@ export default function Home() {
     try {
       await register(username, password);
       await handleLogin();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(String(err));
+      }
     }
   };
 
@@ -104,7 +115,7 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {entityTypes.map((et: any) => (
+            {entityTypes.map((et: EntityType) => (
               <Link
                 key={et.id}
                 href={`/entity/${et.id}`}

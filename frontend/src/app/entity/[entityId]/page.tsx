@@ -1,45 +1,48 @@
 "use client";
 
 import { useState, useEffect, use } from 'react';
-import { fetchRecordsByEntityType, fetchEntityTypes, createEntityRecord } from '../../api';
+import { fetchRecordsByEntityType, fetchEntityTypes, createEntityRecord, EntityType, EntityRecord, FieldDef } from '../../api';
 import Link from 'next/link';
 
-type FieldDef = {
+interface ExtendedFieldDef extends FieldDef {
   key?: string;
-  name: string;
-  type: string;
-  required?: boolean;
-  options?: string[];
-};
+}
 
-function fieldKey(field: FieldDef): string {
+function fieldKey(field: ExtendedFieldDef): string {
   return field.key || field.name;
 }
 
 export default function EntityPage({ params }: { params: Promise<{ entityId: string }> }) {
   const { entityId } = use(params);
-  const [entityType, setEntityType] = useState<any>(null);
-  const [records, setRecords] = useState<any[]>([]);
+  const [entityType, setEntityType] = useState<EntityType | null>(null);
+  const [records, setRecords] = useState<EntityRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isCreating, setIsCreating] = useState(false);
-  const [formData, setFormData] = useState<any>({});
-
-  useEffect(() => {
-    loadData();
-  }, [entityId]);
+  const [formData, setFormData] = useState<Record<string, unknown>>({});
 
   const loadData = async () => {
     try {
       const types = await fetchEntityTypes();
-      const type = types.find((t: any) => t.id === entityId);
+      const type = types.find((t: EntityType) => t.id === entityId);
       if (type) setEntityType(type);
 
       const recs = await fetchRecordsByEntityType(entityId);
       setRecords(recs);
-    } catch (err: any) {
-      setError(err.message || "Failed to load data");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Failed to load data");
+      } else {
+        setError("Failed to load data");
+      }
     }
   };
+
+  useEffect(() => {
+    const initData = async () => {
+        await loadData();
+    };
+    initData();
+  }, [entityId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleCreateRecord = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,22 +52,26 @@ export default function EntityPage({ params }: { params: Promise<{ entityId: str
       setFormData({});
       setError(null);
       loadData();
-    } catch (err: any) {
-      setError(err.message || "Failed to create record");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Failed to create record");
+      } else {
+        setError("Failed to create record");
+      }
     }
   };
 
   if (!entityType) return <div className="p-8">Loading...</div>;
 
-  const fields: FieldDef[] = entityType.fields || [];
+  const fields: ExtendedFieldDef[] = entityType.fields || [];
   let tableHeaders = fields.map((f) => ({ key: fieldKey(f), label: f.name }));
   if (tableHeaders.length === 0 && records.length > 0 && records[0].data) {
     tableHeaders = Object.keys(records[0].data).map((k) => ({ key: k, label: k }));
   }
 
-  const renderInput = (field: FieldDef) => {
+  const renderInput = (field: ExtendedFieldDef) => {
     const key = fieldKey(field);
-    const set = (value: any) => setFormData({ ...formData, [key]: value });
+    const set = (value: unknown) => setFormData({ ...formData, [key]: value });
     switch (field.type) {
       case 'BOOLEAN':
         return (
@@ -149,7 +156,7 @@ export default function EntityPage({ params }: { params: Promise<{ entityId: str
                     </tr>
                 </thead>
                 <tbody>
-                    {records.map((record: any) => (
+                    {records.map((record: EntityRecord) => (
                         <tr key={record.id} className="bg-white border-b hover:bg-gray-50">
                             <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">{record.id}</td>
                             {tableHeaders.map((header) => {

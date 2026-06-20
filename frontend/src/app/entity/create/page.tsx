@@ -1,21 +1,26 @@
 "use client";
 
 import { useState } from 'react';
-import { createEntityType } from '../../api';
+import { createEntityType, FieldDef } from '../../api';
 import Link from 'next/link';
+
+interface FieldFormDef extends FieldDef {
+  optionsText?: string;
+  [key: string]: string | boolean | string[] | undefined; // Use specific types instead of any
+}
 
 export default function CreateEntityPage() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [fields, setFields] = useState<any[]>([{ name: '', type: 'TEXT', required: false }]);
+  const [fields, setFields] = useState<FieldFormDef[]>([{ name: '', type: 'TEXT', required: false }]);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
   const addField = () => setFields([...fields, { name: '', type: 'TEXT', required: false }]);
 
-  const updateField = (index: number, key: string, val: any) => {
+  const updateField = (index: number, key: keyof FieldFormDef, val: unknown) => {
     const newFields = [...fields];
-    newFields[index][key] = val;
+    newFields[index][key] = val as string | boolean | string[] | undefined;
     setFields(newFields);
   };
 
@@ -26,8 +31,8 @@ export default function CreateEntityPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const payload = fields.map((f) => {
-        const field: any = { name: f.name, type: f.type, required: f.required };
+      const payload: FieldDef[] = fields.map((f) => {
+        const field: FieldDef = { name: f.name, type: f.type, required: f.required };
         if ((f.type === 'SELECT' || f.type === 'MULTI_SELECT') && f.optionsText) {
           field.options = f.optionsText.split(',').map((o: string) => o.trim()).filter(Boolean);
         }
@@ -40,8 +45,12 @@ export default function CreateEntityPage() {
       await createEntityType({ name, description, fields: payload });
       setSuccess(true);
       setError(null);
-    } catch (err: any) {
-      setError(err.message || "Failed to create entity type");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message || "Failed to create entity type");
+      } else {
+        setError("Failed to create entity type");
+      }
     }
   };
 
