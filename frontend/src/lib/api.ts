@@ -52,6 +52,7 @@ export type FieldType =
   | "JSON";
 
 export interface FieldDef {
+  key?: string;
   name: string;
   type: FieldType;
   required?: boolean;
