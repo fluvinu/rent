@@ -31,7 +31,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useAuth } from "@/lib/auth";
 import { api, type EntityRecord, type EntityType, type FieldDef } from "@/lib/api";
-import { ArrowLeft, Plus, Trash2 } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Edit } from "lucide-react";
 
 export const Route = createFileRoute("/entity/$entityId")({
   head: () => ({ meta: [{ title: "Records — Rent" }] }),
@@ -72,14 +72,37 @@ function EntityPage() {
     }
   };
 
+  const deleteDataset = async () => {
+    if (!confirm("Delete this entire dataset? All records and schema will be lost.")) return;
+    try {
+      await api(`/api/entity-types/${entityId}`, { method: "DELETE" });
+      toast.success("Dataset deleted");
+      navigate({ to: "/" });
+    } catch (e: any) {
+      toast.error(e.message);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/"><ArrowLeft className="size-4 mr-2" />Back</Link>
-          </Button>
-          <h1 className="font-semibold">{type?.name || "Loading..."}</h1>
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/"><ArrowLeft className="size-4 mr-2" />Back</Link>
+            </Button>
+            <h1 className="font-semibold">{type?.name || "Loading..."}</h1>
+          </div>
+          {type && (
+            <div className="flex items-center gap-2">
+              <Button variant="outline" size="sm" asChild>
+                <Link to={`/entity/edit/${entityId}`}><Edit className="size-4 mr-2" />Edit Schema</Link>
+              </Button>
+              <Button variant="destructive" size="sm" onClick={deleteDataset}>
+                <Trash2 className="size-4 mr-2" />Delete Dataset
+              </Button>
+            </div>
+          )}
         </div>
       </header>
 

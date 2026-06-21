@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EntityCreateRouteImport } from './routes/entity.create'
 import { Route as EntityEntityIdRouteImport } from './routes/entity.$entityId'
+import { Route as EntityEditEntityIdRouteImport } from './routes/entity.edit.$entityId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,53 @@ const EntityEntityIdRoute = EntityEntityIdRouteImport.update({
   path: '/entity/$entityId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EntityEditEntityIdRoute = EntityEditEntityIdRouteImport.update({
+  id: '/entity/edit/$entityId',
+  path: '/entity/edit/$entityId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
+  '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
+  '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
+  '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/entity/$entityId' | '/entity/create'
+  fullPaths:
+    | '/'
+    | '/entity/$entityId'
+    | '/entity/create'
+    | '/entity/edit/$entityId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/entity/$entityId' | '/entity/create'
-  id: '__root__' | '/' | '/entity/$entityId' | '/entity/create'
+  to: '/' | '/entity/$entityId' | '/entity/create' | '/entity/edit/$entityId'
+  id:
+    | '__root__'
+    | '/'
+    | '/entity/$entityId'
+    | '/entity/create'
+    | '/entity/edit/$entityId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EntityEntityIdRoute: typeof EntityEntityIdRoute
   EntityCreateRoute: typeof EntityCreateRoute
+  EntityEditEntityIdRoute: typeof EntityEditEntityIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +101,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EntityEntityIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/entity/edit/$entityId': {
+      id: '/entity/edit/$entityId'
+      path: '/entity/edit/$entityId'
+      fullPath: '/entity/edit/$entityId'
+      preLoaderRoute: typeof EntityEditEntityIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,7 +115,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EntityEntityIdRoute: EntityEntityIdRoute,
   EntityCreateRoute: EntityCreateRoute,
+  EntityEditEntityIdRoute: EntityEditEntityIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
