@@ -43,7 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Backend register returns the user (no token). Auto-login after.
       await api("/auth/register", {
         method: "POST",
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, tenantName: username }),
       });
       await doLogin(username, password);
     },
