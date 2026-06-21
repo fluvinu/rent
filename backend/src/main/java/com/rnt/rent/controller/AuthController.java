@@ -39,7 +39,7 @@ public class AuthController {
 
         // Use a default tenantName based on username if not provided
         if (tenant.getTenantName() == null || tenant.getTenantName().isEmpty()) {
-             tenant.setTenantName("tenant_" + tenant.getUsername());
+             tenant.setTenantName(tenant.getUsername());
         }
 
         Tenant savedTenant = tenantRepository.save(tenant);
