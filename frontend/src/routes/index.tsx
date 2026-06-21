@@ -8,7 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 import { api, type EntityType } from "@/lib/api";
-import { Database, LogOut, Plus, Layers } from "lucide-react";
+import { Database, LogOut, Plus, Layers, Zap } from "lucide-react";
+import { QuickRecordDialog } from "@/components/QuickRecordDialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -95,11 +96,16 @@ function Dashboard() {
   const { logout } = useAuth();
   const [types, setTypes] = useState<EntityType[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [quickOpen, setQuickOpen] = useState(false);
 
-  useEffect(() => {
+  const load = () => {
     api<EntityType[]>("/api/entity-types")
       .then((data) => setTypes(Array.isArray(data) ? data : []))
       .catch((e) => setError(e.message));
+  };
+
+  useEffect(() => {
+    load();
   }, []);
 
   return (
@@ -124,11 +130,16 @@ function Dashboard() {
             <h1 className="text-3xl font-semibold tracking-tight">Entity Types</h1>
             <p className="text-muted-foreground mt-1">Define schemas on the fly and manage records.</p>
           </div>
-          <Button asChild>
-            <Link to="/entity/create">
-              <Plus className="size-4 mr-2" /> New Entity Type
-            </Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button onClick={() => setQuickOpen(true)} variant="secondary" disabled={!types}>
+              <Zap className="size-4 mr-2" /> Quick Record
+            </Button>
+            <Button asChild>
+              <Link to="/entity/create">
+                <Plus className="size-4 mr-2" /> New Entity Type
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {error && (
@@ -179,6 +190,15 @@ function Dashboard() {
           </div>
         )}
       </main>
+
+      {types && (
+        <QuickRecordDialog
+          open={quickOpen}
+          onOpenChange={setQuickOpen}
+          types={types}
+          onCreated={load}
+        />
+      )}
     </div>
   );
 }
