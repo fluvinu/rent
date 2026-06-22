@@ -31,7 +31,11 @@ interface AuthCtx {
   profile: Profile | null;
   publicProfile: PublicProfile | null;
   login: (username: string, password: string) => Promise<void>;
-  register: (username: string, password: string) => Promise<void>;
+  register: (
+    username: string,
+    password: string,
+    domain?: string,
+  ) => Promise<void>;
   logout: () => void;
   refreshProfile: () => Promise<void>;
 }
@@ -113,11 +117,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const doRegister = useCallback(
-    async (username: string, password: string) => {
+    async (username: string, password: string, domain?: string) => {
       // Backend register returns the user (no token). Auto-login after.
       await api("/auth/register", {
         method: "POST",
-        body: JSON.stringify({ username, password, tenantName: username }),
+        body: JSON.stringify({
+          username,
+          password,
+          tenantName: username,
+          domain,
+        }),
       });
       await doLogin(username, password);
     },
