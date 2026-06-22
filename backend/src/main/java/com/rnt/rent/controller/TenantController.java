@@ -35,6 +35,7 @@ public class TenantController {
                 response.put("username", t.getUsername());
                 response.put("tenantName", t.getTenantName());
                 response.put("headingName", t.getHeadingName());
+                response.put("domain", t.getDomain());
 
                 if (t.getLogo() != null && t.getLogoContentType() != null) {
                     String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
@@ -82,6 +83,10 @@ public class TenantController {
                     t.setHeadingName(updateRequest.get("headingName"));
                 }
 
+                if (updateRequest.containsKey("domain")) {
+                    t.setDomain(updateRequest.get("domain"));
+                }
+
                 tenantRepository.save(t);
 
                 Map<String, Object> response = new HashMap<>();
@@ -89,6 +94,7 @@ public class TenantController {
                 response.put("username", t.getUsername());
                 response.put("tenantName", t.getTenantName());
                 response.put("headingName", t.getHeadingName());
+                response.put("domain", t.getDomain());
                 if (t.getLogo() != null && t.getLogoContentType() != null) {
                     String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
                     String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
@@ -97,6 +103,33 @@ public class TenantController {
                 return ResponseEntity.ok(response);
             }
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found");
+        } finally {
+            TenantContext.setTenantId(currentTenant);
+        }
+    }
+
+    @GetMapping("/public/current")
+    public ResponseEntity<?> getPublicProfileByDomain(@RequestParam("domain") String domain) {
+        String currentTenant = TenantContext.getTenantId();
+        try {
+            TenantContext.setTenantId(null);
+            Optional<Tenant> tenantOpt = tenantRepository.findByDomain(domain);
+            if (tenantOpt.isPresent()) {
+                Tenant t = tenantOpt.get();
+                Map<String, Object> response = new HashMap<>();
+                response.put("id", t.getId());
+                response.put("tenantName", t.getTenantName());
+                response.put("headingName", t.getHeadingName());
+                response.put("domain", t.getDomain());
+
+                if (t.getLogo() != null && t.getLogoContentType() != null) {
+                    String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
+                    String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
+                    response.put("logoUrl", dataUrl);
+                }
+                return ResponseEntity.ok(response);
+            }
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found for domain");
         } finally {
             TenantContext.setTenantId(currentTenant);
         }

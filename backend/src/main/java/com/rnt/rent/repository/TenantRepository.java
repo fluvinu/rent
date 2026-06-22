@@ -8,4 +8,5 @@ import java.util.Optional;
 @Repository
 public interface TenantRepository extends MongoRepository<Tenant, String> {
     Optional<Tenant> findByUsername(String username);
+    Optional<Tenant> findByDomain(String domain);
 }

@@ -14,12 +14,22 @@ interface Profile {
   tenantName: string;
   logoUrl?: string;
   headingName?: string;
+  domain?: string;
+}
+
+export interface PublicProfile {
+  id: string;
+  tenantName: string;
+  headingName?: string;
+  domain?: string;
+  logoUrl?: string;
 }
 
 interface AuthCtx {
   token: string | null;
   ready: boolean;
   profile: Profile | null;
+  publicProfile: PublicProfile | null;
   login: (username: string, password: string) => Promise<void>;
   register: (username: string, password: string) => Promise<void>;
   logout: () => void;
@@ -32,6 +42,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setTok] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
   const [profile, setProfile] = useState<Profile | null>(null);
+  const [publicProfile, setPublicProfile] = useState<PublicProfile | null>(
+    null,
+  );
 
   const loadProfile = useCallback(async () => {
     if (!getToken()) {
@@ -47,22 +60,57 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    let isMounted = true;
     setTok(getToken());
-    setReady(true);
-    loadProfile();
+
+    const initAuth = async () => {
+      const hostname = window.location.hostname;
+
+      const p1 = loadProfile();
+      let p2 = Promise.resolve();
+
+      if (hostname !== "localhost" && hostname !== "127.0.0.1") {
+        p2 = api<PublicProfile>(
+          `/api/tenant/public/current?domain=${encodeURIComponent(hostname)}`,
+        )
+          .then((data) => {
+            if (isMounted) setPublicProfile(data);
+          })
+          .catch((e) => console.log("No public profile for domain", hostname));
+      }
+
+      await Promise.all([p1, p2]);
+
+      if (isMounted) {
+        setReady(true);
+      }
+    };
+
+    initAuth();
+
+    return () => {
+      isMounted = false;
+    };
   }, [loadProfile]);
 
-  const doLogin = useCallback(async (username: string, password: string) => {
-    const res = await api<{ token?: string; accessToken?: string; jwt?: string }>(
-      "/auth/login",
-      { method: "POST", body: JSON.stringify({ username, password }) },
-    );
-    const t = res.token || res.accessToken || res.jwt || null;
-    if (!t) throw new Error("No token returned");
-    setToken(t);
-    setTok(t);
-    await loadProfile();
-  }, [loadProfile]);
+  const doLogin = useCallback(
+    async (username: string, password: string) => {
+      const res = await api<{
+        token?: string;
+        accessToken?: string;
+        jwt?: string;
+      }>("/auth/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+      });
+      const t = res.token || res.accessToken || res.jwt || null;
+      if (!t) throw new Error("No token returned");
+      setToken(t);
+      setTok(t);
+      await loadProfile();
+    },
+    [loadProfile],
+  );
 
   const doRegister = useCallback(
     async (username: string, password: string) => {
@@ -80,6 +128,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     token,
     ready,
     profile,
+    publicProfile,
     login: doLogin,
     register: doRegister,
     logout: () => {
