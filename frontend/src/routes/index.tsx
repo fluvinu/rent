@@ -49,6 +49,7 @@ function AuthScreen() {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [authDomain, setAuthDomain] = useState("");
   const [loading, setLoading] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
@@ -57,7 +58,7 @@ function AuthScreen() {
     setLoading(true);
     try {
       if (mode === "login") await login(username, password);
-      else await register(username, password);
+      else await register(username, password, authDomain);
       toast.success(mode === "login" ? "Welcome back" : "Account created");
     } catch (err: any) {
       toast.error(err.message || "Authentication failed");
@@ -71,17 +72,27 @@ function AuthScreen() {
       <div className="w-full max-w-md">
         <div className="flex items-center gap-2 justify-center mb-8">
           {publicProfile?.logoUrl ? (
-             <img src={publicProfile.logoUrl} alt="Logo" className="h-10 max-w-[120px] object-contain rounded" />
+            <img
+              src={publicProfile.logoUrl}
+              alt="Logo"
+              className="h-10 max-w-[120px] object-contain rounded"
+            />
           ) : (
-             <div className="size-10 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
-               <Layers className="size-5" />
-             </div>
+            <div className="size-10 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
+              <Layers className="size-5" />
+            </div>
           )}
-          <span className="text-2xl font-semibold tracking-tight">{publicProfile?.headingName || publicProfile?.tenantName || "Rent"}</span>
+          <span className="text-2xl font-semibold tracking-tight">
+            {publicProfile?.headingName || publicProfile?.tenantName || "Rent"}
+          </span>
         </div>
         <Card>
           <CardHeader>
-            <CardTitle>{publicProfile?.tenantName ? `Sign in to ${publicProfile.tenantName}` : "Dynamic Metadata Platform"}</CardTitle>
+            <CardTitle>
+              {publicProfile?.tenantName
+                ? `Sign in to ${publicProfile.tenantName}`
+                : "Dynamic Metadata Platform"}
+            </CardTitle>
             <CardDescription>
               Sign in or create a tenant account to continue.
             </CardDescription>
@@ -115,6 +126,17 @@ function AuthScreen() {
                       }
                     />
                   </div>
+                  {mode === "register" && (
+                    <div className="space-y-2">
+                      <Label htmlFor="authDomain">Domain (Optional)</Label>
+                      <Input
+                        id="authDomain"
+                        value={authDomain}
+                        onChange={(e) => setAuthDomain(e.target.value)}
+                        placeholder="e.g. your-tenant.netlify.app"
+                      />
+                    </div>
+                  )}
                   <Button type="submit" className="w-full" disabled={loading}>
                     {loading
                       ? "Please wait..."
