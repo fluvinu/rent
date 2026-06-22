@@ -6,6 +6,7 @@ import com.rnt.rent.tenant.TenantContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Base64;
@@ -22,8 +23,8 @@ public class TenantController {
 
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() {
-        String tenantName = TenantContext.getTenantId();
-        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(tenantName);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
         if (tenantOpt.isPresent()) {
             Tenant t = tenantOpt.get();
             Map<String, Object> response = new HashMap<>();
@@ -44,8 +45,8 @@ public class TenantController {
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(@RequestBody Map<String, String> updateRequest) {
-        String tenantName = TenantContext.getTenantId();
-        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(tenantName);
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
         if (tenantOpt.isPresent()) {
             Tenant t = tenantOpt.get();
             String logoUrl = updateRequest.get("logoUrl");
