@@ -24,69 +24,81 @@ public class TenantController {
     @GetMapping("/profile")
     public ResponseEntity<?> getProfile() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
-        if (tenantOpt.isPresent()) {
-            Tenant t = tenantOpt.get();
-            Map<String, Object> response = new HashMap<>();
-            response.put("id", t.getId());
-            response.put("username", t.getUsername());
-            response.put("tenantName", t.getTenantName());
-            response.put("headingName", t.getHeadingName());
+        String currentTenant = TenantContext.getTenantId();
+        try {
+            TenantContext.setTenantId(null);
+            Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
+            if (tenantOpt.isPresent()) {
+                Tenant t = tenantOpt.get();
+                Map<String, Object> response = new HashMap<>();
+                response.put("id", t.getId());
+                response.put("username", t.getUsername());
+                response.put("tenantName", t.getTenantName());
+                response.put("headingName", t.getHeadingName());
 
-            if (t.getLogo() != null && t.getLogoContentType() != null) {
-                String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
-                String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
-                response.put("logoUrl", dataUrl);
+                if (t.getLogo() != null && t.getLogoContentType() != null) {
+                    String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
+                    String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
+                    response.put("logoUrl", dataUrl);
+                }
+                return ResponseEntity.ok(response);
             }
-            return ResponseEntity.ok(response);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found");
+        } finally {
+            TenantContext.setTenantId(currentTenant);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found");
     }
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(@RequestBody Map<String, String> updateRequest) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
-        if (tenantOpt.isPresent()) {
-            Tenant t = tenantOpt.get();
-            String logoUrl = updateRequest.get("logoUrl");
-            if (logoUrl != null && !logoUrl.isEmpty()) {
-                try {
-                    // format: data:image/png;base64,iVBORw0KGgo...
-                    String[] parts = logoUrl.split(",");
-                    if (parts.length == 2 && parts[0].startsWith("data:")) {
-                        String contentType = parts[0].substring(5, parts[0].indexOf(";"));
-                        byte[] logoBytes = Base64.getDecoder().decode(parts[1]);
-                        t.setLogo(logoBytes);
-                        t.setLogoContentType(contentType);
+        String currentTenant = TenantContext.getTenantId();
+        try {
+            TenantContext.setTenantId(null);
+            Optional<Tenant> tenantOpt = tenantRepository.findByUsername(username);
+            if (tenantOpt.isPresent()) {
+                Tenant t = tenantOpt.get();
+                String logoUrl = updateRequest.get("logoUrl");
+                if (logoUrl != null && !logoUrl.isEmpty()) {
+                    try {
+                        // format: data:image/png;base64,iVBORw0KGgo...
+                        String[] parts = logoUrl.split(",");
+                        if (parts.length == 2 && parts[0].startsWith("data:")) {
+                            String contentType = parts[0].substring(5, parts[0].indexOf(";"));
+                            byte[] logoBytes = Base64.getDecoder().decode(parts[1]);
+                            t.setLogo(logoBytes);
+                            t.setLogoContentType(contentType);
+                        }
+                    } catch (Exception e) {
+                        // Ignore invalid base64
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    // Ignore invalid base64
-                    e.printStackTrace();
+                } else if (logoUrl != null && logoUrl.isEmpty()) {
+                     t.setLogo(null);
+                     t.setLogoContentType(null);
                 }
-            } else if (logoUrl != null && logoUrl.isEmpty()) {
-                 t.setLogo(null);
-                 t.setLogoContentType(null);
-            }
 
-            if (updateRequest.containsKey("headingName")) {
-                t.setHeadingName(updateRequest.get("headingName"));
-            }
+                if (updateRequest.containsKey("headingName")) {
+                    t.setHeadingName(updateRequest.get("headingName"));
+                }
 
-            tenantRepository.save(t);
+                tenantRepository.save(t);
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("id", t.getId());
-            response.put("username", t.getUsername());
-            response.put("tenantName", t.getTenantName());
-            response.put("headingName", t.getHeadingName());
-            if (t.getLogo() != null && t.getLogoContentType() != null) {
-                String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
-                String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
-                response.put("logoUrl", dataUrl);
+                Map<String, Object> response = new HashMap<>();
+                response.put("id", t.getId());
+                response.put("username", t.getUsername());
+                response.put("tenantName", t.getTenantName());
+                response.put("headingName", t.getHeadingName());
+                if (t.getLogo() != null && t.getLogoContentType() != null) {
+                    String base64Image = Base64.getEncoder().encodeToString(t.getLogo());
+                    String dataUrl = "data:" + t.getLogoContentType() + ";base64," + base64Image;
+                    response.put("logoUrl", dataUrl);
+                }
+                return ResponseEntity.ok(response);
             }
-            return ResponseEntity.ok(response);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found");
+        } finally {
+            TenantContext.setTenantId(currentTenant);
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tenant not found");
     }
 }
