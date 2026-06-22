@@ -12,6 +12,8 @@ public class Tenant {
     private String username;
     private String password;
     private String tenantName;
+    private String headingName;
+    private byte[] logo;
 
     public Tenant() {
     }
@@ -52,5 +54,21 @@ public class Tenant {
 
     public void setTenantName(String tenantName) {
         this.tenantName = tenantName;
+    }
+
+    public String getHeadingName() {
+        return headingName;
+    }
+
+    public void setHeadingName(String headingName) {
+        this.headingName = headingName;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
     }
 }
