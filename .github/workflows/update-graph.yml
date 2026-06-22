@@ -1,0 +1,42 @@
+name: Update Graphify Knowledge Graph
+
+# Trigger this action only when code is pushed (merged) to main
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'graphify-out/**'  # Prevent infinite loops
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Graphify
+        # Note: Package name is 'graphifyy' (two ys), command is 'graphify'
+        run: pip install graphifyy
+
+      - name: Build Knowledge Graph
+        # Scans current folder (.) and outputs to graphify-out/
+        run: graphify .
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "Graphify Bot"
+          git config --global user.email "bot@graphify.ai"
+          git add graphify-out/
+          # Only commit if the graph actually changed
+          git diff --staged --quiet || git commit -m "chore: auto-update knowledge graph [skip ci]"
+          git push
