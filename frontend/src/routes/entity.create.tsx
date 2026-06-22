@@ -74,7 +74,8 @@ function CreateEntityType() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return toast.error("Name is required");
-    if (fields.some((f) => !f.name.trim())) return toast.error("All fields need a name");
+    if (fields.some((f) => !f.name.trim()))
+      return toast.error("All fields need a name");
 
     const payload = {
       name: name.trim(),
@@ -85,8 +86,14 @@ function CreateEntityType() {
           type: f.type,
           required: !!f.required,
         };
-        if ((f.type === "SELECT" || f.type === "MULTI_SELECT") && f.optionsStr) {
-          def.options = f.optionsStr.split(",").map((s) => s.trim()).filter(Boolean);
+        if (
+          (f.type === "SELECT" || f.type === "MULTI_SELECT") &&
+          f.optionsStr
+        ) {
+          def.options = f.optionsStr
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
         }
         if (f.type === "RELATION" && f.relationTargetType) {
           def.relationTargetType = f.relationTargetType;
@@ -97,7 +104,10 @@ function CreateEntityType() {
 
     setSaving(true);
     try {
-      await api("/api/entity-types", { method: "POST", body: JSON.stringify(payload) });
+      await api("/api/entity-types", {
+        method: "POST",
+        body: JSON.stringify(payload),
+      });
       toast.success("Entity type created");
       navigate({ to: "/" });
     } catch (err: any) {
@@ -112,7 +122,10 @@ function CreateEntityType() {
       <header className="border-b">
         <div className="max-w-3xl mx-auto px-6 h-16 flex items-center gap-4">
           <Button variant="ghost" size="sm" asChild>
-            <Link to="/"><ArrowLeft className="size-4 mr-2" />Back</Link>
+            <Link to="/">
+              <ArrowLeft className="size-4 mr-2" />
+              Back
+            </Link>
           </Button>
           <h1 className="font-semibold">New Entity Type</h1>
         </div>
@@ -127,11 +140,21 @@ function CreateEntityType() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Customer" />
+                <Input
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="e.g. Customer"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="desc">Description</Label>
-                <Textarea id="desc" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Optional" />
+                <Textarea
+                  id="desc"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder="Optional"
+                />
               </div>
             </CardContent>
           </Card>
@@ -139,8 +162,14 @@ function CreateEntityType() {
           <Card>
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Fields</CardTitle>
-              <Button type="button" variant="outline" size="sm" onClick={addField}>
-                <Plus className="size-4 mr-2" />Add Field
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={addField}
+              >
+                <Plus className="size-4 mr-2" />
+                Add Field
               </Button>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -149,21 +178,40 @@ function CreateEntityType() {
                   <div className="grid grid-cols-1 md:grid-cols-[1fr_180px_auto] gap-3">
                     <div className="space-y-1">
                       <Label>Field name</Label>
-                      <Input value={f.name} onChange={(e) => update(i, { name: e.target.value })} placeholder="e.g. email" />
+                      <Input
+                        value={f.name}
+                        onChange={(e) => update(i, { name: e.target.value })}
+                        placeholder="e.g. email"
+                      />
                     </div>
                     <div className="space-y-1">
                       <Label>Type</Label>
-                      <Select value={f.type} onValueChange={(v) => update(i, { type: v as FieldType })}>
-                        <SelectTrigger><SelectValue /></SelectTrigger>
+                      <Select
+                        value={f.type}
+                        onValueChange={(v) =>
+                          update(i, { type: v as FieldType })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
                         <SelectContent>
                           {FIELD_TYPES.map((t) => (
-                            <SelectItem key={t} value={t}>{t}</SelectItem>
+                            <SelectItem key={t} value={t}>
+                              {t}
+                            </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
                     <div className="flex items-end pb-1">
-                      <Button type="button" variant="ghost" size="icon" onClick={() => removeField(i)} disabled={fields.length === 1}>
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => removeField(i)}
+                        disabled={fields.length === 1}
+                      >
                         <Trash2 className="size-4" />
                       </Button>
                     </div>
@@ -171,25 +219,46 @@ function CreateEntityType() {
                   {(f.type === "SELECT" || f.type === "MULTI_SELECT") && (
                     <div className="space-y-1">
                       <Label>Options (comma-separated)</Label>
-                      <Input value={f.optionsStr || ""} onChange={(e) => update(i, { optionsStr: e.target.value })} placeholder="Low, Medium, High" />
+                      <Input
+                        value={f.optionsStr || ""}
+                        onChange={(e) =>
+                          update(i, { optionsStr: e.target.value })
+                        }
+                        placeholder="Low, Medium, High"
+                      />
                     </div>
                   )}
                   {f.type === "RELATION" && (
                     <div className="space-y-1">
                       <Label>Target Dataset</Label>
-                      <Select value={f.relationTargetType || ""} onValueChange={(v) => update(i, { relationTargetType: v })}>
-                        <SelectTrigger><SelectValue placeholder="Select target..." /></SelectTrigger>
+                      <Select
+                        value={f.relationTargetType || ""}
+                        onValueChange={(v) =>
+                          update(i, { relationTargetType: v })
+                        }
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select target..." />
+                        </SelectTrigger>
                         <SelectContent>
                           {entityTypes.map((t) => (
-                            <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
+                            <SelectItem key={t.id} value={t.id}>
+                              {t.name}
+                            </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
                     </div>
                   )}
                   <div className="flex items-center gap-2">
-                    <Checkbox id={`req-${i}`} checked={!!f.required} onCheckedChange={(v) => update(i, { required: !!v })} />
-                    <Label htmlFor={`req-${i}`} className="font-normal">Required</Label>
+                    <Checkbox
+                      id={`req-${i}`}
+                      checked={!!f.required}
+                      onCheckedChange={(v) => update(i, { required: !!v })}
+                    />
+                    <Label htmlFor={`req-${i}`} className="font-normal">
+                      Required
+                    </Label>
                   </div>
                 </div>
               ))}

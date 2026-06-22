@@ -4,19 +4,35 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 import { api, type EntityType } from "@/lib/api";
 import { Database, LogOut, Plus, Layers, Zap, Settings } from "lucide-react";
 import { QuickRecordDialog } from "@/components/QuickRecordDialog";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Rent — Dynamic Metadata Platform" },
-      { name: "description", content: "Build dynamic entity schemas and manage records in real-time." },
+      {
+        name: "description",
+        content:
+          "Build dynamic entity schemas and manage records in real-time.",
+      },
     ],
   }),
   component: Index,
@@ -29,7 +45,7 @@ function Index() {
 }
 
 function AuthScreen() {
-  const { login, register } = useAuth();
+  const { login, register, publicProfile } = useAuth();
   const [mode, setMode] = useState<"login" | "register">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -54,15 +70,21 @@ function AuthScreen() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-muted px-4">
       <div className="w-full max-w-md">
         <div className="flex items-center gap-2 justify-center mb-8">
-          <div className="size-10 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
-            <Layers className="size-5" />
-          </div>
-          <span className="text-2xl font-semibold tracking-tight">Rent</span>
+          {publicProfile?.logoUrl ? (
+             <img src={publicProfile.logoUrl} alt="Logo" className="h-10 max-w-[120px] object-contain rounded" />
+          ) : (
+             <div className="size-10 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
+               <Layers className="size-5" />
+             </div>
+          )}
+          <span className="text-2xl font-semibold tracking-tight">{publicProfile?.headingName || publicProfile?.tenantName || "Rent"}</span>
         </div>
         <Card>
           <CardHeader>
-            <CardTitle>Dynamic Metadata Platform</CardTitle>
-            <CardDescription>Sign in or create a tenant account to continue.</CardDescription>
+            <CardTitle>{publicProfile?.tenantName ? `Sign in to ${publicProfile.tenantName}` : "Dynamic Metadata Platform"}</CardTitle>
+            <CardDescription>
+              Sign in or create a tenant account to continue.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs value={mode} onValueChange={(v) => setMode(v as any)}>
@@ -74,14 +96,31 @@ function AuthScreen() {
                 <form onSubmit={submit} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="username">Username</Label>
-                    <Input id="username" value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="username" />
+                    <Input
+                      id="username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      autoComplete="username"
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="password">Password</Label>
-                    <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete={mode === "login" ? "current-password" : "new-password"} />
+                    <Input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete={
+                        mode === "login" ? "current-password" : "new-password"
+                      }
+                    />
                   </div>
                   <Button type="submit" className="w-full" disabled={loading}>
-                    {loading ? "Please wait..." : mode === "login" ? "Login" : "Create account"}
+                    {loading
+                      ? "Please wait..."
+                      : mode === "login"
+                        ? "Login"
+                        : "Create account"}
                   </Button>
                 </form>
               </TabsContent>
@@ -94,11 +133,13 @@ function AuthScreen() {
 }
 
 function Dashboard() {
-  const { logout, profile } = useAuth();
+  const { logout, profile, publicProfile } = useAuth();
   const [types, setTypes] = useState<EntityType[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [quickOpen, setQuickOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+
+  const displayProfile = profile || publicProfile;
 
   const load = () => {
     api<EntityType[]>("/api/entity-types")
@@ -115,17 +156,27 @@ function Dashboard() {
       <header className="border-b">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            {profile?.logoUrl ? (
-              <img src={profile.logoUrl} alt="Logo" className="h-8 max-w-[120px] object-contain rounded" />
+            {displayProfile?.logoUrl ? (
+              <img
+                src={displayProfile.logoUrl}
+                alt="Logo"
+                className="h-8 max-w-[120px] object-contain rounded"
+              />
             ) : (
               <div className="size-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center">
                 <Layers className="size-4" />
               </div>
             )}
-            <span className="font-semibold tracking-tight">{profile?.headingName || "Rent"}</span>
+            <span className="font-semibold tracking-tight">
+              {displayProfile?.headingName || "Rent"}
+            </span>
           </Link>
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setSettingsOpen(true)}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSettingsOpen(true)}
+            >
               <Settings className="size-4 mr-2" /> Settings
             </Button>
             <Button variant="ghost" size="sm" onClick={logout}>
@@ -138,11 +189,19 @@ function Dashboard() {
       <main className="max-w-6xl mx-auto px-6 py-10">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-semibold tracking-tight">Entity Types</h1>
-            <p className="text-muted-foreground mt-1">Define schemas on the fly and manage records.</p>
+            <h1 className="text-3xl font-semibold tracking-tight">
+              Entity Types
+            </h1>
+            <p className="text-muted-foreground mt-1">
+              Define schemas on the fly and manage records.
+            </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button onClick={() => setQuickOpen(true)} variant="secondary" disabled={!types}>
+            <Button
+              onClick={() => setQuickOpen(true)}
+              variant="secondary"
+              disabled={!types}
+            >
               <Zap className="size-4 mr-2" /> Quick Record
             </Button>
             <Button asChild>
@@ -155,7 +214,9 @@ function Dashboard() {
 
         {error && (
           <Card className="border-destructive/50 bg-destructive/5">
-            <CardContent className="pt-6 text-sm text-destructive">{error}</CardContent>
+            <CardContent className="pt-6 text-sm text-destructive">
+              {error}
+            </CardContent>
           </Card>
         )}
 
@@ -172,9 +233,14 @@ function Dashboard() {
             <CardContent className="py-16 flex flex-col items-center text-center">
               <Database className="size-10 text-muted-foreground mb-3" />
               <h3 className="font-medium">No entity types yet</h3>
-              <p className="text-sm text-muted-foreground mt-1 mb-4">Create your first schema to get started.</p>
+              <p className="text-sm text-muted-foreground mt-1 mb-4">
+                Create your first schema to get started.
+              </p>
               <Button asChild>
-                <Link to="/entity/create"><Plus className="size-4 mr-2" />Create Entity Type</Link>
+                <Link to="/entity/create">
+                  <Plus className="size-4 mr-2" />
+                  Create Entity Type
+                </Link>
               </Button>
             </CardContent>
           </Card>
@@ -183,17 +249,28 @@ function Dashboard() {
         {types && types.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {types.map((t) => (
-              <Link key={t.id} to="/entity/$entityId" params={{ entityId: t.id }} className="group">
+              <Link
+                key={t.id}
+                to="/entity/$entityId"
+                params={{ entityId: t.id }}
+                className="group"
+              >
                 <Card className="h-full transition-all group-hover:border-primary/50 group-hover:shadow-md">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="size-10 rounded-md bg-primary/10 text-primary flex items-center justify-center">
                         <Database className="size-5" />
                       </div>
-                      <span className="text-xs text-muted-foreground">{t.fields?.length || 0} fields</span>
+                      <span className="text-xs text-muted-foreground">
+                        {t.fields?.length || 0} fields
+                      </span>
                     </div>
                     <CardTitle className="mt-3">{t.name}</CardTitle>
-                    {t.description && <CardDescription className="line-clamp-2">{t.description}</CardDescription>}
+                    {t.description && (
+                      <CardDescription className="line-clamp-2">
+                        {t.description}
+                      </CardDescription>
+                    )}
                   </CardHeader>
                 </Card>
               </Link>
@@ -216,15 +293,23 @@ function Dashboard() {
   );
 }
 
-function SettingsDialog({ open, onOpenChange }: { open: boolean, onOpenChange: (open: boolean) => void }) {
+function SettingsDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   const { profile, refreshProfile } = useAuth();
   const [headingName, setHeadingName] = useState("");
+  const [domain, setDomain] = useState("");
   const [logoUrl, setLogoUrl] = useState("");
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (open && profile) {
       setHeadingName(profile.headingName || "");
+      setDomain(profile.domain || "");
       setLogoUrl(profile.logoUrl || "");
     }
   }, [open, profile]);
@@ -246,7 +331,7 @@ function SettingsDialog({ open, onOpenChange }: { open: boolean, onOpenChange: (
     try {
       await api("/api/tenant/profile", {
         method: "PUT",
-        body: JSON.stringify({ headingName, logoUrl })
+        body: JSON.stringify({ headingName, domain, logoUrl }),
       });
       toast.success("Settings saved");
       await refreshProfile();
@@ -267,20 +352,51 @@ function SettingsDialog({ open, onOpenChange }: { open: boolean, onOpenChange: (
         <form onSubmit={submit} className="space-y-4 pt-4">
           <div className="space-y-2">
             <Label htmlFor="headingName">Heading Name</Label>
-            <Input id="headingName" value={headingName} onChange={(e) => setHeadingName(e.target.value)} placeholder="e.g. Rent" />
+            <Input
+              id="headingName"
+              value={headingName}
+              onChange={(e) => setHeadingName(e.target.value)}
+              placeholder="e.g. Rent"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="domain">Domain (Optional)</Label>
+            <Input
+              id="domain"
+              value={domain}
+              onChange={(e) => setDomain(e.target.value)}
+              placeholder="e.g. mytenant.rentis.netlify.app"
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="logo">Upload Logo</Label>
-            <Input id="logo" type="file" accept="image/*" onChange={handleFileChange} />
+            <Input
+              id="logo"
+              type="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
           </div>
           {logoUrl && (
-             <div className="mt-2 border rounded p-2 flex justify-center bg-muted/20">
-                <img src={logoUrl} alt="Preview" className="max-h-20 object-contain" />
-             </div>
+            <div className="mt-2 border rounded p-2 flex justify-center bg-muted/20">
+              <img
+                src={logoUrl}
+                alt="Preview"
+                className="max-h-20 object-contain"
+              />
+            </div>
           )}
           <DialogFooter className="pt-4">
-            <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>Cancel</Button>
-            <Button type="submit" disabled={saving}>{saving ? "Saving..." : "Save changes"}</Button>
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => onOpenChange(false)}
+            >
+              Cancel
+            </Button>
+            <Button type="submit" disabled={saving}>
+              {saving ? "Saving..." : "Save changes"}
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

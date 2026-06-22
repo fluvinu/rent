@@ -73,4 +73,23 @@ public class TenantControllerTest {
         // Ensure context was restored
         assertEquals("test_tenant", TenantContext.getTenantId());
     }
+
+    @Test
+    public void testGetPublicProfileByDomain() {
+        Tenant tenant = new Tenant("testuser", "password", "test_tenant");
+        tenant.setHeadingName("Public Heading");
+        tenant.setDomain("testdomain.com");
+        when(tenantRepository.findByDomain("testdomain.com")).thenReturn(Optional.of(tenant));
+
+        ResponseEntity<?> response = tenantController.getPublicProfileByDomain("testdomain.com");
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        Map<String, Object> body = (Map<String, Object>) response.getBody();
+        assertEquals("test_tenant", body.get("tenantName"));
+        assertEquals("Public Heading", body.get("headingName"));
+        assertEquals("testdomain.com", body.get("domain"));
+
+        // Ensure context was restored
+        assertEquals("test_tenant", TenantContext.getTenantId());
+    }
 }

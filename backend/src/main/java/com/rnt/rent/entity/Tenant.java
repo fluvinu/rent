@@ -15,6 +15,7 @@ public class Tenant {
     private byte[] logo;
     private String logoContentType;
     private String headingName;
+    private String domain;
 
     public Tenant() {
     }
@@ -79,5 +80,13 @@ public class Tenant {
 
     public void setHeadingName(String headingName) {
         this.headingName = headingName;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 }
