@@ -12,6 +12,9 @@ public class Tenant {
     private String username;
     private String password;
     private String tenantName;
+    private byte[] logo;
+    private String logoContentType;
+    private String headingName;
 
     public Tenant() {
     }
@@ -52,5 +55,29 @@ public class Tenant {
 
     public void setTenantName(String tenantName) {
         this.tenantName = tenantName;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getLogoContentType() {
+        return logoContentType;
+    }
+
+    public void setLogoContentType(String logoContentType) {
+        this.logoContentType = logoContentType;
+    }
+
+    public String getHeadingName() {
+        return headingName;
+    }
+
+    public void setHeadingName(String headingName) {
+        this.headingName = headingName;
     }
 }

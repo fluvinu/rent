@@ -32,6 +32,7 @@ const FIELD_TYPES: FieldType[] = [
 
 interface DraftField extends FieldDef {
   optionsStr?: string;
+  relationTargetType?: string;
 }
 
 export const Route = createFileRoute("/entity/edit/$entityId")({
@@ -48,10 +49,19 @@ function EditEntityType() {
   const [fields, setFields] = useState<DraftField[]>([]);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [entityTypes, setEntityTypes] = useState<EntityType[]>([]);
 
   useEffect(() => {
     if (ready && !token) navigate({ to: "/" });
   }, [ready, token, navigate]);
+
+  useEffect(() => {
+    if (token) {
+      api<EntityType[]>("/api/entity-types")
+        .then((data) => setEntityTypes(Array.isArray(data) ? data : []))
+        .catch(console.error);
+    }
+  }, [token]);
 
   useEffect(() => {
     api<EntityType>(`/api/entity-types/${entityId}`)
@@ -62,6 +72,7 @@ function EditEntityType() {
           type.fields.map((f) => ({
             ...f,
             optionsStr: f.options ? f.options.join(", ") : undefined,
+            relationTargetType: f.relationTargetType,
           }))
         );
       })
@@ -97,6 +108,9 @@ function EditEntityType() {
         };
         if ((f.type === "SELECT" || f.type === "MULTI_SELECT") && f.optionsStr) {
           def.options = f.optionsStr.split(",").map((s) => s.trim()).filter(Boolean);
+        }
+        if (f.type === "RELATION" && f.relationTargetType) {
+          def.relationTargetType = f.relationTargetType;
         }
         return def;
       }),
@@ -183,6 +197,19 @@ function EditEntityType() {
                     <div className="space-y-1">
                       <Label>Options (comma-separated)</Label>
                       <Input value={f.optionsStr || ""} onChange={(e) => update(i, { optionsStr: e.target.value })} placeholder="Low, Medium, High" />
+                    </div>
+                  )}
+                  {f.type === "RELATION" && (
+                    <div className="space-y-1">
+                      <Label>Target Dataset</Label>
+                      <Select value={f.relationTargetType || ""} onValueChange={(v) => update(i, { relationTargetType: v })}>
+                        <SelectTrigger><SelectValue placeholder="Select target..." /></SelectTrigger>
+                        <SelectContent>
+                          {entityTypes.map((t) => (
+                            <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
                   )}
                   <div className="flex items-center gap-2">

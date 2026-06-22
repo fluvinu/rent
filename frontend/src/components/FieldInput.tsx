@@ -1,10 +1,11 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import type { FieldDef } from "@/lib/api";
+import { api, type EntityRecord, type FieldDef } from "@/lib/api";
 
 export function FieldInput({
   field,
@@ -94,6 +95,8 @@ export function FieldInput({
           />
         </div>
       );
+    case "RELATION":
+      return <RelationFieldInput field={field} value={value} onChange={onChange} label={label} />;
     default:
       return (
         <div className="space-y-2">
@@ -102,4 +105,37 @@ export function FieldInput({
         </div>
       );
   }
+}
+
+function RelationFieldInput({ field, value, onChange, label }: { field: FieldDef; value: any; onChange: (v: any) => void; label: React.ReactNode }) {
+  const [records, setRecords] = useState<EntityRecord[]>([]);
+
+  useEffect(() => {
+    if (field.relationTargetType) {
+      api<EntityRecord[]>(`/api/records/entity/${field.relationTargetType}`)
+        .then((data) => setRecords(Array.isArray(data) ? data : []))
+        .catch(console.error);
+    }
+  }, [field.relationTargetType]);
+
+  const displayRecord = (r: EntityRecord) => {
+    // Try to find a sensible display field (like 'name' or 'title' or the first text field)
+    const keys = Object.keys(r.data);
+    const nameKey = keys.find(k => k.toLowerCase() === 'name' || k.toLowerCase() === 'title') || keys[0];
+    return nameKey ? String(r.data[nameKey]) : r.id;
+  };
+
+  return (
+    <div className="space-y-2">
+      {label}
+      <Select value={value || ""} onValueChange={onChange}>
+        <SelectTrigger><SelectValue placeholder="Select related record..." /></SelectTrigger>
+        <SelectContent>
+          {records.map((r) => (
+            <SelectItem key={r.id} value={r.id}>{displayRecord(r)}</SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  );
 }

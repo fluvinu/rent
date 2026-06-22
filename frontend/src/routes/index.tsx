@@ -8,8 +8,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 import { api, type EntityType } from "@/lib/api";
-import { Database, LogOut, Plus, Layers, Zap } from "lucide-react";
+import { Database, LogOut, Plus, Layers, Zap, Settings } from "lucide-react";
 import { QuickRecordDialog } from "@/components/QuickRecordDialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,10 +94,11 @@ function AuthScreen() {
 }
 
 function Dashboard() {
-  const { logout } = useAuth();
+  const { logout, profile } = useAuth();
   const [types, setTypes] = useState<EntityType[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [quickOpen, setQuickOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const load = () => {
     api<EntityType[]>("/api/entity-types")
@@ -113,14 +115,23 @@ function Dashboard() {
       <header className="border-b">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="size-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center">
-              <Layers className="size-4" />
-            </div>
-            <span className="font-semibold tracking-tight">Rent</span>
+            {profile?.logoUrl ? (
+              <img src={profile.logoUrl} alt="Logo" className="h-8 max-w-[120px] object-contain rounded" />
+            ) : (
+              <div className="size-8 rounded-md bg-primary text-primary-foreground flex items-center justify-center">
+                <Layers className="size-4" />
+              </div>
+            )}
+            <span className="font-semibold tracking-tight">{profile?.headingName || "Rent"}</span>
           </Link>
-          <Button variant="ghost" size="sm" onClick={logout}>
-            <LogOut className="size-4 mr-2" /> Logout
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" onClick={() => setSettingsOpen(true)}>
+              <Settings className="size-4 mr-2" /> Settings
+            </Button>
+            <Button variant="ghost" size="sm" onClick={logout}>
+              <LogOut className="size-4 mr-2" /> Logout
+            </Button>
+          </div>
         </div>
       </header>
 
@@ -199,6 +210,80 @@ function Dashboard() {
           onCreated={load}
         />
       )}
+
+      <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
     </div>
+  );
+}
+
+function SettingsDialog({ open, onOpenChange }: { open: boolean, onOpenChange: (open: boolean) => void }) {
+  const { profile, refreshProfile } = useAuth();
+  const [headingName, setHeadingName] = useState("");
+  const [logoUrl, setLogoUrl] = useState("");
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    if (open && profile) {
+      setHeadingName(profile.headingName || "");
+      setLogoUrl(profile.logoUrl || "");
+    }
+  }, [open, profile]);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setLogoUrl(event.target?.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSaving(true);
+    try {
+      await api("/api/tenant/profile", {
+        method: "PUT",
+        body: JSON.stringify({ headingName, logoUrl })
+      });
+      toast.success("Settings saved");
+      await refreshProfile();
+      onOpenChange(false);
+    } catch (e: any) {
+      toast.error(e.message || "Failed to save settings");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Tenant Settings</DialogTitle>
+        </DialogHeader>
+        <form onSubmit={submit} className="space-y-4 pt-4">
+          <div className="space-y-2">
+            <Label htmlFor="headingName">Heading Name</Label>
+            <Input id="headingName" value={headingName} onChange={(e) => setHeadingName(e.target.value)} placeholder="e.g. Rent" />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="logo">Upload Logo</Label>
+            <Input id="logo" type="file" accept="image/*" onChange={handleFileChange} />
+          </div>
+          {logoUrl && (
+             <div className="mt-2 border rounded p-2 flex justify-center bg-muted/20">
+                <img src={logoUrl} alt="Preview" className="max-h-20 object-contain" />
+             </div>
+          )}
+          <DialogFooter className="pt-4">
+            <Button type="button" variant="ghost" onClick={() => onOpenChange(false)}>Cancel</Button>
+            <Button type="submit" disabled={saving}>{saving ? "Saving..." : "Save changes"}</Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
   );
 }
