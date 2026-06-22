@@ -57,7 +57,7 @@ export interface FieldDef {
   type: FieldType;
   required?: boolean;
   options?: string[];
-  relationEntityTypeId?: string;
+  relationTargetType?: string;
 }
 
 export interface EntityType {
