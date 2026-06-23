@@ -1,4 +1,4 @@
-name: Build After PR Merge
+name: Graphify Update
 
 on:
   pull_request:
@@ -6,35 +6,41 @@ on:
       - closed
 
 jobs:
-  build:
+  graphify:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
-
-      # Frontend
-      - name: Setup Node
-        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          fetch-depth: 0
 
-      - name: Install Frontend Dependencies
-        working-directory: frontend
-        run: npm install
-
-      - name: Build Frontend
-        working-directory: frontend
-        run: npm run build
-
-      # Backend
-      - name: Setup Java
-        uses: actions/setup-java@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          distribution: temurin
-          java-version: 21
+          python-version: "3.11"
 
-      - name: Build Backend
-        working-directory: backend
-        run: ./mvnw clean package
+      - name: Install Graphify
+        run: |
+          pip install graphifyy
+
+      - name: Generate Graph
+        run: |
+          graphify update .
+
+      - name: Commit Graph Output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add graphify-out/
+
+          git diff --staged --quiet || git commit -m "chore: update graphify output"
+
+      - name: Push Changes
+        run: |
+          git push
