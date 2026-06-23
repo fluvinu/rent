@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EntityCreateRouteImport } from './routes/entity.create'
 import { Route as EntityEntityIdRouteImport } from './routes/entity.$entityId'
+import { Route as AuthCallbackRouteImport } from './routes/auth.callback'
 import { Route as EntityEditEntityIdRouteImport } from './routes/entity.edit.$entityId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const EntityEntityIdRoute = EntityEntityIdRouteImport.update({
   path: '/entity/$entityId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EntityEditEntityIdRoute = EntityEditEntityIdRouteImport.update({
   id: '/entity/edit/$entityId',
   path: '/entity/edit/$entityId',
@@ -37,12 +43,14 @@ const EntityEditEntityIdRoute = EntityEditEntityIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
@@ -50,6 +58,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
@@ -58,14 +67,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth/callback'
     | '/entity/$entityId'
     | '/entity/create'
     | '/entity/edit/$entityId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/entity/$entityId' | '/entity/create' | '/entity/edit/$entityId'
+  to:
+    | '/'
+    | '/auth/callback'
+    | '/entity/$entityId'
+    | '/entity/create'
+    | '/entity/edit/$entityId'
   id:
     | '__root__'
     | '/'
+    | '/auth/callback'
     | '/entity/$entityId'
     | '/entity/create'
     | '/entity/edit/$entityId'
@@ -73,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
   EntityEntityIdRoute: typeof EntityEntityIdRoute
   EntityCreateRoute: typeof EntityCreateRoute
   EntityEditEntityIdRoute: typeof EntityEditEntityIdRoute
@@ -101,6 +118,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EntityEntityIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/entity/edit/$entityId': {
       id: '/entity/edit/$entityId'
       path: '/entity/edit/$entityId'
@@ -113,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
   EntityEntityIdRoute: EntityEntityIdRoute,
   EntityCreateRoute: EntityCreateRoute,
   EntityEditEntityIdRoute: EntityEditEntityIdRoute,

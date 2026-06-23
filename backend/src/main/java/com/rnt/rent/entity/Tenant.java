@@ -16,6 +16,7 @@ public class Tenant {
     private String logoContentType;
     private String headingName;
     private String domain;
+    private String logoUrl;
 
     public Tenant() {
     }
@@ -88,5 +89,13 @@ public class Tenant {
 
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+
+    public String getLogoUrl() {
+        return logoUrl;
+    }
+
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 }
