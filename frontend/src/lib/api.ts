@@ -1,7 +1,4 @@
-const BASE_URL =
-  typeof window !== "undefined"
-    ? `${window.location.protocol}//${window.location.hostname}:8080`
-    : "http://localhost:8080";
+const BASE_URL = "https://rent-0xm8.onrender.com";
 
 export function getToken(): string | null {
   if (typeof window === "undefined") return null;
