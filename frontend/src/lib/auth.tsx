@@ -65,6 +65,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let isMounted = true;
+
+    // Check for token in URL (from OAuth login)
+    if (typeof window !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlToken = urlParams.get('token');
+      if (urlToken) {
+        setToken(urlToken);
+        // Remove token from URL for cleaner history
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+
     setTok(getToken());
 
     const initAuth = async () => {
