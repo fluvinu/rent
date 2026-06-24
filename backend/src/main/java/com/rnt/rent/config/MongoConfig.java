@@ -37,7 +37,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
             @Override
             public com.mongodb.client.MongoDatabase getMongoDatabase() {
                 String tenant = TenantContext.getTenantId();
-                String dbName = (tenant != null && !tenant.isEmpty()) ? tenant : defaultDatabaseName;
+                String dbName = (tenant != null && !tenant.isEmpty()) ? tenant.replaceAll("[^a-zA-Z0-9_-]", "_") : defaultDatabaseName;
                 return getMongoClient().getDatabase(dbName);
             }
         };
