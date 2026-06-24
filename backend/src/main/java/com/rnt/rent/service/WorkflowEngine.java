@@ -43,6 +43,12 @@ public class WorkflowEngine {
     @Autowired
     private RecordMatcher recordMatcher;
 
+    @Autowired
+    private WebhookService webhookService;
+
+    @Autowired
+    private ScriptService scriptService;
+
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public void onEvent(EventType event, String entityTypeId, EntityRecord record) {
@@ -106,11 +112,39 @@ public class WorkflowEngine {
             switch (kind) {
                 case "UPDATE_FIELD" -> updateField(step.getConfiguration(), record);
                 case "CREATE_RECORD" -> createRecord(step.getConfiguration());
+                case "WEBHOOK" -> executeWebhook(step.getConfiguration(), record);
+                case "SCRIPT" -> executeScript(step.getConfiguration(), record);
                 case "LOG" -> log.info("Workflow '{}' LOG: {}", wf.getName(),
                         step.getConfiguration().get("message"));
                 default -> log.warn("Unknown workflow action kind: {}", kind);
             }
         }
+    }
+
+    private void executeScript(Map<String, Object> config, EntityRecord record) {
+        Object scriptObj = config.get("script");
+        if (scriptObj == null) {
+            log.warn("Script action missing 'script' configuration.");
+            return;
+        }
+        String script = String.valueOf(scriptObj);
+        log.info("Executing SCRIPT action");
+        scriptService.executeScript(script, record.getData());
+
+        // Ensure changes made by script are saved to the record.
+        record.setUpdatedAt(java.time.Instant.now());
+        entityRecordRepository.save(record);
+    }
+
+    private void executeWebhook(Map<String, Object> config, EntityRecord record) {
+        Object urlObj = config.get("url");
+        if (urlObj == null) {
+            log.warn("Webhook action missing 'url' configuration.");
+            return;
+        }
+        String url = String.valueOf(urlObj);
+        log.info("Executing WEBHOOK action for url: {}", url);
+        webhookService.sendWebhook(url, record);
     }
 
     private void updateField(Map<String, Object> config, EntityRecord record) {
