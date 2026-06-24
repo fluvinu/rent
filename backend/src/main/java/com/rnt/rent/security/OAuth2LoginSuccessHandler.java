@@ -25,7 +25,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     @Autowired
     private TenantRepository tenantRepository;
 
-    @Value("${frontend.url:http://localhost:5173}")
+    @Value("${frontend.url:https://rentis.netlify.app}")
     private String frontendUrl;
 
     @Override
