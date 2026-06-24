@@ -247,6 +247,9 @@ function Dashboard() {
             </span>
           </Link>
           <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/workflow-guide">Workflow Guide</Link>
+            </Button>
             <Button
               variant="ghost"
               size="sm"

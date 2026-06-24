@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkflowGuideRouteImport } from './routes/workflow-guide'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EntityCreateRouteImport } from './routes/entity.create'
 import { Route as EntityEntityIdRouteImport } from './routes/entity.$entityId'
 import { Route as EntityEditEntityIdRouteImport } from './routes/entity.edit.$entityId'
 
+const WorkflowGuideRoute = WorkflowGuideRouteImport.update({
+  id: '/workflow-guide',
+  path: '/workflow-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const EntityEditEntityIdRoute = EntityEditEntityIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/workflow-guide': typeof WorkflowGuideRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/workflow-guide': typeof WorkflowGuideRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
@@ -50,6 +58,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/workflow-guide': typeof WorkflowGuideRoute
   '/entity/$entityId': typeof EntityEntityIdRoute
   '/entity/create': typeof EntityCreateRoute
   '/entity/edit/$entityId': typeof EntityEditEntityIdRoute
@@ -58,14 +67,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/workflow-guide'
     | '/entity/$entityId'
     | '/entity/create'
     | '/entity/edit/$entityId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/entity/$entityId' | '/entity/create' | '/entity/edit/$entityId'
+  to:
+    | '/'
+    | '/workflow-guide'
+    | '/entity/$entityId'
+    | '/entity/create'
+    | '/entity/edit/$entityId'
   id:
     | '__root__'
     | '/'
+    | '/workflow-guide'
     | '/entity/$entityId'
     | '/entity/create'
     | '/entity/edit/$entityId'
@@ -73,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  WorkflowGuideRoute: typeof WorkflowGuideRoute
   EntityEntityIdRoute: typeof EntityEntityIdRoute
   EntityCreateRoute: typeof EntityCreateRoute
   EntityEditEntityIdRoute: typeof EntityEditEntityIdRoute
@@ -80,6 +97,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workflow-guide': {
+      id: '/workflow-guide'
+      path: '/workflow-guide'
+      fullPath: '/workflow-guide'
+      preLoaderRoute: typeof WorkflowGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -113,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  WorkflowGuideRoute: WorkflowGuideRoute,
   EntityEntityIdRoute: EntityEntityIdRoute,
   EntityCreateRoute: EntityCreateRoute,
   EntityEditEntityIdRoute: EntityEditEntityIdRoute,
