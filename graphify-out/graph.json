@@ -23,7 +23,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rent_rentapplication",
-      "community": 1,
+      "community": 6,
       "norm_label": "rentapplication.java"
     },
     {
@@ -33,7 +33,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rent_rentapplication_rentapplication",
-      "community": 1,
+      "community": 6,
       "norm_label": "rentapplication"
     },
     {
@@ -43,7 +43,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "rent_rentapplication_rentapplication_main",
-      "community": 1,
+      "community": 6,
       "norm_label": ".main()"
     },
     {
@@ -53,7 +53,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "string",
-      "community": 1,
+      "community": 6,
       "norm_label": "string"
     },
     {
@@ -333,7 +333,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller",
-      "community": 8,
+      "community": 16,
       "norm_label": "entityrecordcontroller.java"
     },
     {
@@ -343,7 +343,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller",
-      "community": 8,
+      "community": 20,
       "norm_label": "entityrecordcontroller"
     },
     {
@@ -353,7 +353,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_getbyentitytype",
-      "community": 8,
+      "community": 20,
       "norm_label": ".getbyentitytype()"
     },
     {
@@ -373,7 +373,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "entityrecord",
-      "community": 8,
+      "community": 13,
       "norm_label": "entityrecord"
     },
     {
@@ -383,7 +383,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "getmapping",
-      "community": 6,
+      "community": 20,
       "norm_label": "getmapping"
     },
     {
@@ -393,7 +393,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_query",
-      "community": 8,
+      "community": 13,
       "norm_label": ".query()"
     },
     {
@@ -403,7 +403,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "map",
-      "community": 8,
+      "community": 16,
       "norm_label": "map"
     },
     {
@@ -423,7 +423,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_create",
-      "community": 1,
+      "community": 20,
       "norm_label": ".create()"
     },
     {
@@ -433,7 +433,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_getbyid",
-      "community": 6,
+      "community": 20,
       "norm_label": ".getbyid()"
     },
     {
@@ -483,7 +483,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_entitytypecontroller",
-      "community": 8,
+      "community": 30,
       "norm_label": "entitytypecontroller.java"
     },
     {
@@ -503,7 +503,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "controller_entitytypecontroller_entitytypecontroller_getall",
-      "community": 6,
+      "community": 20,
       "norm_label": ".getall()"
     },
     {
@@ -583,7 +583,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler",
-      "community": 1,
+      "community": 16,
       "norm_label": "globalexceptionhandler.java"
     },
     {
@@ -593,7 +593,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler",
-      "community": 1,
+      "community": 16,
       "norm_label": "globalexceptionhandler"
     },
     {
@@ -603,7 +603,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler_handlebadrequest",
-      "community": 1,
+      "community": 16,
       "norm_label": ".handlebadrequest()"
     },
     {
@@ -623,7 +623,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "exceptionhandler",
-      "community": 1,
+      "community": 16,
       "norm_label": "exceptionhandler"
     },
     {
@@ -633,7 +633,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler_handleforbidden",
-      "community": 1,
+      "community": 16,
       "norm_label": ".handleforbidden()"
     },
     {
@@ -643,7 +643,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "accessdeniedexception",
-      "community": 8,
+      "community": 16,
       "norm_label": "accessdeniedexception"
     },
     {
@@ -773,7 +773,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_viewcontroller",
-      "community": 6,
+      "community": 20,
       "norm_label": "viewcontroller.java"
     },
     {
@@ -783,7 +783,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller",
-      "community": 6,
+      "community": 20,
       "norm_label": "viewcontroller"
     },
     {
@@ -793,7 +793,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_getbyentitytype",
-      "community": 6,
+      "community": 20,
       "norm_label": ".getbyentitytype()"
     },
     {
@@ -803,7 +803,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_create",
-      "community": 6,
+      "community": 20,
       "norm_label": ".create()"
     },
     {
@@ -813,7 +813,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_getbyid",
-      "community": 6,
+      "community": 20,
       "norm_label": ".getbyid()"
     },
     {
@@ -843,7 +843,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_workflowcontroller",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflowcontroller.java"
     },
     {
@@ -853,7 +853,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflowcontroller"
     },
     {
@@ -863,7 +863,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller_getbyentitytype",
-      "community": 8,
+      "community": 22,
       "norm_label": ".getbyentitytype()"
     },
     {
@@ -873,7 +873,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller_create",
-      "community": 8,
+      "community": 22,
       "norm_label": ".create()"
     },
     {
@@ -883,7 +883,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller_getbyid",
-      "community": 8,
+      "community": 22,
       "norm_label": ".getbyid()"
     },
     {
@@ -893,7 +893,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller_update",
-      "community": 8,
+      "community": 22,
       "norm_label": ".update()"
     },
     {
@@ -913,7 +913,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entity_entityrecord",
-      "community": 8,
+      "community": 16,
       "norm_label": "entityrecord.java"
     },
     {
@@ -923,7 +923,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entity_entityrecord_entityrecord",
-      "community": 8,
+      "community": 16,
       "norm_label": "entityrecord"
     },
     {
@@ -933,7 +933,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entity_entitytype",
-      "community": 8,
+      "community": 30,
       "norm_label": "entitytype.java"
     },
     {
@@ -943,7 +943,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "entity_entitytype_entitytype",
-      "community": 8,
+      "community": 30,
       "norm_label": "entitytype"
     },
     {
@@ -1173,7 +1173,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entity_view",
-      "community": 8,
+      "community": 20,
       "norm_label": "view.java"
     },
     {
@@ -1183,7 +1183,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entity_view_view",
-      "community": 6,
+      "community": 20,
       "norm_label": "view"
     },
     {
@@ -1193,7 +1193,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entity_workflow",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflow.java"
     },
     {
@@ -1203,7 +1203,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entity_workflow_workflow",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflow"
     },
     {
@@ -1213,7 +1213,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "entity_workflow_workflowstep",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflowstep"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "query_queryrequest",
-      "community": 8,
+      "community": 5,
       "norm_label": "queryrequest.java"
     },
     {
@@ -1243,7 +1243,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "query_queryrequest_queryrequest",
-      "community": 8,
+      "community": 13,
       "norm_label": "queryrequest"
     },
     {
@@ -1273,7 +1273,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "query_queryrequest_sortspec",
-      "community": 8,
+      "community": 5,
       "norm_label": "sortspec"
     },
     {
@@ -1283,7 +1283,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "query_queryrequest_pagespec",
-      "community": 8,
+      "community": 5,
       "norm_label": "pagespec"
     },
     {
@@ -1323,7 +1323,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "repository_entitytyperepository",
-      "community": 8,
+      "community": 30,
       "norm_label": "entitytyperepository.java"
     },
     {
@@ -1333,7 +1333,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "repository_entitytyperepository_entitytyperepository",
-      "community": 8,
+      "community": 30,
       "norm_label": "entitytyperepository"
     },
     {
@@ -1443,7 +1443,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "repository_viewrepository",
-      "community": 6,
+      "community": 20,
       "norm_label": "viewrepository.java"
     },
     {
@@ -1453,7 +1453,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "repository_viewrepository_viewrepository",
-      "community": 6,
+      "community": 20,
       "norm_label": "viewrepository"
     },
     {
@@ -1463,7 +1463,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "repository_viewrepository_viewrepository_findbyentitytypeid",
-      "community": 6,
+      "community": 20,
       "norm_label": ".findbyentitytypeid()"
     },
     {
@@ -1473,7 +1473,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "repository_workflowrepository",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflowrepository.java"
     },
     {
@@ -1483,7 +1483,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "repository_workflowrepository_workflowrepository",
-      "community": 8,
+      "community": 22,
       "norm_label": "workflowrepository"
     },
     {
@@ -1493,7 +1493,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "repository_workflowrepository_workflowrepository_findbyentitytypeid",
-      "community": 8,
+      "community": 22,
       "norm_label": ".findbyentitytypeid()"
     },
     {
@@ -1813,7 +1813,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_entityrecordservice",
-      "community": 8,
+      "community": 16,
       "norm_label": "entityrecordservice.java"
     },
     {
@@ -1823,7 +1823,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice",
-      "community": 8,
+      "community": 13,
       "norm_label": "entityrecordservice"
     },
     {
@@ -1833,7 +1833,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_getbyentitytypeid",
-      "community": 8,
+      "community": 13,
       "norm_label": ".getbyentitytypeid()"
     },
     {
@@ -1843,7 +1843,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_query",
-      "community": 8,
+      "community": 13,
       "norm_label": ".query()"
     },
     {
@@ -1853,7 +1853,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_queryexpanded",
-      "community": 8,
+      "community": 13,
       "norm_label": ".queryexpanded()"
     },
     {
@@ -1863,7 +1863,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_getbyid",
-      "community": 8,
+      "community": 13,
       "norm_label": ".getbyid()"
     },
     {
@@ -1873,7 +1873,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_create",
-      "community": 8,
+      "community": 13,
       "norm_label": ".create()"
     },
     {
@@ -1883,7 +1883,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_update",
-      "community": 8,
+      "community": 13,
       "norm_label": ".update()"
     },
     {
@@ -1893,7 +1893,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_delete",
-      "community": 8,
+      "community": 13,
       "norm_label": ".delete()"
     },
     {
@@ -1903,7 +1903,7 @@
       "source_location": "L119",
       "_origin": "ast",
       "id": "service_entityrecordservice_entityrecordservice_applyreadpermissions",
-      "community": 8,
+      "community": 13,
       "norm_label": ".applyreadpermissions()"
     },
     {
@@ -1913,7 +1913,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_fieldvalidator",
-      "community": 5,
+      "community": 30,
       "norm_label": "fieldvalidator.java"
     },
     {
@@ -2023,7 +2023,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "suppresswarnings",
-      "community": 8,
+      "community": 5,
       "norm_label": "suppresswarnings"
     },
     {
@@ -2053,7 +2053,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_metadataservice",
-      "community": 8,
+      "community": 30,
       "norm_label": "metadataservice.java"
     },
     {
@@ -2203,7 +2203,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "service_permissionservice_permissionservice_enforce",
-      "community": 8,
+      "community": 13,
       "norm_label": ".enforce()"
     },
     {
@@ -2213,7 +2213,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "action",
-      "community": 8,
+      "community": 16,
       "norm_label": "action"
     },
     {
@@ -2433,7 +2433,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_relationservice",
-      "community": 8,
+      "community": 16,
       "norm_label": "relationservice.java"
     },
     {
@@ -2443,7 +2443,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "service_relationservice_relationservice",
-      "community": 8,
+      "community": 16,
       "norm_label": "relationservice"
     },
     {
@@ -2453,7 +2453,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "service_relationservice_relationservice_validaterelations",
-      "community": 8,
+      "community": 16,
       "norm_label": ".validaterelations()"
     },
     {
@@ -2463,7 +2463,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "service_relationservice_relationservice_expand",
-      "community": 8,
+      "community": 16,
       "norm_label": ".expand()"
     },
     {
@@ -2473,8 +2473,98 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "service_relationservice_relationservice_idsof",
-      "community": 8,
+      "community": 16,
       "norm_label": ".idsof()"
+    },
+    {
+      "label": "ScriptService.java",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "service_scriptservice",
+      "community": 16,
+      "norm_label": "scriptservice.java"
+    },
+    {
+      "label": "ScriptService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "service_scriptservice_scriptservice",
+      "community": 16,
+      "norm_label": "scriptservice"
+    },
+    {
+      "label": ".ScriptService()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "service_scriptservice_scriptservice_scriptservice",
+      "community": 16,
+      "norm_label": ".scriptservice()"
+    },
+    {
+      "label": ".executeScript()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "service_scriptservice_scriptservice_executescript",
+      "community": 16,
+      "norm_label": ".executescript()"
+    },
+    {
+      "label": "WebhookService.java",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "service_webhookservice",
+      "community": 32,
+      "norm_label": "webhookservice.java"
+    },
+    {
+      "label": "WebhookService",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "service_webhookservice_webhookservice",
+      "community": 32,
+      "norm_label": "webhookservice"
+    },
+    {
+      "label": ".WebhookService()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "service_webhookservice_webhookservice_webhookservice",
+      "community": 32,
+      "norm_label": ".webhookservice()"
+    },
+    {
+      "label": ".isAllowedUrl()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "service_webhookservice_webhookservice_isallowedurl",
+      "community": 32,
+      "norm_label": ".isallowedurl()"
+    },
+    {
+      "label": ".sendWebhook()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "service_webhookservice_webhookservice_sendwebhook",
+      "community": 32,
+      "norm_label": ".sendwebhook()"
     },
     {
       "label": "WorkflowEngine.java",
@@ -2483,7 +2573,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_workflowengine",
-      "community": 8,
+      "community": 16,
       "norm_label": "workflowengine.java"
     },
     {
@@ -2493,17 +2583,17 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine",
-      "community": 8,
+      "community": 13,
       "norm_label": "workflowengine"
     },
     {
       "label": ".onEvent()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L48",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_onevent",
-      "community": 8,
+      "community": 13,
       "norm_label": ".onevent()"
     },
     {
@@ -2513,57 +2603,77 @@
       "source_location": "",
       "_origin": "ast",
       "id": "eventtype",
-      "community": 8,
+      "community": 13,
       "norm_label": "eventtype"
     },
     {
       "label": ".triggerMatches()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L68",
+      "source_location": "L74",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_triggermatches",
-      "community": 8,
+      "community": 13,
       "norm_label": ".triggermatches()"
     },
     {
       "label": ".conditionsPass()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L80",
+      "source_location": "L86",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_conditionspass",
-      "community": 8,
+      "community": 13,
       "norm_label": ".conditionspass()"
     },
     {
       "label": ".runActions()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L100",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_runactions",
-      "community": 8,
+      "community": 13,
       "norm_label": ".runactions()"
+    },
+    {
+      "label": ".executeScript()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "service_workflowengine_workflowengine_executescript",
+      "community": 13,
+      "norm_label": ".executescript()"
+    },
+    {
+      "label": ".executeWebhook()",
+      "file_type": "code",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "_origin": "ast",
+      "id": "service_workflowengine_workflowengine_executewebhook",
+      "community": 13,
+      "norm_label": ".executewebhook()"
     },
     {
       "label": ".updateField()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L116",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_updatefield",
-      "community": 8,
+      "community": 13,
       "norm_label": ".updatefield()"
     },
     {
       "label": ".createRecord()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
-      "source_location": "L126",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "service_workflowengine_workflowengine_createrecord",
-      "community": 8,
+      "community": 13,
       "norm_label": ".createrecord()"
     },
     {
@@ -2573,7 +2683,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tenant_tenantcontext",
-      "community": 1,
+      "community": 7,
       "norm_label": "tenantcontext.java"
     },
     {
@@ -2583,7 +2693,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext",
-      "community": 1,
+      "community": 7,
       "norm_label": "tenantcontext"
     },
     {
@@ -2613,7 +2723,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_getrole",
-      "community": 1,
+      "community": 8,
       "norm_label": ".getrole()"
     },
     {
@@ -2623,7 +2733,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_setrole",
-      "community": 1,
+      "community": 7,
       "norm_label": ".setrole()"
     },
     {
@@ -2633,7 +2743,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_clear",
-      "community": 1,
+      "community": 7,
       "norm_label": ".clear()"
     },
     {
@@ -6970,10 +7080,20 @@
       "norm_label": "routetree.gen.ts"
     },
     {
+      "label": "WorkflowGuideRoute",
+      "file_type": "code",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_routetree_gen_workflowguideroute",
+      "community": 3,
+      "norm_label": "workflowguideroute"
+    },
+    {
       "label": "IndexRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L17",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_routetree_gen_indexroute",
       "community": 3,
@@ -6983,7 +7103,7 @@
       "label": "EntityCreateRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L22",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_routetree_gen_entitycreateroute",
       "community": 3,
@@ -6993,7 +7113,7 @@
       "label": "EntityEntityIdRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L27",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "src_routetree_gen_entityentityidroute",
       "community": 3,
@@ -7003,7 +7123,7 @@
       "label": "EntityEditEntityIdRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L32",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "src_routetree_gen_entityeditentityidroute",
       "community": 3,
@@ -7013,7 +7133,7 @@
       "label": "FileRoutesByFullPath",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L38",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyfullpath",
       "community": 3,
@@ -7023,7 +7143,7 @@
       "label": "FileRoutesByTo",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L44",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyto",
       "community": 3,
@@ -7033,7 +7153,7 @@
       "label": "FileRoutesById",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L50",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyid",
       "community": 3,
@@ -7043,7 +7163,7 @@
       "label": "FileRouteTypes",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L57",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutetypes",
       "community": 3,
@@ -7053,7 +7173,7 @@
       "label": "RootRouteChildren",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L74",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "src_routetree_gen_rootroutechildren",
       "community": 3,
@@ -7063,7 +7183,7 @@
       "label": "FileRoutesByPath",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L82",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbypath",
       "community": 3,
@@ -7073,7 +7193,7 @@
       "label": "routeTree",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L120",
+      "source_location": "L145",
       "_origin": "ast",
       "id": "src_routetree_gen_routetree",
       "community": 3,
@@ -7083,7 +7203,7 @@
       "label": "Register",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L127",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "src_routetree_gen_register",
       "community": 3,
@@ -7403,11 +7523,41 @@
       "label": "SettingsDialog()",
       "file_type": "code",
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L371",
+      "source_location": "L374",
       "_origin": "ast",
       "id": "routes_index_settingsdialog",
       "community": 0,
       "norm_label": "settingsdialog()"
+    },
+    {
+      "label": "workflow-guide.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflow-guide.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_workflow_guide",
+      "community": 3,
+      "norm_label": "workflow-guide.tsx"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflow-guide.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "routes_workflow_guide_route",
+      "community": 3,
+      "norm_label": "route"
+    },
+    {
+      "label": "WorkflowGuideComponent()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflow-guide.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "routes_workflow_guide_workflowguidecomponent",
+      "community": 3,
+      "norm_label": "workflowguidecomponent()"
     },
     {
       "label": "server.ts",
@@ -7698,6 +7848,86 @@
       "id": "frontend_vite_config",
       "community": 46,
       "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "GAP_ANALYSIS.md",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "gap_analysis",
+      "community": 25,
+      "norm_label": "gap_analysis.md"
+    },
+    {
+      "label": "Gap Analysis for Extending the Dynamic Metadata Platform",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "community": 25,
+      "norm_label": "gap analysis for extending the dynamic metadata platform"
+    },
+    {
+      "label": "1. Advanced Business Logic (The Immediate Priority)",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "gap_analysis_1_advanced_business_logic_the_immediate_priority",
+      "community": 25,
+      "norm_label": "1. advanced business logic (the immediate priority)"
+    },
+    {
+      "label": "2. Complex Relationships and Data Integrity",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "gap_analysis_2_complex_relationships_and_data_integrity",
+      "community": 25,
+      "norm_label": "2. complex relationships and data integrity"
+    },
+    {
+      "label": "3. Fine-Grained Security and Row-Level Permissions",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "gap_analysis_3_fine_grained_security_and_row_level_permissions",
+      "community": 25,
+      "norm_label": "3. fine-grained security and row-level permissions"
+    },
+    {
+      "label": "4. Audit Logging and Versioning",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "gap_analysis_4_audit_logging_and_versioning",
+      "community": 25,
+      "norm_label": "4. audit logging and versioning"
+    },
+    {
+      "label": "5. Advanced UI Components (Frontend)",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "gap_analysis_5_advanced_ui_components_frontend",
+      "community": 25,
+      "norm_label": "5. advanced ui components (frontend)"
+    },
+    {
+      "label": "Action Plan",
+      "file_type": "document",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "gap_analysis_action_plan",
+      "community": 25,
+      "norm_label": "action plan"
     },
     {
       "label": "README.md",
@@ -8929,6 +9159,39 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_scriptservice_scriptservice_executescript",
+      "target": "string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_webhookservice_webhookservice_isallowedurl",
+      "target": "string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_webhookservice_webhookservice_sendwebhook",
+      "target": "string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
       "source_location": "L126",
       "weight": 1.0,
@@ -8936,6 +9199,28 @@
       "confidence_score": 1.0,
       "source": "service_workflowengine_workflowengine_createrecord",
       "target": "string"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_workflowengine_workflowengine_executescript",
+      "target": "string",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_workflowengine_workflowengine_executewebhook",
+      "target": "string",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -10703,6 +10988,28 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_executescript",
+      "target": "entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_executewebhook",
+      "target": "entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
       "source_location": "L48",
       "weight": 1.0,
       "context": "parameter_type",
@@ -11165,6 +11472,28 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "service_scriptservice",
+      "target": "map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_scriptservice_scriptservice_executescript",
+      "target": "map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
       "source_location": "L17",
       "weight": 1.0,
@@ -11182,6 +11511,28 @@
       "confidence_score": 1.0,
       "source": "service_workflowengine_workflowengine_createrecord",
       "target": "map"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_executescript",
+      "target": "map",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_executewebhook",
+      "target": "map",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -11461,6 +11812,28 @@
     {
       "relation": "references",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_scriptservice_scriptservice_executescript",
+      "target": "object",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_webhookservice_webhookservice_sendwebhook",
+      "target": "object",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
       "source_location": "L126",
       "weight": 1.0,
@@ -11468,6 +11841,28 @@
       "confidence_score": 1.0,
       "source": "service_workflowengine_workflowengine_createrecord",
       "target": "object"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_workflowengine_workflowengine_executescript",
+      "target": "object",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "service_workflowengine_workflowengine_executewebhook",
+      "target": "object",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -16646,6 +17041,98 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "service_scriptservice",
+      "target": "service_scriptservice_scriptservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "service_scriptservice_scriptservice",
+      "target": "service_scriptservice_scriptservice_executescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/ScriptService.java",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "service_scriptservice_scriptservice",
+      "target": "service_scriptservice_scriptservice_scriptservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "service_webhookservice",
+      "target": "service_webhookservice_webhookservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "service_webhookservice_webhookservice",
+      "target": "service_webhookservice_webhookservice_isallowedurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "service_webhookservice_webhookservice",
+      "target": "service_webhookservice_webhookservice_sendwebhook",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "service_webhookservice_webhookservice",
+      "target": "service_webhookservice_webhookservice_webhookservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WebhookService.java",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "service_webhookservice_webhookservice_sendwebhook",
+      "target": "service_webhookservice_webhookservice_isallowedurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "service_workflowengine_workflowengine_executewebhook",
+      "target": "service_webhookservice_webhookservice_sendwebhook"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
       "source_location": "L28",
       "weight": 1.0,
@@ -16672,6 +17159,26 @@
       "confidence_score": 1.0,
       "source": "service_workflowengine_workflowengine",
       "target": "service_workflowengine_workflowengine_createrecord"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "service_workflowengine_workflowengine",
+      "target": "service_workflowengine_workflowengine_executescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "service_workflowengine_workflowengine",
+      "target": "service_workflowengine_workflowengine_executewebhook",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -16778,6 +17285,28 @@
       "confidence_score": 1.0,
       "source": "service_workflowengine_workflowengine_runactions",
       "target": "service_workflowengine_workflowengine_createrecord"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "service_workflowengine_workflowengine_runactions",
+      "target": "service_workflowengine_workflowengine_executescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L115",
+      "weight": 1.0,
+      "source": "service_workflowengine_workflowengine_runactions",
+      "target": "service_workflowengine_workflowengine_executewebhook",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -16900,9 +17429,9 @@
       "source_file": "backend/src/test/java/com/rnt/rent/MongoConfigTest.java",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "rent_mongoconfigtest",
-      "target": "rent_mongoconfigtest_mongoconfigtest",
-      "confidence_score": 1.0
+      "target": "rent_mongoconfigtest_mongoconfigtest"
     },
     {
       "relation": "imports",
@@ -16911,9 +17440,9 @@
       "source_file": "backend/src/test/java/com/rnt/rent/MongoConfigTest.java",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "rent_mongoconfigtest",
-      "target": "test",
-      "confidence_score": 1.0
+      "target": "test"
     },
     {
       "relation": "method",
@@ -16921,9 +17450,9 @@
       "source_file": "backend/src/test/java/com/rnt/rent/MongoConfigTest.java",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "rent_mongoconfigtest_mongoconfigtest",
-      "target": "rent_mongoconfigtest_mongoconfigtest_testregex",
-      "confidence_score": 1.0
+      "target": "rent_mongoconfigtest_mongoconfigtest_testregex"
     },
     {
       "relation": "references",
@@ -16932,9 +17461,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "rent_mongoconfigtest_mongoconfigtest_testregex",
-      "target": "test",
-      "confidence_score": 1.0
+      "target": "test"
     },
     {
       "relation": "imports",
@@ -24614,6 +25143,28 @@
       "target": "routes_root_route"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_workflow_guide",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_workflow_guide_route",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -24745,6 +25296,16 @@
       "target": "src_routetree_gen_routetree"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "src_routetree_gen_workflowguideroute",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -24831,6 +25392,17 @@
       "confidence_score": 1.0,
       "source": "src_routetree_gen_fileroutesbypath",
       "target": "routes_root_route"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "src_routetree_gen_fileroutesbypath",
+      "target": "routes_workflow_guide_route",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -25128,6 +25700,26 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflow-guide.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_workflow_guide",
+      "target": "routes_workflow_guide_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflow-guide.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_workflow_guide",
+      "target": "routes_workflow_guide_workflowguidecomponent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/server.ts",
       "source_location": "L52",
       "weight": 1.0,
@@ -25400,6 +25992,76 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "gap_analysis",
+      "target": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_1_advanced_business_logic_the_immediate_priority",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_2_complex_relationships_and_data_integrity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_3_fine_grained_security_and_row_level_permissions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_4_audit_logging_and_versioning",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_5_advanced_ui_components_frontend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GAP_ANALYSIS.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "gap_analysis_gap_analysis_for_extending_the_dynamic_metadata_platform",
+      "target": "gap_analysis_action_plan",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "README.md",
       "source_location": "L4",
       "weight": 1.0,
@@ -25529,5 +26191,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "cbae03471bd3523a376effd6bebe2fbdcde29555"
+  "built_at_commit": "4efe4bc9af03edfbf21412c144d4f8d152c7f2b2"
 }
