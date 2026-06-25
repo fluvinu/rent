@@ -13,6 +13,7 @@ public class EntityRecord {
     @Id
     private String id;
     private String entityTypeId;
+    private String parentRecordId;
     private Map<String, Object> data;
     private Instant createdAt;
     private Instant updatedAt;

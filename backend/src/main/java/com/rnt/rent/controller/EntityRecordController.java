@@ -21,6 +21,11 @@ public class EntityRecordController {
         return entityRecordService.getByEntityTypeId(entityTypeId);
     }
 
+    @GetMapping("/parent/{parentRecordId}")
+    public List<EntityRecord> getByParentRecordId(@PathVariable String parentRecordId) {
+        return entityRecordService.getByParentRecordId(parentRecordId);
+    }
+
     @PostMapping("/entity/{entityTypeId}/query")
     public List<Map<String, Object>> query(@PathVariable String entityTypeId,
                                            @RequestBody(required = false) QueryRequest request) {
