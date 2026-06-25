@@ -173,6 +173,7 @@ function EntityPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
+                    <TableHead>Parent ID</TableHead>
                     {type?.fields?.map((f) => (
                       <TableHead key={f.name}>{f.name}</TableHead>
                     ))}
@@ -183,7 +184,7 @@ function EntityPage() {
                   {!records && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 1}
+                        colSpan={(type?.fields?.length || 1) + 2}
                         className="text-center text-muted-foreground py-8"
                       >
                         Loading...
@@ -193,7 +194,7 @@ function EntityPage() {
                   {records && records.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 1}
+                        colSpan={(type?.fields?.length || 1) + 2}
                         className="text-center text-muted-foreground py-12"
                       >
                         No records yet.
@@ -202,6 +203,9 @@ function EntityPage() {
                   )}
                   {records?.map((r) => (
                     <TableRow key={r.id}>
+                      <TableCell className="text-muted-foreground text-xs font-mono">
+                        {r.parentRecordId || "—"}
+                      </TableCell>
                       {type?.fields?.map((f) => (
                         <TableCell key={f.name}>
                           {renderCell(r.data?.[f.name], f)}
@@ -384,11 +388,13 @@ function RecordDialog({
   onCreated: () => void;
 }) {
   const [data, setData] = useState<Record<string, any>>({});
+  const [parentRecordId, setParentRecordId] = useState<string>("");
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (open) {
       setData(editRecord ? { ...editRecord.data } : {});
+      setParentRecordId(editRecord?.parentRecordId || "");
     }
   }, [open, editRecord]);
 
@@ -408,16 +414,18 @@ function RecordDialog({
     }
     setSaving(true);
     try {
+      const payloadParentId = parentRecordId.trim() || undefined;
+
       if (editRecord) {
         await api(`/api/records/${editRecord.id}`, {
           method: "PUT",
-          body: JSON.stringify({ ...editRecord, data }),
+          body: JSON.stringify({ ...editRecord, data, parentRecordId: payloadParentId }),
         });
         toast.success("Record updated");
       } else {
         await api(`/api/records/entity/${type.id}`, {
           method: "POST",
-          body: JSON.stringify({ data }),
+          body: JSON.stringify({ data, parentRecordId: payloadParentId }),
         });
         toast.success("Record created");
       }
@@ -447,6 +455,15 @@ function RecordDialog({
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={submit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="parentRecordId">Parent Record ID (Optional)</Label>
+            <Input
+              id="parentRecordId"
+              value={parentRecordId}
+              onChange={(e) => setParentRecordId(e.target.value)}
+              placeholder="e.g. 64b819f2a..."
+            />
+          </div>
           {type.fields.map((f) => (
             <FieldInput
               key={f.name}
