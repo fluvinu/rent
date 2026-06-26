@@ -44,6 +44,17 @@ public class EntityRecordService {
                 .collect(Collectors.toList());
     }
 
+    public List<EntityRecord> getByParentRecordId(String parentRecordId) {
+        // Find parent to get its entity type id for permission checking
+        EntityRecord parent = getById(parentRecordId);
+        // Maybe we don't strictly need this but it's safe to enforce read on parent type
+        permissionService.enforce(Action.READ, parent.getEntityTypeId());
+
+        return entityRecordRepository.findByParentRecordId(parentRecordId).stream()
+                .map(this::applyReadPermissions)
+                .collect(Collectors.toList());
+    }
+
     public List<EntityRecord> query(String entityTypeId, QueryRequest request) {
         permissionService.enforce(Action.READ, entityTypeId);
         return queryService.query(entityTypeId, request).stream()
@@ -78,6 +89,7 @@ public class EntityRecordService {
 
         record.setId(null);
         record.setEntityTypeId(entityTypeId);
+        // keep record.getParentRecordId() if set
         record.setData(coerced);
         record.setCreatedAt(Instant.now());
         record.setUpdatedAt(Instant.now());
@@ -102,6 +114,9 @@ public class EntityRecordService {
         existing.setData(coerced);
         existing.setUpdatedAt(Instant.now());
         existing.setVersion(existing.getVersion() + 1);
+        if (record.getParentRecordId() != null) {
+            existing.setParentRecordId(record.getParentRecordId());
+        }
 
         EntityRecord saved = entityRecordRepository.save(existing);
         workflowEngine.onEvent(WorkflowEngine.EventType.RECORD_UPDATED, entityTypeId, saved);

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface EntityRecordRepository extends MongoRepository<EntityRecord, String> {
     List<EntityRecord> findByEntityTypeId(String entityTypeId);
+    List<EntityRecord> findByParentRecordId(String parentRecordId);
 }

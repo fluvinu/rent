@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 @Service
 public class QueryService {
 
-    private static final Set<String> TOP_LEVEL = Set.of("createdAt", "updatedAt", "version");
+    private static final Set<String> TOP_LEVEL = Set.of("createdAt", "updatedAt", "version", "parentRecordId");
 
     @Autowired
     private MongoTemplate mongoTemplate;

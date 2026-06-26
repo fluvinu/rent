@@ -70,5 +70,6 @@ export interface EntityType {
 export interface EntityRecord {
   id: string;
   entityTypeId: string;
+  parentRecordId?: string;
   data: Record<string, any>;
 }
