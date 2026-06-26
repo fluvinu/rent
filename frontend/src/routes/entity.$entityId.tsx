@@ -117,7 +117,7 @@ function EntityPage() {
     const headers = ["id", ...type.fields.map((f) => f.name)];
     const rows = records.map((r) =>
       [r.id, ...type.fields.map((f) => {
-        const v = r.data?.[f.name];
+        const v = r.data?.[f.key || f.name];
         if (v === null || v === undefined) return "";
         if (Array.isArray(v)) return v.join("|");
         return String(v).replace(/,/g, ";");
@@ -253,7 +253,7 @@ function EntityPage() {
                     <TableRow key={r.id} className="group">
                       {type?.fields?.map((f) => (
                         <TableCell key={f.name}>
-                          {renderCell(r.data?.[f.name], f)}
+                          {renderCell(r.data?.[f.key || f.name], f)}
                         </TableCell>
                       ))}
                       <TableCell>
@@ -453,17 +453,44 @@ function RecordDialog({
       setData(editRecord ? { ...editRecord.data } : {});
       setParentRecordId(editRecord?.parentRecordId || "");
 
-      if (editRecord && type.subEntityTypes && type.subEntityTypes.length > 0) {
-        // Fetch sub entity types and their records matching parentRecordId
+      if (editRecord?.id && type.subEntityTypes && type.subEntityTypes.length > 0) {
+        // Fetch all parent's child records once
+        api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`).then(allRecords => {
+          Promise.all(
+            type.subEntityTypes!.map(async (subTypeId) => {
+              try {
+                const subType = await api<EntityType>(`/api/entity-types/${subTypeId}`);
+                const filteredRecords = allRecords.filter(r => r.entityTypeId === subTypeId);
+                return { subTypeId, data: { type: subType, records: filteredRecords } };
+              } catch (e) {
+                console.error(`Failed to load sub-entity ${subTypeId}`, e);
+                return null;
+              }
+            })
+          ).then(results => {
+            const newSubRecords: Record<string, { type: EntityType, records: EntityRecord[] }> = {};
+            results.forEach(res => {
+              if (res) newSubRecords[res.subTypeId] = res.data;
+            });
+            setSubRecords(newSubRecords);
+          });
+        }).catch(err => {
+          console.error("Failed to fetch sub records", err);
+        });
+      } else {
+        setSubRecords({});
+      }
+    }
+  }, [open, editRecord, type]);
+
+  const reloadSubRecords = () => {
+    if (editRecord?.id && type.subEntityTypes && type.subEntityTypes.length > 0) {
+      api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`).then(allRecords => {
         Promise.all(
-          type.subEntityTypes.map(async (subTypeId) => {
+          type.subEntityTypes!.map(async (subTypeId) => {
             try {
-              const [subType, records] = await Promise.all([
-                api<EntityType>(`/api/entity-types/${subTypeId}`),
-                api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`)
-              ]);
-              // Filter to only those of this subType since getByParentRecordId returns all sub records
-              const filteredRecords = records.filter(r => r.entityTypeId === subTypeId);
+              const subType = await api<EntityType>(`/api/entity-types/${subTypeId}`);
+              const filteredRecords = allRecords.filter(r => r.entityTypeId === subTypeId);
               return { subTypeId, data: { type: subType, records: filteredRecords } };
             } catch (e) {
               console.error(`Failed to load sub-entity ${subTypeId}`, e);
@@ -477,34 +504,6 @@ function RecordDialog({
           });
           setSubRecords(newSubRecords);
         });
-      } else {
-        setSubRecords({});
-      }
-    }
-  }, [open, editRecord, type]);
-
-  const reloadSubRecords = () => {
-    if (editRecord && type.subEntityTypes && type.subEntityTypes.length > 0) {
-      Promise.all(
-        type.subEntityTypes.map(async (subTypeId) => {
-          try {
-            const [subType, records] = await Promise.all([
-              api<EntityType>(`/api/entity-types/${subTypeId}`),
-              api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`)
-            ]);
-            const filteredRecords = records.filter(r => r.entityTypeId === subTypeId);
-            return { subTypeId, data: { type: subType, records: filteredRecords } };
-          } catch (e) {
-            console.error(`Failed to load sub-entity ${subTypeId}`, e);
-            return null;
-          }
-        })
-      ).then(results => {
-        const newSubRecords: Record<string, { type: EntityType, records: EntityRecord[] }> = {};
-        results.forEach(res => {
-          if (res) newSubRecords[res.subTypeId] = res.data;
-        });
-        setSubRecords(newSubRecords);
       });
     }
   };
