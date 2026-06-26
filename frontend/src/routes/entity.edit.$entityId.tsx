@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -16,7 +16,8 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/lib/auth";
 import { api, type FieldDef, type FieldType, type EntityType } from "@/lib/api";
-import { ArrowLeft, Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
+import { AppShell } from "@/components/AppShell";
 
 const FIELD_TYPES: FieldType[] = [
   "TEXT",
@@ -140,27 +141,19 @@ function EditEntityType() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        Loading...
-      </div>
+      <AppShell>
+        <div className="flex items-center justify-center h-64 text-muted-foreground">Loading...</div>
+      </AppShell>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="max-w-3xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to={`/entity/${entityId}`}>
-              <ArrowLeft className="size-4 mr-2" />
-              Back
-            </Link>
-          </Button>
-          <h1 className="font-semibold">Edit Entity Type</h1>
+    <AppShell>
+      <div className="max-w-3xl mx-auto px-6 py-8">
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold tracking-tight">Edit Schema</h1>
+          <p className="text-muted-foreground text-sm mt-1">Modify fields for {name}.</p>
         </div>
-      </header>
-
-      <main className="max-w-3xl mx-auto px-6 py-10">
         <form onSubmit={submit} className="space-y-6">
           <Card>
             <CardHeader>
@@ -295,15 +288,15 @@ function EditEntityType() {
           </Card>
 
           <div className="flex justify-end gap-2">
-            <Button type="button" variant="ghost" asChild>
-              <Link to="/">Cancel</Link>
+            <Button type="button" variant="ghost" onClick={() => navigate({ to: `/entity/${entityId}` })}>
+              Cancel
             </Button>
             <Button type="submit" disabled={saving}>
               {saving ? "Saving..." : "Save Changes"}
             </Button>
           </div>
         </form>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   );
 }

@@ -16,7 +16,8 @@ import {
 } from "@/components/ui/select";
 import { useAuth } from "@/lib/auth";
 import { api, type FieldDef, type FieldType, type EntityType } from "@/lib/api";
-import { ArrowLeft, Plus, Trash2 } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
+import { AppShell } from "@/components/AppShell";
 
 const FIELD_TYPES: FieldType[] = [
   "TEXT",
@@ -109,7 +110,7 @@ function CreateEntityType() {
         body: JSON.stringify(payload),
       });
       toast.success("Entity type created");
-      navigate({ to: "/" });
+      navigate({ to: "/dashboard" });
     } catch (err: any) {
       toast.error(err.message || "Failed to create");
     } finally {
@@ -118,20 +119,12 @@ function CreateEntityType() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="max-w-3xl mx-auto px-6 h-16 flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/">
-              <ArrowLeft className="size-4 mr-2" />
-              Back
-            </Link>
-          </Button>
-          <h1 className="font-semibold">New Entity Type</h1>
+    <AppShell>
+      <div className="max-w-3xl mx-auto px-6 py-8">
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold tracking-tight">New Entity Type</h1>
+          <p className="text-muted-foreground text-sm mt-1">Define a new data schema for your app.</p>
         </div>
-      </header>
-
-      <main className="max-w-3xl mx-auto px-6 py-10">
         <form onSubmit={submit} className="space-y-6">
           <Card>
             <CardHeader>
@@ -266,15 +259,15 @@ function CreateEntityType() {
           </Card>
 
           <div className="flex justify-end gap-2">
-            <Button type="button" variant="ghost" asChild>
-              <Link to="/">Cancel</Link>
+            <Button type="button" variant="ghost" onClick={() => navigate({ to: "/dashboard" })}>
+              Cancel
             </Button>
             <Button type="submit" disabled={saving}>
               {saving ? "Creating..." : "Create Entity Type"}
             </Button>
           </div>
         </form>
-      </main>
-    </div>
+      </div>
+    </AppShell>
   );
 }

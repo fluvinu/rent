@@ -4,8 +4,6 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -13,13 +11,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -37,8 +28,23 @@ import {
   type EntityType,
   type FieldDef,
 } from "@/lib/api";
-import { ArrowLeft, Plus, Trash2, Edit } from "lucide-react";
+import {
+  Edit,
+  Plus,
+  Trash2,
+  LayoutGrid,
+  Table2,
+  Kanban,
+  CalendarDays,
+  BarChart2,
+  Settings,
+  Download,
+} from "lucide-react";
 import { FieldInput } from "@/components/FieldInput";
+import { KanbanView } from "@/components/KanbanView";
+import { CalendarView } from "@/components/CalendarView";
+import { GalleryView } from "@/components/GalleryView";
+import { AppShell } from "@/components/AppShell";
 import {
   BarChart,
   Bar,
@@ -53,7 +59,7 @@ import {
 } from "recharts";
 
 export const Route = createFileRoute("/entity/$entityId")({
-  head: () => ({ meta: [{ title: "Records — Rent" }] }),
+  head: () => ({ meta: [{ title: "Records — AppBuilder" }] }),
   component: EntityPage,
 });
 
@@ -67,6 +73,7 @@ function EntityPage() {
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [editRecord, setEditRecord] = useState<EntityRecord | null>(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (ready && !token) navigate({ to: "/" });
@@ -95,65 +102,86 @@ function EntityPage() {
   };
 
   const deleteDataset = async () => {
-    if (
-      !confirm(
-        "Delete this entire dataset? All records and schema will be lost.",
-      )
-    )
-      return;
+    if (!confirm("Delete this entire entity type and all records?")) return;
     try {
       await api(`/api/entity-types/${entityId}`, { method: "DELETE" });
-      toast.success("Dataset deleted");
-      navigate({ to: "/" });
+      toast.success("Entity type deleted");
+      navigate({ to: "/dashboard" });
     } catch (e: any) {
       toast.error(e.message);
     }
   };
 
-  return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
-              <Link to="/">
-                <ArrowLeft className="size-4 mr-2" />
-                Back
-              </Link>
-            </Button>
-            <h1 className="font-semibold">{type?.name || "Loading..."}</h1>
-          </div>
-          {type && (
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" asChild>
-                <Link to={`/entity/edit/${entityId}`}>
-                  <Edit className="size-4 mr-2" />
-                  Edit Schema
-                </Link>
-              </Button>
-              <Button variant="destructive" size="sm" onClick={deleteDataset}>
-                <Trash2 className="size-4 mr-2" />
-                Delete Dataset
-              </Button>
-            </div>
-          )}
-        </div>
-      </header>
+  const exportCSV = () => {
+    if (!type || !records) return;
+    const headers = ["id", ...type.fields.map((f) => f.name)];
+    const rows = records.map((r) =>
+      [r.id, ...type.fields.map((f) => {
+        const v = r.data?.[f.name];
+        if (v === null || v === undefined) return "";
+        if (Array.isArray(v)) return v.join("|");
+        return String(v).replace(/,/g, ";");
+      })].join(","),
+    );
+    const csv = [headers.join(","), ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${type.name.toLowerCase().replace(/\s+/g, "_")}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
-      <main className="max-w-6xl mx-auto px-6 py-10">
-        <div className="flex items-center justify-between mb-6">
+  const filteredRecords = records
+    ? records.filter((r) => {
+        if (!search) return true;
+        return Object.values(r.data || {}).some((v) =>
+          String(v).toLowerCase().includes(search.toLowerCase()),
+        );
+      })
+    : null;
+
+  const openNew = () => {
+    setEditRecord(null);
+    setOpen(true);
+  };
+
+  return (
+    <AppShell>
+      <div className="p-6 max-w-full">
+        <div className="flex items-start justify-between gap-4 mb-6 flex-wrap">
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight">Records</h2>
+            <h1 className="text-2xl font-semibold tracking-tight">
+              {type?.name || "Loading..."}
+            </h1>
             {type?.description && (
               <p className="text-muted-foreground text-sm mt-1">
                 {type.description}
               </p>
             )}
+            {records !== null && (
+              <p className="text-xs text-muted-foreground mt-1">
+                {records.length} record{records.length !== 1 ? "s" : ""}
+              </p>
+            )}
           </div>
-          <Button onClick={() => setOpen(true)} disabled={!type}>
-            <Plus className="size-4 mr-2" />
-            New Record
-          </Button>
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button variant="outline" size="sm" onClick={exportCSV} disabled={!records}>
+              <Download className="size-4 mr-2" /> Export CSV
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to={`/entity/edit/${entityId}`}>
+                <Settings className="size-4 mr-2" /> Schema
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" onClick={deleteDataset} className="text-destructive hover:text-destructive">
+              <Trash2 className="size-4 mr-2" /> Delete
+            </Button>
+            <Button onClick={openNew} disabled={!type}>
+              <Plus className="size-4 mr-2" /> New Record
+            </Button>
+          </div>
         </div>
 
         {error && (
@@ -163,72 +191,88 @@ function EntityPage() {
         )}
 
         <Tabs defaultValue="table" className="w-full">
-          <TabsList className="mb-4">
-            <TabsTrigger value="table">Table</TabsTrigger>
-            <TabsTrigger value="charts">Charts</TabsTrigger>
-          </TabsList>
+          <div className="flex items-center justify-between mb-4 gap-4 flex-wrap">
+            <TabsList>
+              <TabsTrigger value="table" className="gap-1.5">
+                <Table2 className="size-3.5" /> Table
+              </TabsTrigger>
+              <TabsTrigger value="kanban" className="gap-1.5">
+                <Kanban className="size-3.5" /> Kanban
+              </TabsTrigger>
+              <TabsTrigger value="calendar" className="gap-1.5">
+                <CalendarDays className="size-3.5" /> Calendar
+              </TabsTrigger>
+              <TabsTrigger value="gallery" className="gap-1.5">
+                <LayoutGrid className="size-3.5" /> Gallery
+              </TabsTrigger>
+              <TabsTrigger value="charts" className="gap-1.5">
+                <BarChart2 className="size-3.5" /> Charts
+              </TabsTrigger>
+            </TabsList>
+            <Input
+              className="max-w-xs h-8 text-sm"
+              placeholder="Search records..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
 
           <TabsContent value="table" className="mt-0">
             <div className="rounded-lg border overflow-hidden">
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Parent ID</TableHead>
                     {type?.fields?.map((f) => (
                       <TableHead key={f.name}>{f.name}</TableHead>
                     ))}
-                    <TableHead className="w-12" />
+                    <TableHead className="w-20" />
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {!records && (
+                  {!filteredRecords && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 2}
-                        className="text-center text-muted-foreground py-8"
+                        colSpan={(type?.fields?.length || 1) + 1}
+                        className="text-center text-muted-foreground py-12"
                       >
                         Loading...
                       </TableCell>
                     </TableRow>
                   )}
-                  {records && records.length === 0 && (
+                  {filteredRecords && filteredRecords.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 2}
+                        colSpan={(type?.fields?.length || 1) + 1}
                         className="text-center text-muted-foreground py-12"
                       >
-                        No records yet.
+                        {search ? "No records match your search." : "No records yet. Create one to get started."}
                       </TableCell>
                     </TableRow>
                   )}
-                  {records?.map((r) => (
-                    <TableRow key={r.id}>
-                      <TableCell className="text-muted-foreground text-xs font-mono">
-                        {r.parentRecordId || "—"}
-                      </TableCell>
+                  {filteredRecords?.map((r) => (
+                    <TableRow key={r.id} className="group">
                       {type?.fields?.map((f) => (
                         <TableCell key={f.name}>
                           {renderCell(r.data?.[f.name], f)}
                         </TableCell>
                       ))}
                       <TableCell>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           <Button
                             variant="ghost"
                             size="icon"
-                            onClick={() => {
-                              setEditRecord(r);
-                              setOpen(true);
-                            }}
+                            className="size-7"
+                            onClick={() => { setEditRecord(r); setOpen(true); }}
                           >
-                            <Edit className="size-4" />
+                            <Edit className="size-3.5" />
                           </Button>
                           <Button
                             variant="ghost"
                             size="icon"
+                            className="size-7"
                             onClick={() => deleteRecord(r.id)}
                           >
-                            <Trash2 className="size-4" />
+                            <Trash2 className="size-3.5" />
                           </Button>
                         </div>
                       </TableCell>
@@ -239,40 +283,68 @@ function EntityPage() {
             </div>
           </TabsContent>
 
+          <TabsContent value="kanban" className="mt-0">
+            {type && filteredRecords !== null && (
+              <KanbanView
+                type={type}
+                records={filteredRecords}
+                onEdit={(r) => { setEditRecord(r); setOpen(true); }}
+                onDelete={deleteRecord}
+                onNew={openNew}
+              />
+            )}
+          </TabsContent>
+
+          <TabsContent value="calendar" className="mt-0">
+            {type && filteredRecords !== null && (
+              <CalendarView
+                type={type}
+                records={filteredRecords}
+                onEdit={(r) => { setEditRecord(r); setOpen(true); }}
+                onNew={openNew}
+              />
+            )}
+          </TabsContent>
+
+          <TabsContent value="gallery" className="mt-0">
+            {type && filteredRecords !== null && (
+              <GalleryView
+                type={type}
+                records={filteredRecords}
+                onEdit={(r) => { setEditRecord(r); setOpen(true); }}
+                onDelete={deleteRecord}
+                onNew={openNew}
+              />
+            )}
+          </TabsContent>
+
           <TabsContent value="charts" className="mt-0">
-            {type && records && (
+            {type && filteredRecords && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {type.fields
-                  .filter((f) =>
-                    ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type),
-                  )
+                  .filter((f) => ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type))
                   .map((f) => (
                     <div key={f.name} className="border rounded-lg p-4">
-                      <h3 className="text-lg font-medium mb-4 text-center">
-                        {f.name}
-                      </h3>
-                      <div className="h-[300px] w-full">
+                      <h3 className="text-sm font-medium mb-4 text-center">{f.name}</h3>
+                      <div className="h-[260px] w-full">
                         {f.type === "NUMBER"
-                          ? renderBarChart(f, records)
-                          : renderPieChart(f, records)}
+                          ? renderBarChart(f, filteredRecords)
+                          : renderPieChart(f, filteredRecords)}
                       </div>
                     </div>
                   ))}
+                {type.fields.filter((f) =>
+                  ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type),
+                ).length === 0 && (
+                  <div className="col-span-2 text-center text-muted-foreground py-16 border rounded-lg border-dashed">
+                    Add a Number, Boolean, or Select field to see charts.
+                  </div>
+                )}
               </div>
             )}
-            {type &&
-              records &&
-              type.fields.filter((f) =>
-                ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type),
-              ).length === 0 && (
-                <div className="text-center text-muted-foreground py-12 border rounded-lg">
-                  No charted fields available. Add a Number, Boolean, or Select
-                  field to see charts.
-                </div>
-              )}
           </TabsContent>
         </Tabs>
-      </main>
+      </div>
 
       {type && (
         <RecordDialog
@@ -287,57 +359,52 @@ function EntityPage() {
           }}
         />
       )}
-    </div>
+    </AppShell>
   );
 }
 
 function renderCell(value: any, f: FieldDef) {
   if (value === undefined || value === null || value === "")
-    return <span className="text-muted-foreground">—</span>;
+    return <span className="text-muted-foreground text-xs">—</span>;
   if (f.type === "BOOLEAN")
     return (
-      <Badge variant={value ? "default" : "secondary"}>
-        {value ? "true" : "false"}
+      <Badge variant={value ? "default" : "secondary"} className="text-xs">
+        {value ? "Yes" : "No"}
       </Badge>
     );
   if (f.type === "MULTI_SELECT" && Array.isArray(value))
     return (
       <div className="flex flex-wrap gap-1">
         {value.map((v) => (
-          <Badge key={v} variant="outline">
+          <Badge key={v} variant="outline" className="text-xs">
             {v}
           </Badge>
         ))}
       </div>
     );
+  if (f.type === "SELECT")
+    return <Badge variant="outline" className="text-xs">{String(value)}</Badge>;
   if (typeof value === "object")
-    return <code className="text-xs">{JSON.stringify(value)}</code>;
-  return String(value);
+    return <code className="text-xs text-muted-foreground">{JSON.stringify(value)}</code>;
+  const str = String(value);
+  return <span className="text-sm">{str.length > 60 ? str.slice(0, 60) + "…" : str}</span>;
 }
 
-const COLORS = [
-  "#0088FE",
-  "#00C49F",
-  "#FFBB28",
-  "#FF8042",
-  "#8884d8",
-  "#82ca9d",
-  "#ffc658",
-];
+const COLORS = ["#6366f1","#8b5cf6","#ec4899","#f59e0b","#10b981","#3b82f6","#ef4444"];
 
 function renderBarChart(f: FieldDef, records: EntityRecord[]) {
   const data = records.map((r, i) => ({
-    name: `Record ${i + 1}`,
+    name: `#${i + 1}`,
     value: Number(r.data[f.name]) || 0,
   }));
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" hide />
-        <YAxis />
+      <BarChart data={data} barSize={20}>
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis dataKey="name" hide={data.length > 20} tick={{ fontSize: 11 }} />
+        <YAxis tick={{ fontSize: 11 }} />
         <Tooltip />
-        <Bar dataKey="value" fill="#8884d8" />
+        <Bar dataKey="value" fill="#6366f1" radius={[3,3,0,0]} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -350,23 +417,11 @@ function renderPieChart(f: FieldDef, records: EntityRecord[]) {
     counts[val] = (counts[val] || 0) + 1;
   });
   const data = Object.entries(counts).map(([name, value]) => ({ name, value }));
-
   return (
     <ResponsiveContainer width="100%" height="100%">
       <PieChart>
-        <Pie
-          data={data}
-          dataKey="value"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
-          outerRadius={100}
-          fill="#8884d8"
-          label={(entry) => `${entry.name} (${entry.value})`}
-        >
-          {data.map((_, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
+        <Pie data={data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} label={e => e.name}>
+          {data.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
         </Pie>
         <Tooltip />
       </PieChart>
@@ -375,11 +430,7 @@ function renderPieChart(f: FieldDef, records: EntityRecord[]) {
 }
 
 function RecordDialog({
-  open,
-  onOpenChange,
-  type,
-  editRecord,
-  onCreated,
+  open, onOpenChange, type, editRecord, onCreated,
 }: {
   open: boolean;
   onOpenChange: (v: boolean) => void;
@@ -403,19 +454,13 @@ function RecordDialog({
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     for (const f of type.fields) {
-      if (
-        f.required &&
-        (data[f.name] === undefined ||
-          data[f.name] === "" ||
-          data[f.name] === null)
-      ) {
+      if (f.required && (data[f.name] === undefined || data[f.name] === "" || data[f.name] === null)) {
         return toast.error(`${f.name} is required`);
       }
     }
     setSaving(true);
     try {
       const payloadParentId = parentRecordId.trim() || undefined;
-
       if (editRecord) {
         await api(`/api/records/${editRecord.id}`, {
           method: "PUT",
@@ -438,49 +483,26 @@ function RecordDialog({
   };
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(val) => {
-        onOpenChange(val);
-        if (!val && editRecord) {
-          // Reset state when clicking outside or hitting ESC so it doesn't stay as Edit mode
-          onCreated(); // The parent handles setting editRecord to null
-        }
-      }}
-    >
+    <Dialog open={open} onOpenChange={(val) => { onOpenChange(val); if (!val && editRecord) onCreated(); }}>
       <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>
-            {editRecord ? "Edit" : "New"} {type.name}
-          </DialogTitle>
+          <DialogTitle>{editRecord ? "Edit" : "New"} {type.name}</DialogTitle>
         </DialogHeader>
         <form onSubmit={submit} className="space-y-4">
+          {type.fields.map((f) => (
+            <FieldInput key={f.name} field={f} value={data[f.name]} onChange={(v) => update(f.name, v)} />
+          ))}
           <div className="space-y-2">
-            <Label htmlFor="parentRecordId">Parent Record ID (Optional)</Label>
+            <Label className="text-muted-foreground text-xs">Parent Record ID (Optional)</Label>
             <Input
-              id="parentRecordId"
               value={parentRecordId}
               onChange={(e) => setParentRecordId(e.target.value)}
-              placeholder="e.g. 64b819f2a..."
+              placeholder="Leave empty for top-level record"
+              className="h-8 text-sm"
             />
           </div>
-          {type.fields.map((f) => (
-            <FieldInput
-              key={f.name}
-              field={f}
-              value={data[f.name]}
-              onChange={(v) => update(f.name, v)}
-            />
-          ))}
           <DialogFooter>
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={() => {
-                onOpenChange(false);
-                if (editRecord) onCreated(); // This resets editRecord to null in parent
-              }}
-            >
+            <Button type="button" variant="ghost" onClick={() => { onOpenChange(false); if (editRecord) onCreated(); }}>
               Cancel
             </Button>
             <Button type="submit" disabled={saving}>
