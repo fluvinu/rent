@@ -23,7 +23,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "rent_rentapplication",
-      "community": 8,
+      "community": 1,
       "norm_label": "rentapplication.java"
     },
     {
@@ -33,7 +33,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "rent_rentapplication_rentapplication",
-      "community": 8,
+      "community": 1,
       "norm_label": "rentapplication"
     },
     {
@@ -43,7 +43,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "rent_rentapplication_rentapplication_main",
-      "community": 8,
+      "community": 1,
       "norm_label": ".main()"
     },
     {
@@ -53,7 +53,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "string",
-      "community": 8,
+      "community": 1,
       "norm_label": "string"
     },
     {
@@ -313,7 +313,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "postmapping",
-      "community": 1,
+      "community": 6,
       "norm_label": "postmapping"
     },
     {
@@ -433,7 +433,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_create",
-      "community": 8,
+      "community": 6,
       "norm_label": ".create()"
     },
     {
@@ -453,7 +453,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_update",
-      "community": 8,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -463,7 +463,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "putmapping",
-      "community": 8,
+      "community": 6,
       "norm_label": "putmapping"
     },
     {
@@ -473,7 +473,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "controller_entityrecordcontroller_entityrecordcontroller_delete",
-      "community": 8,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -483,7 +483,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "deletemapping",
-      "community": 8,
+      "community": 6,
       "norm_label": "deletemapping"
     },
     {
@@ -583,7 +583,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "controller_entitytypecontroller_entitytypecontroller_delete",
-      "community": 8,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -593,7 +593,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler",
-      "community": 8,
+      "community": 1,
       "norm_label": "globalexceptionhandler.java"
     },
     {
@@ -603,7 +603,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler",
-      "community": 8,
+      "community": 1,
       "norm_label": "globalexceptionhandler"
     },
     {
@@ -613,7 +613,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler_handlebadrequest",
-      "community": 8,
+      "community": 1,
       "norm_label": ".handlebadrequest()"
     },
     {
@@ -633,7 +633,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "exceptionhandler",
-      "community": 8,
+      "community": 1,
       "norm_label": "exceptionhandler"
     },
     {
@@ -643,7 +643,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "controller_globalexceptionhandler_globalexceptionhandler_handleforbidden",
-      "community": 8,
+      "community": 1,
       "norm_label": ".handleforbidden()"
     },
     {
@@ -673,7 +673,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controller_permissioncontroller_permissioncontroller",
-      "community": 8,
+      "community": 6,
       "norm_label": "permissioncontroller"
     },
     {
@@ -693,7 +693,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "controller_permissioncontroller_permissioncontroller_create",
-      "community": 8,
+      "community": 6,
       "norm_label": ".create()"
     },
     {
@@ -703,7 +703,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "controller_permissioncontroller_permissioncontroller_getbyid",
-      "community": 8,
+      "community": 6,
       "norm_label": ".getbyid()"
     },
     {
@@ -713,7 +713,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "controller_permissioncontroller_permissioncontroller_update",
-      "community": 8,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -723,7 +723,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "controller_permissioncontroller_permissioncontroller_delete",
-      "community": 8,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -783,7 +783,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "controller_viewcontroller",
-      "community": 8,
+      "community": 6,
       "norm_label": "viewcontroller.java"
     },
     {
@@ -793,7 +793,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller",
-      "community": 8,
+      "community": 6,
       "norm_label": "viewcontroller"
     },
     {
@@ -803,7 +803,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_getbyentitytype",
-      "community": 8,
+      "community": 6,
       "norm_label": ".getbyentitytype()"
     },
     {
@@ -813,7 +813,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_create",
-      "community": 8,
+      "community": 6,
       "norm_label": ".create()"
     },
     {
@@ -823,7 +823,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_getbyid",
-      "community": 8,
+      "community": 6,
       "norm_label": ".getbyid()"
     },
     {
@@ -833,7 +833,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_update",
-      "community": 8,
+      "community": 6,
       "norm_label": ".update()"
     },
     {
@@ -843,7 +843,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "controller_viewcontroller_viewcontroller_delete",
-      "community": 8,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -875,6 +875,16 @@
       "id": "controller_workflowcontroller_workflowcontroller_getbyentitytype",
       "community": 8,
       "norm_label": ".getbyentitytype()"
+    },
+    {
+      "label": "Workflow",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "workflow",
+      "community": 8,
+      "norm_label": "workflow"
     },
     {
       "label": ".create()",
@@ -913,7 +923,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "controller_workflowcontroller_workflowcontroller_delete",
-      "community": 8,
+      "community": 6,
       "norm_label": ".delete()"
     },
     {
@@ -1183,7 +1193,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "entity_view",
-      "community": 8,
+      "community": 6,
       "norm_label": "view.java"
     },
     {
@@ -1193,7 +1203,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "entity_view_view",
-      "community": 8,
+      "community": 6,
       "norm_label": "view"
     },
     {
@@ -1243,7 +1253,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "query_queryrequest",
-      "community": 5,
+      "community": 8,
       "norm_label": "queryrequest.java"
     },
     {
@@ -1283,7 +1293,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "query_queryrequest_sortspec",
-      "community": 5,
+      "community": 8,
       "norm_label": "sortspec"
     },
     {
@@ -1293,7 +1303,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "query_queryrequest_pagespec",
-      "community": 5,
+      "community": 8,
       "norm_label": "pagespec"
     },
     {
@@ -1463,7 +1473,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "repository_viewrepository",
-      "community": 8,
+      "community": 6,
       "norm_label": "viewrepository.java"
     },
     {
@@ -1473,7 +1483,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "repository_viewrepository_viewrepository",
-      "community": 8,
+      "community": 6,
       "norm_label": "viewrepository"
     },
     {
@@ -1483,7 +1493,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "repository_viewrepository_viewrepository_findbyentitytypeid",
-      "community": 8,
+      "community": 6,
       "norm_label": ".findbyentitytypeid()"
     },
     {
@@ -1523,7 +1533,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "security_jwtfilter",
-      "community": 7,
+      "community": 1,
       "norm_label": "jwtfilter.java"
     },
     {
@@ -1533,7 +1543,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "security_jwtfilter_jwtfilter",
-      "community": 7,
+      "community": 1,
       "norm_label": "jwtfilter"
     },
     {
@@ -1543,7 +1553,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "onceperrequestfilter",
-      "community": 7,
+      "community": 1,
       "norm_label": "onceperrequestfilter"
     },
     {
@@ -1553,7 +1563,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "security_jwtfilter_jwtfilter_dofilterinternal",
-      "community": 7,
+      "community": 1,
       "norm_label": ".dofilterinternal()"
     },
     {
@@ -1563,7 +1573,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "httpservletrequest",
-      "community": 7,
+      "community": 1,
       "norm_label": "httpservletrequest"
     },
     {
@@ -1573,7 +1583,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "httpservletresponse",
-      "community": 7,
+      "community": 1,
       "norm_label": "httpservletresponse"
     },
     {
@@ -1583,7 +1593,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "filterchain",
-      "community": 7,
+      "community": 1,
       "norm_label": "filterchain"
     },
     {
@@ -1593,7 +1603,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "security_jwtutil",
-      "community": 7,
+      "community": 1,
       "norm_label": "jwtutil.java"
     },
     {
@@ -1603,7 +1613,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil",
-      "community": 7,
+      "community": 1,
       "norm_label": "jwtutil"
     },
     {
@@ -1613,7 +1623,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_getsigningkey",
-      "community": 7,
+      "community": 1,
       "norm_label": ".getsigningkey()"
     },
     {
@@ -1623,7 +1633,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "secretkey",
-      "community": 7,
+      "community": 1,
       "norm_label": "secretkey"
     },
     {
@@ -1633,7 +1643,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extractusername",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extractusername()"
     },
     {
@@ -1643,7 +1653,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extracttenantname",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extracttenantname()"
     },
     {
@@ -1653,7 +1663,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extractrole",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extractrole()"
     },
     {
@@ -1663,7 +1673,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extractexpiration",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extractexpiration()"
     },
     {
@@ -1673,7 +1683,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "date",
-      "community": 7,
+      "community": 1,
       "norm_label": "date"
     },
     {
@@ -1683,7 +1693,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extractclaim",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extractclaim()"
     },
     {
@@ -1693,7 +1703,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "function",
-      "community": 7,
+      "community": 1,
       "norm_label": "function"
     },
     {
@@ -1703,7 +1713,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "claims",
-      "community": 7,
+      "community": 1,
       "norm_label": "claims"
     },
     {
@@ -1713,7 +1723,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "t",
-      "community": 7,
+      "community": 1,
       "norm_label": "t"
     },
     {
@@ -1723,7 +1733,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_extractallclaims",
-      "community": 7,
+      "community": 1,
       "norm_label": ".extractallclaims()"
     },
     {
@@ -1733,7 +1743,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_istokenexpired",
-      "community": 7,
+      "community": 1,
       "norm_label": ".istokenexpired()"
     },
     {
@@ -1743,7 +1753,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "boolean",
-      "community": 7,
+      "community": 1,
       "norm_label": "boolean"
     },
     {
@@ -1753,7 +1763,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_generatetoken",
-      "community": 7,
+      "community": 1,
       "norm_label": ".generatetoken()"
     },
     {
@@ -1763,7 +1773,7 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_createtoken",
-      "community": 7,
+      "community": 1,
       "norm_label": ".createtoken()"
     },
     {
@@ -1773,7 +1783,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "security_jwtutil_jwtutil_validatetoken",
-      "community": 7,
+      "community": 1,
       "norm_label": ".validatetoken()"
     },
     {
@@ -2237,16 +2247,6 @@
       "norm_label": ".enforce()"
     },
     {
-      "label": "Action",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "action",
-      "community": 8,
-      "norm_label": "action"
-    },
-    {
       "label": ".projectReadable()",
       "file_type": "code",
       "source_file": "backend/src/main/java/com/rnt/rent/service/PermissionService.java",
@@ -2303,7 +2303,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "service_queryservice_queryservice_query",
-      "community": 8,
+      "community": 5,
       "norm_label": ".query()"
     },
     {
@@ -2553,7 +2553,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "service_webhookservice",
-      "community": 5,
+      "community": 30,
       "norm_label": "webhookservice.java"
     },
     {
@@ -2563,7 +2563,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "service_webhookservice_webhookservice",
-      "community": 5,
+      "community": 30,
       "norm_label": "webhookservice"
     },
     {
@@ -2573,7 +2573,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "service_webhookservice_webhookservice_webhookservice",
-      "community": 5,
+      "community": 30,
       "norm_label": ".webhookservice()"
     },
     {
@@ -2583,7 +2583,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "service_webhookservice_webhookservice_isallowedurl",
-      "community": 5,
+      "community": 30,
       "norm_label": ".isallowedurl()"
     },
     {
@@ -2593,7 +2593,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "service_webhookservice_webhookservice_sendwebhook",
-      "community": 5,
+      "community": 30,
       "norm_label": ".sendwebhook()"
     },
     {
@@ -2713,7 +2713,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tenant_tenantcontext",
-      "community": 7,
+      "community": 1,
       "norm_label": "tenantcontext.java"
     },
     {
@@ -2723,7 +2723,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext",
-      "community": 7,
+      "community": 1,
       "norm_label": "tenantcontext"
     },
     {
@@ -2753,7 +2753,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_getrole",
-      "community": 8,
+      "community": 1,
       "norm_label": ".getrole()"
     },
     {
@@ -2763,7 +2763,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_setrole",
-      "community": 7,
+      "community": 1,
       "norm_label": ".setrole()"
     },
     {
@@ -2773,7 +2773,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "tenant_tenantcontext_tenantcontext_clear",
-      "community": 7,
+      "community": 1,
       "norm_label": ".clear()"
     },
     {
@@ -3206,7 +3206,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_package",
-      "community": 16,
+      "community": 14,
       "norm_label": "package.json"
     },
     {
@@ -3216,7 +3216,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "frontend_package_name",
-      "community": 16,
+      "community": 14,
       "norm_label": "name"
     },
     {
@@ -3226,7 +3226,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "frontend_package_private",
-      "community": 16,
+      "community": 14,
       "norm_label": "private"
     },
     {
@@ -3236,7 +3236,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "frontend_package_sideeffects",
-      "community": 16,
+      "community": 14,
       "norm_label": "sideeffects"
     },
     {
@@ -3246,7 +3246,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "frontend_package_type",
-      "community": 16,
+      "community": 14,
       "norm_label": "type"
     },
     {
@@ -3256,7 +3256,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_package_scripts",
-      "community": 13,
+      "community": 14,
       "norm_label": "scripts"
     },
     {
@@ -3266,7 +3266,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_package_scripts_dev",
-      "community": 13,
+      "community": 14,
       "norm_label": "dev"
     },
     {
@@ -3276,7 +3276,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_package_scripts_build",
-      "community": 13,
+      "community": 14,
       "norm_label": "build"
     },
     {
@@ -3286,7 +3286,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "frontend_package_scripts_build_dev",
-      "community": 13,
+      "community": 14,
       "norm_label": "build:dev"
     },
     {
@@ -3296,7 +3296,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_package_scripts_preview",
-      "community": 13,
+      "community": 14,
       "norm_label": "preview"
     },
     {
@@ -3306,7 +3306,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_package_scripts_lint",
-      "community": 13,
+      "community": 14,
       "norm_label": "lint"
     },
     {
@@ -3316,7 +3316,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "frontend_package_scripts_format",
-      "community": 13,
+      "community": 14,
       "norm_label": "format"
     },
     {
@@ -4030,6 +4030,116 @@
       "norm_label": "vite"
     },
     {
+      "label": "AppShell.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_appshell",
+      "community": 7,
+      "norm_label": "appshell.tsx"
+    },
+    {
+      "label": "AppShellProps",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "components_appshell_appshellprops",
+      "community": 16,
+      "norm_label": "appshellprops"
+    },
+    {
+      "label": "AppShell()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "components_appshell_appshell",
+      "community": 13,
+      "norm_label": "appshell()"
+    },
+    {
+      "label": "NavItem()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L209",
+      "_origin": "ast",
+      "id": "components_appshell_navitem",
+      "community": 9,
+      "norm_label": "navitem()"
+    },
+    {
+      "label": "SettingsDialog()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L245",
+      "_origin": "ast",
+      "id": "components_appshell_settingsdialog",
+      "community": 13,
+      "norm_label": "settingsdialog()"
+    },
+    {
+      "label": "CalendarView.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_calendarview",
+      "community": 37,
+      "norm_label": "calendarview.tsx"
+    },
+    {
+      "label": "CalendarViewProps",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_calendarview_calendarviewprops",
+      "community": 37,
+      "norm_label": "calendarviewprops"
+    },
+    {
+      "label": "MONTHS",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "components_calendarview_months",
+      "community": 37,
+      "norm_label": "months"
+    },
+    {
+      "label": "DOW",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "components_calendarview_dow",
+      "community": 37,
+      "norm_label": "dow"
+    },
+    {
+      "label": "CalendarView()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "components_calendarview_calendarview",
+      "community": 37,
+      "norm_label": "calendarview()"
+    },
+    {
+      "label": "getPrimaryTextField()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "components_calendarview_getprimarytextfield",
+      "community": 37,
+      "norm_label": "getprimarytextfield()"
+    },
+    {
       "label": "FieldInput.tsx",
       "file_type": "code",
       "source_file": "frontend/src/components/FieldInput.tsx",
@@ -4060,13 +4170,153 @@
       "norm_label": "relationfieldinput()"
     },
     {
+      "label": "GalleryView.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_galleryview",
+      "community": 16,
+      "norm_label": "galleryview.tsx"
+    },
+    {
+      "label": "GalleryViewProps",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_galleryview_galleryviewprops",
+      "community": 16,
+      "norm_label": "galleryviewprops"
+    },
+    {
+      "label": "ACCENT_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_galleryview_accent_colors",
+      "community": 16,
+      "norm_label": "accent_colors"
+    },
+    {
+      "label": "hashStr()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "components_galleryview_hashstr",
+      "community": 16,
+      "norm_label": "hashstr()"
+    },
+    {
+      "label": "GalleryView()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "components_galleryview_galleryview",
+      "community": 16,
+      "norm_label": "galleryview()"
+    },
+    {
+      "label": "getPrimaryTextField()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "components_galleryview_getprimarytextfield",
+      "community": 16,
+      "norm_label": "getprimarytextfield()"
+    },
+    {
+      "label": "KanbanView.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_kanbanview",
+      "community": 37,
+      "norm_label": "kanbanview.tsx"
+    },
+    {
+      "label": "COLUMN_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_kanbanview_column_colors",
+      "community": 37,
+      "norm_label": "column_colors"
+    },
+    {
+      "label": "BADGE_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "components_kanbanview_badge_colors",
+      "community": 37,
+      "norm_label": "badge_colors"
+    },
+    {
+      "label": "KanbanViewProps",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "components_kanbanview_kanbanviewprops",
+      "community": 16,
+      "norm_label": "kanbanviewprops"
+    },
+    {
+      "label": "KanbanView()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "components_kanbanview_kanbanview",
+      "community": 37,
+      "norm_label": "kanbanview()"
+    },
+    {
+      "label": "KanbanCard()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L156",
+      "_origin": "ast",
+      "id": "components_kanbanview_kanbancard",
+      "community": 37,
+      "norm_label": "kanbancard()"
+    },
+    {
+      "label": "getColumns()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L229",
+      "_origin": "ast",
+      "id": "components_kanbanview_getcolumns",
+      "community": 37,
+      "norm_label": "getcolumns()"
+    },
+    {
+      "label": "getPrimaryTextField()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L235",
+      "_origin": "ast",
+      "id": "components_kanbanview_getprimarytextfield",
+      "community": 37,
+      "norm_label": "getprimarytextfield()"
+    },
+    {
       "label": "QuickRecordDialog.tsx",
       "file_type": "code",
       "source_file": "frontend/src/components/QuickRecordDialog.tsx",
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_quickrecorddialog",
-      "community": 0,
+      "community": 7,
       "norm_label": "quickrecorddialog.tsx"
     },
     {
@@ -4076,7 +4326,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "components_quickrecorddialog_quickrecorddialog",
-      "community": 0,
+      "community": 20,
       "norm_label": "quickrecorddialog()"
     },
     {
@@ -4436,7 +4686,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_button",
-      "community": 0,
+      "community": 7,
       "norm_label": "button.tsx"
     },
     {
@@ -4466,7 +4716,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 0,
+      "community": 7,
       "norm_label": "button"
     },
     {
@@ -4506,7 +4756,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_card",
-      "community": 0,
+      "community": 13,
       "norm_label": "card.tsx"
     },
     {
@@ -4516,7 +4766,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_card_card",
-      "community": 0,
+      "community": 13,
       "norm_label": "card"
     },
     {
@@ -4526,7 +4776,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "ui_card_cardheader",
-      "community": 0,
+      "community": 13,
       "norm_label": "cardheader"
     },
     {
@@ -4536,7 +4786,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "ui_card_cardtitle",
-      "community": 0,
+      "community": 13,
       "norm_label": "cardtitle"
     },
     {
@@ -4546,7 +4796,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "ui_card_carddescription",
-      "community": 0,
+      "community": 7,
       "norm_label": "carddescription"
     },
     {
@@ -4556,7 +4806,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "ui_card_cardcontent",
-      "community": 0,
+      "community": 13,
       "norm_label": "cardcontent"
     },
     {
@@ -4566,7 +4816,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "ui_card_cardfooter",
-      "community": 0,
+      "community": 13,
       "norm_label": "cardfooter"
     },
     {
@@ -4856,7 +5106,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_command",
-      "community": 0,
+      "community": 7,
       "norm_label": "command.tsx"
     },
     {
@@ -4866,7 +5116,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "ui_command_command",
-      "community": 0,
+      "community": 7,
       "norm_label": "command"
     },
     {
@@ -4876,7 +5126,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "ui_command_commanddialog",
-      "community": 0,
+      "community": 7,
       "norm_label": "commanddialog()"
     },
     {
@@ -4886,7 +5136,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "ui_command_commandinput",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandinput"
     },
     {
@@ -4896,7 +5146,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "ui_command_commandlist",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandlist"
     },
     {
@@ -4906,7 +5156,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "ui_command_commandempty",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandempty"
     },
     {
@@ -4916,7 +5166,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "ui_command_commandgroup",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandgroup"
     },
     {
@@ -4926,7 +5176,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "ui_command_commandseparator",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandseparator"
     },
     {
@@ -4936,7 +5186,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "ui_command_commanditem",
-      "community": 0,
+      "community": 7,
       "norm_label": "commanditem"
     },
     {
@@ -4946,7 +5196,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "ui_command_commandshortcut",
-      "community": 0,
+      "community": 7,
       "norm_label": "commandshortcut()"
     },
     {
@@ -5056,7 +5306,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_dialog",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialog.tsx"
     },
     {
@@ -5066,7 +5316,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "ui_dialog_dialogoverlay",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogoverlay"
     },
     {
@@ -5076,7 +5326,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "ui_dialog_dialogcontent",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogcontent"
     },
     {
@@ -5086,7 +5336,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "ui_dialog_dialogheader",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogheader()"
     },
     {
@@ -5096,7 +5346,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "ui_dialog_dialogfooter",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogfooter()"
     },
     {
@@ -5106,7 +5356,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "ui_dialog_dialogtitle",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogtitle"
     },
     {
@@ -5116,7 +5366,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "ui_dialog_dialogdescription",
-      "community": 0,
+      "community": 7,
       "norm_label": "dialogdescription"
     },
     {
@@ -5426,7 +5676,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_hover_card",
-      "community": 9,
+      "community": 33,
       "norm_label": "hover-card.tsx"
     },
     {
@@ -5436,7 +5686,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_hover_card_hovercardcontent",
-      "community": 9,
+      "community": 33,
       "norm_label": "hovercardcontent"
     },
     {
@@ -5516,7 +5766,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_label",
-      "community": 0,
+      "community": 20,
       "norm_label": "label.tsx"
     },
     {
@@ -5526,7 +5776,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_label_labelvariants",
-      "community": 0,
+      "community": 20,
       "norm_label": "labelvariants"
     },
     {
@@ -5536,7 +5786,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_label_label",
-      "community": 0,
+      "community": 20,
       "norm_label": "label"
     },
     {
@@ -5886,7 +6136,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_popover",
-      "community": 0,
+      "community": 33,
       "norm_label": "popover.tsx"
     },
     {
@@ -5896,7 +6146,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_popover_popovercontent",
-      "community": 0,
+      "community": 33,
       "norm_label": "popovercontent"
     },
     {
@@ -5906,7 +6156,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_progress",
-      "community": 20,
+      "community": 33,
       "norm_label": "progress.tsx"
     },
     {
@@ -5916,7 +6166,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_progress_progress",
-      "community": 20,
+      "community": 33,
       "norm_label": "progress"
     },
     {
@@ -5926,7 +6176,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_radio_group",
-      "community": 40,
+      "community": 33,
       "norm_label": "radio-group.tsx"
     },
     {
@@ -5936,7 +6186,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "ui_radio_group_radiogroup",
-      "community": 40,
+      "community": 33,
       "norm_label": "radiogroup"
     },
     {
@@ -5946,7 +6196,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "ui_radio_group_radiogroupitem",
-      "community": 40,
+      "community": 33,
       "norm_label": "radiogroupitem"
     },
     {
@@ -5986,7 +6236,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_scroll_area",
-      "community": 41,
+      "community": 33,
       "norm_label": "scroll-area.tsx"
     },
     {
@@ -5996,7 +6246,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_scroll_area_scrollarea",
-      "community": 41,
+      "community": 33,
       "norm_label": "scrollarea"
     },
     {
@@ -6006,7 +6256,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "ui_scroll_area_scrollbar",
-      "community": 41,
+      "community": 33,
       "norm_label": "scrollbar"
     },
     {
@@ -6016,7 +6266,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_select",
-      "community": 0,
+      "community": 37,
       "norm_label": "select.tsx"
     },
     {
@@ -6026,7 +6276,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_select_selecttrigger",
-      "community": 0,
+      "community": 37,
       "norm_label": "selecttrigger"
     },
     {
@@ -6036,7 +6286,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "ui_select_selectscrollupbutton",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectscrollupbutton"
     },
     {
@@ -6046,7 +6296,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "ui_select_selectscrolldownbutton",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectscrolldownbutton"
     },
     {
@@ -6056,7 +6306,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "ui_select_selectcontent",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectcontent"
     },
     {
@@ -6066,7 +6316,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "ui_select_selectlabel",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectlabel"
     },
     {
@@ -6076,7 +6326,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "ui_select_selectitem",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectitem"
     },
     {
@@ -6086,7 +6336,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "ui_select_selectseparator",
-      "community": 0,
+      "community": 37,
       "norm_label": "selectseparator"
     },
     {
@@ -6486,7 +6736,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_skeleton",
-      "community": 4,
+      "community": 9,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -6496,7 +6746,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_skeleton_skeleton",
-      "community": 4,
+      "community": 9,
       "norm_label": "skeleton()"
     },
     {
@@ -6506,7 +6756,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_slider",
-      "community": 9,
+      "community": 33,
       "norm_label": "slider.tsx"
     },
     {
@@ -6516,7 +6766,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_slider_slider",
-      "community": 9,
+      "community": 33,
       "norm_label": "slider"
     },
     {
@@ -6556,7 +6806,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_switch",
-      "community": 22,
+      "community": 33,
       "norm_label": "switch.tsx"
     },
     {
@@ -6566,7 +6816,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_switch_switch",
-      "community": 22,
+      "community": 33,
       "norm_label": "switch"
     },
     {
@@ -6666,7 +6916,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_tabs",
-      "community": 0,
+      "community": 20,
       "norm_label": "tabs.tsx"
     },
     {
@@ -6676,7 +6926,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_tabs_tabslist",
-      "community": 0,
+      "community": 20,
       "norm_label": "tabslist"
     },
     {
@@ -6686,7 +6936,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "ui_tabs_tabstrigger",
-      "community": 0,
+      "community": 20,
       "norm_label": "tabstrigger"
     },
     {
@@ -6696,7 +6946,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "ui_tabs_tabscontent",
-      "community": 0,
+      "community": 20,
       "norm_label": "tabscontent"
     },
     {
@@ -6706,7 +6956,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_textarea",
-      "community": 0,
+      "community": 13,
       "norm_label": "textarea.tsx"
     },
     {
@@ -6716,7 +6966,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_textarea_textarea",
-      "community": 0,
+      "community": 13,
       "norm_label": "textarea"
     },
     {
@@ -6836,7 +7086,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_api",
-      "community": 0,
+      "community": 22,
       "norm_label": "api.ts"
     },
     {
@@ -6846,7 +7096,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_api_gettoken",
-      "community": 0,
+      "community": 22,
       "norm_label": "gettoken()"
     },
     {
@@ -6856,7 +7106,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_api_settoken",
-      "community": 0,
+      "community": 22,
       "norm_label": "settoken()"
     },
     {
@@ -6866,7 +7116,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "lib_api_api",
-      "community": 0,
+      "community": 22,
       "norm_label": "api()"
     },
     {
@@ -6876,7 +7126,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "lib_api_fieldtype",
-      "community": 0,
+      "community": 22,
       "norm_label": "fieldtype"
     },
     {
@@ -6886,7 +7136,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "lib_api_fielddef",
-      "community": 0,
+      "community": 13,
       "norm_label": "fielddef"
     },
     {
@@ -6896,7 +7146,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "lib_api_entitytype",
-      "community": 0,
+      "community": 16,
       "norm_label": "entitytype"
     },
     {
@@ -6906,7 +7156,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "lib_api_entityrecord",
-      "community": 0,
+      "community": 16,
       "norm_label": "entityrecord"
     },
     {
@@ -6916,7 +7166,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_auth",
-      "community": 0,
+      "community": 22,
       "norm_label": "auth.tsx"
     },
     {
@@ -6926,7 +7176,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "lib_auth_profile",
-      "community": 0,
+      "community": 22,
       "norm_label": "profile"
     },
     {
@@ -6936,7 +7186,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_auth_publicprofile",
-      "community": 0,
+      "community": 22,
       "norm_label": "publicprofile"
     },
     {
@@ -6946,7 +7196,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "lib_auth_authctx",
-      "community": 0,
+      "community": 22,
       "norm_label": "authctx"
     },
     {
@@ -6956,7 +7206,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "lib_auth_ctx",
-      "community": 0,
+      "community": 22,
       "norm_label": "ctx"
     },
     {
@@ -6976,7 +7226,7 @@
       "source_location": "L166",
       "_origin": "ast",
       "id": "lib_auth_useauth",
-      "community": 0,
+      "community": 13,
       "norm_label": "useauth()"
     },
     {
@@ -7086,7 +7336,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_utils",
-      "community": 0,
+      "community": 33,
       "norm_label": "utils.ts"
     },
     {
@@ -7110,20 +7360,50 @@
       "norm_label": "routetree.gen.ts"
     },
     {
+      "label": "WorkflowsRoute",
+      "file_type": "code",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_routetree_gen_workflowsroute",
+      "community": 3,
+      "norm_label": "workflowsroute"
+    },
+    {
       "label": "WorkflowGuideRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L18",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "src_routetree_gen_workflowguideroute",
       "community": 3,
       "norm_label": "workflowguideroute"
     },
     {
+      "label": "TemplatesRoute",
+      "file_type": "code",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_routetree_gen_templatesroute",
+      "community": 3,
+      "norm_label": "templatesroute"
+    },
+    {
+      "label": "DashboardRoute",
+      "file_type": "code",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "src_routetree_gen_dashboardroute",
+      "community": 3,
+      "norm_label": "dashboardroute"
+    },
+    {
       "label": "IndexRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L23",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "src_routetree_gen_indexroute",
       "community": 3,
@@ -7133,7 +7413,7 @@
       "label": "EntityCreateRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L28",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "src_routetree_gen_entitycreateroute",
       "community": 3,
@@ -7143,7 +7423,7 @@
       "label": "EntityEntityIdRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L33",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "src_routetree_gen_entityentityidroute",
       "community": 3,
@@ -7153,7 +7433,7 @@
       "label": "EntityEditEntityIdRoute",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L38",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "src_routetree_gen_entityeditentityidroute",
       "community": 3,
@@ -7163,7 +7443,7 @@
       "label": "FileRoutesByFullPath",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L44",
+      "source_location": "L62",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyfullpath",
       "community": 3,
@@ -7173,7 +7453,7 @@
       "label": "FileRoutesByTo",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L51",
+      "source_location": "L72",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyto",
       "community": 3,
@@ -7183,7 +7463,7 @@
       "label": "FileRoutesById",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L58",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbyid",
       "community": 3,
@@ -7193,7 +7473,7 @@
       "label": "FileRouteTypes",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L66",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutetypes",
       "community": 3,
@@ -7203,7 +7483,7 @@
       "label": "RootRouteChildren",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L90",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "src_routetree_gen_rootroutechildren",
       "community": 3,
@@ -7213,7 +7493,7 @@
       "label": "FileRoutesByPath",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L99",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "src_routetree_gen_fileroutesbypath",
       "community": 3,
@@ -7223,7 +7503,7 @@
       "label": "routeTree",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L145",
+      "source_location": "L208",
       "_origin": "ast",
       "id": "src_routetree_gen_routetree",
       "community": 3,
@@ -7233,7 +7513,7 @@
       "label": "Register",
       "file_type": "code",
       "source_file": "frontend/src/routeTree.gen.ts",
-      "source_location": "L152",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "src_routetree_gen_register",
       "community": 3,
@@ -7320,6 +7600,66 @@
       "norm_label": "rootcomponent()"
     },
     {
+      "label": "dashboard.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_dashboard",
+      "community": 13,
+      "norm_label": "dashboard.tsx"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "routes_dashboard_route",
+      "community": 3,
+      "norm_label": "route"
+    },
+    {
+      "label": "EntityStat",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "routes_dashboard_entitystat",
+      "community": 16,
+      "norm_label": "entitystat"
+    },
+    {
+      "label": "COLORS",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "routes_dashboard_colors",
+      "community": 13,
+      "norm_label": "colors"
+    },
+    {
+      "label": "DashboardPage()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "routes_dashboard_dashboardpage",
+      "community": 13,
+      "norm_label": "dashboardpage()"
+    },
+    {
+      "label": "StatCard()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L231",
+      "_origin": "ast",
+      "id": "routes_dashboard_statcard",
+      "community": 13,
+      "norm_label": "statcard()"
+    },
+    {
       "label": "entity.$entityId.tsx",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
@@ -7333,7 +7673,7 @@
       "label": "Route",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L55",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "routes_entity_entityid_route",
       "community": 3,
@@ -7343,17 +7683,17 @@
       "label": "EntityPage()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L60",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "routes_entity_entityid_entitypage",
-      "community": 0,
+      "community": 13,
       "norm_label": "entitypage()"
     },
     {
       "label": "renderCell()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L294",
+      "source_location": "L366",
       "_origin": "ast",
       "id": "routes_entity_entityid_rendercell",
       "community": 0,
@@ -7363,7 +7703,7 @@
       "label": "COLORS",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L318",
+      "source_location": "L393",
       "_origin": "ast",
       "id": "routes_entity_entityid_colors",
       "community": 0,
@@ -7373,7 +7713,7 @@
       "label": "renderBarChart()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L328",
+      "source_location": "L395",
       "_origin": "ast",
       "id": "routes_entity_entityid_renderbarchart",
       "community": 0,
@@ -7383,7 +7723,7 @@
       "label": "renderPieChart()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L346",
+      "source_location": "L413",
       "_origin": "ast",
       "id": "routes_entity_entityid_renderpiechart",
       "community": 0,
@@ -7393,7 +7733,7 @@
       "label": "RecordDialog()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
-      "source_location": "L377",
+      "source_location": "L432",
       "_origin": "ast",
       "id": "routes_entity_entityid_recorddialog",
       "community": 0,
@@ -7406,34 +7746,34 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_entity_create",
-      "community": 0,
+      "community": 13,
       "norm_label": "entity.create.tsx"
     },
     {
       "label": "FIELD_TYPES",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.create.tsx",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "routes_entity_create_field_types",
-      "community": 0,
+      "community": 13,
       "norm_label": "field_types"
     },
     {
       "label": "DraftField",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.create.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "routes_entity_create_draftfield",
-      "community": 0,
+      "community": 13,
       "norm_label": "draftfield"
     },
     {
       "label": "Route",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.create.tsx",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "routes_entity_create_route",
       "community": 3,
@@ -7443,10 +7783,10 @@
       "label": "CreateEntityType()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.create.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "routes_entity_create_createentitytype",
-      "community": 0,
+      "community": 13,
       "norm_label": "createentitytype()"
     },
     {
@@ -7456,34 +7796,34 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_entity_edit_entityid",
-      "community": 0,
+      "community": 13,
       "norm_label": "entity.edit.$entityid.tsx"
     },
     {
       "label": "FIELD_TYPES",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "routes_entity_edit_entityid_field_types",
-      "community": 0,
+      "community": 13,
       "norm_label": "field_types"
     },
     {
       "label": "DraftField",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "routes_entity_edit_entityid_draftfield",
-      "community": 0,
+      "community": 13,
       "norm_label": "draftfield"
     },
     {
       "label": "Route",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "routes_entity_edit_entityid_route",
       "community": 3,
@@ -7493,10 +7833,10 @@
       "label": "EditEntityType()",
       "file_type": "code",
       "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "routes_entity_edit_entityid_editentitytype",
-      "community": 0,
+      "community": 13,
       "norm_label": "editentitytype()"
     },
     {
@@ -7506,14 +7846,14 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_index",
-      "community": 0,
+      "community": 20,
       "norm_label": "index.tsx"
     },
     {
       "label": "Route",
       "file_type": "code",
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L27",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "routes_index_route",
       "community": 3,
@@ -7523,41 +7863,91 @@
       "label": "Index()",
       "file_type": "code",
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L41",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "routes_index_index",
-      "community": 0,
+      "community": 20,
       "norm_label": "index()"
     },
     {
       "label": "AuthScreen()",
       "file_type": "code",
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L47",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "routes_index_authscreen",
-      "community": 0,
+      "community": 20,
       "norm_label": "authscreen()"
     },
     {
-      "label": "Dashboard()",
+      "label": "templates.tsx",
       "file_type": "code",
-      "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L210",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "routes_index_dashboard",
-      "community": 0,
-      "norm_label": "dashboard()"
+      "id": "routes_templates",
+      "community": 7,
+      "norm_label": "templates.tsx"
     },
     {
-      "label": "SettingsDialog()",
+      "label": "Route",
       "file_type": "code",
-      "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L374",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L16",
       "_origin": "ast",
-      "id": "routes_index_settingsdialog",
-      "community": 0,
-      "norm_label": "settingsdialog()"
+      "id": "routes_templates_route",
+      "community": 3,
+      "norm_label": "route"
+    },
+    {
+      "label": "TemplateField",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "routes_templates_templatefield",
+      "community": 7,
+      "norm_label": "templatefield"
+    },
+    {
+      "label": "TemplateEntity",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "routes_templates_templateentity",
+      "community": 7,
+      "norm_label": "templateentity"
+    },
+    {
+      "label": "Template",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "routes_templates_template",
+      "community": 7,
+      "norm_label": "template"
+    },
+    {
+      "label": "TEMPLATES",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "routes_templates_templates",
+      "community": 7,
+      "norm_label": "templates"
+    },
+    {
+      "label": "TemplatesPage()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L296",
+      "_origin": "ast",
+      "id": "routes_templates_templatespage",
+      "community": 7,
+      "norm_label": "templatespage()"
     },
     {
       "label": "workflow-guide.tsx",
@@ -7588,6 +7978,116 @@
       "id": "routes_workflow_guide_workflowguidecomponent",
       "community": 3,
       "norm_label": "workflowguidecomponent()"
+    },
+    {
+      "label": "workflows.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_workflows",
+      "community": 37,
+      "norm_label": "workflows.tsx"
+    },
+    {
+      "label": "Route",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "routes_workflows_route",
+      "community": 3,
+      "norm_label": "route"
+    },
+    {
+      "label": "Condition",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "routes_workflows_condition",
+      "community": 37,
+      "norm_label": "condition"
+    },
+    {
+      "label": "Action",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "routes_workflows_action",
+      "community": 8,
+      "norm_label": "action"
+    },
+    {
+      "label": "Workflow",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "routes_workflows_workflow",
+      "community": 37,
+      "norm_label": "workflow"
+    },
+    {
+      "label": "TRIGGERS",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "routes_workflows_triggers",
+      "community": 37,
+      "norm_label": "triggers"
+    },
+    {
+      "label": "ACTION_TYPES",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "routes_workflows_action_types",
+      "community": 37,
+      "norm_label": "action_types"
+    },
+    {
+      "label": "OPERATORS",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "routes_workflows_operators",
+      "community": 37,
+      "norm_label": "operators"
+    },
+    {
+      "label": "TRIGGER_COLORS",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L72",
+      "_origin": "ast",
+      "id": "routes_workflows_trigger_colors",
+      "community": 37,
+      "norm_label": "trigger_colors"
+    },
+    {
+      "label": "WorkflowsPage()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "routes_workflows_workflowspage",
+      "community": 37,
+      "norm_label": "workflowspage()"
+    },
+    {
+      "label": "WorkflowBuilder()",
+      "file_type": "code",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L220",
+      "_origin": "ast",
+      "id": "routes_workflows_workflowbuilder",
+      "community": 37,
+      "norm_label": "workflowbuilder()"
     },
     {
       "label": "server.ts",
@@ -8214,9 +8714,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid",
-      "target": "string",
-      "confidence_score": 1.0
+      "target": "string"
     },
     {
       "relation": "references",
@@ -8665,9 +9165,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "repository_entityrecordrepository_entityrecordrepository_findbyparentrecordid",
-      "target": "string",
-      "confidence_score": 1.0
+      "target": "string"
     },
     {
       "relation": "references",
@@ -8907,9 +9407,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "parameter_type",
+      "confidence_score": 1.0,
       "source": "service_entityrecordservice_entityrecordservice_getbyparentrecordid",
-      "target": "string",
-      "confidence_score": 1.0
+      "target": "string"
     },
     {
       "relation": "references",
@@ -10373,9 +10873,9 @@
       "source_file": "backend/src/main/java/com/rnt/rent/controller/EntityRecordController.java",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "controller_entityrecordcontroller_entityrecordcontroller",
-      "target": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid",
-      "confidence_score": 1.0
+      "target": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid"
     },
     {
       "relation": "method",
@@ -10448,9 +10948,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid",
-      "target": "list",
-      "confidence_score": 1.0
+      "target": "list"
     },
     {
       "relation": "references",
@@ -10635,9 +11135,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "repository_entityrecordrepository_entityrecordrepository_findbyparentrecordid",
-      "target": "list",
-      "confidence_score": 1.0
+      "target": "list"
     },
     {
       "relation": "imports",
@@ -10756,9 +11256,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "return_type",
+      "confidence_score": 1.0,
       "source": "service_entityrecordservice_entityrecordservice_getbyparentrecordid",
-      "target": "list",
-      "confidence_score": 1.0
+      "target": "list"
     },
     {
       "relation": "references",
@@ -10965,9 +11465,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid",
-      "target": "entityrecord",
-      "confidence_score": 1.0
+      "target": "entityrecord"
     },
     {
       "relation": "references",
@@ -10998,9 +11498,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "repository_entityrecordrepository_entityrecordrepository_findbyparentrecordid",
-      "target": "entityrecord",
-      "confidence_score": 1.0
+      "target": "entityrecord"
     },
     {
       "relation": "references",
@@ -11053,9 +11553,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "generic_arg",
+      "confidence_score": 1.0,
       "source": "service_entityrecordservice_entityrecordservice_getbyparentrecordid",
-      "target": "entityrecord",
-      "confidence_score": 1.0
+      "target": "entityrecord"
     },
     {
       "relation": "references",
@@ -11196,9 +11696,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "context": "attribute",
+      "confidence_score": 1.0,
       "source": "controller_entityrecordcontroller_entityrecordcontroller_getbyparentrecordid",
-      "target": "getmapping",
-      "confidence_score": 1.0
+      "target": "getmapping"
     },
     {
       "relation": "references",
@@ -13547,6 +14047,94 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/main/java/com/rnt/rent/controller/WorkflowController.java",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "controller_workflowcontroller_workflowcontroller_getbyentitytype",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/controller/WorkflowController.java",
+      "source_location": "L22",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "controller_workflowcontroller_workflowcontroller_create",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/controller/WorkflowController.java",
+      "source_location": "L28",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "controller_workflowcontroller_workflowcontroller_getbyid",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/controller/WorkflowController.java",
+      "source_location": "L33",
+      "weight": 1.0,
+      "context": "return_type",
+      "source": "controller_workflowcontroller_workflowcontroller_update",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/repository/WorkflowRepository.java",
+      "source_location": "L11",
+      "weight": 1.0,
+      "context": "generic_arg",
+      "source": "repository_workflowrepository_workflowrepository_findbyentitytypeid",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L86",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_conditionspass",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L106",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_runactions",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/service/WorkflowEngine.java",
+      "source_location": "L74",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "service_workflowengine_workflowengine_triggermatches",
+      "target": "workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/main/java/com/rnt/rent/controller/WorkflowController.java",
       "source_location": "L22",
       "weight": 1.0,
       "context": "return_type",
@@ -14793,9 +15381,9 @@
       "source_file": "backend/src/main/java/com/rnt/rent/repository/EntityRecordRepository.java",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "repository_entityrecordrepository_entityrecordrepository",
-      "target": "repository_entityrecordrepository_entityrecordrepository_findbyparentrecordid",
-      "confidence_score": 1.0
+      "target": "repository_entityrecordrepository_entityrecordrepository_findbyparentrecordid"
     },
     {
       "relation": "calls",
@@ -15764,9 +16352,9 @@
       "source_file": "backend/src/main/java/com/rnt/rent/service/EntityRecordService.java",
       "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "service_entityrecordservice",
-      "target": "action"
+      "target": "routes_workflows_action",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15834,9 +16422,9 @@
       "source_file": "backend/src/main/java/com/rnt/rent/service/EntityRecordService.java",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "service_entityrecordservice_entityrecordservice",
-      "target": "service_entityrecordservice_entityrecordservice_getbyparentrecordid",
-      "confidence_score": 1.0
+      "target": "service_entityrecordservice_entityrecordservice_getbyparentrecordid"
     },
     {
       "relation": "method",
@@ -15886,9 +16474,9 @@
       "source_file": "backend/src/main/java/com/rnt/rent/service/EntityRecordService.java",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "service_entityrecordservice_entityrecordservice_getbyparentrecordid",
-      "target": "service_entityrecordservice_entityrecordservice_getbyid",
-      "confidence_score": 1.0
+      "target": "service_entityrecordservice_entityrecordservice_getbyid"
     },
     {
       "relation": "calls",
@@ -16771,9 +17359,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "context": "parameter_type",
-      "confidence_score": 1.0,
       "source": "service_permissionservice_permissionservice_enforce",
-      "target": "action"
+      "target": "routes_workflows_action",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -18934,6 +19522,657 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "components_appshell_appshellprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "components_appshell_navitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L245",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "components_appshell_settingsdialog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_auth_useauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_dialog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_dialog_dialogcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_dialog_dialogfooter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_dialog_dialogheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_dialog_dialogtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_input_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "components_appshell",
+      "target": "ui_label_label",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.create.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "routes_entity_create",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "routes_entity_edit_entityid",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "components_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "components_appshell_appshellprops",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "components_appshell_appshell",
+      "target": "lib_auth_useauth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "components_appshell_appshell",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.create.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "routes_entity_create",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.edit.$entityId.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "routes_entity_edit_entityid",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "components_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L231",
+      "weight": 1.0,
+      "source": "components_appshell_navitem",
+      "target": "lib_utils_cn"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/components/AppShell.tsx",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "components_appshell_settingsdialog",
+      "target": "lib_auth_useauth"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "components_calendarview_calendarview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "components_calendarview_calendarviewprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "components_calendarview_dow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "components_calendarview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "components_calendarview_months",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "lib_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "lib_utils_cn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_select",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_select_selectcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_select_selectitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_calendarview",
+      "target": "ui_select_selecttrigger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_calendarview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "components_calendarview_calendarviewprops",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_calendarview_calendarviewprops",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/CalendarView.tsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "components_calendarview_calendarview",
+      "target": "components_calendarview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_calendarview_calendarview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/FieldInput.tsx",
       "source_location": "L16",
       "weight": 1.0,
@@ -19170,6 +20409,456 @@
       "confidence_score": 1.0,
       "source": "routes_entity_entityid",
       "target": "components_fieldinput_fieldinput"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "components_galleryview_accent_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "components_galleryview_galleryview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "components_galleryview_galleryviewprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "components_galleryview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "components_galleryview_hashstr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "ui_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "ui_badge_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_galleryview",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_galleryview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_galleryview_galleryviewprops",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_galleryview_galleryviewprops",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/GalleryView.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "components_galleryview_galleryview",
+      "target": "components_galleryview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_galleryview_galleryview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_badge_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_column_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_getcolumns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L235",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_kanbancard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_kanbanview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "components_kanbanview_kanbanviewprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "lib_api_fielddef",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_badge_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_select",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_select_selectcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_select_selectitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_kanbanview",
+      "target": "ui_select_selecttrigger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_kanbanview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "components_kanbanview_kanbanviewprops",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "components_kanbanview_kanbanviewprops",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "components_kanbanview_kanbanview",
+      "target": "components_kanbanview_getcolumns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/KanbanView.tsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "components_kanbanview_kanbanview",
+      "target": "components_kanbanview_getprimarytextfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/entity.$entityId.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "routes_entity_entityid",
+      "target": "components_kanbanview_kanbanview",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19816,6 +21505,28 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/badge.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -19885,6 +21596,28 @@
       "confidence_score": 1.0,
       "source": "routes_entity_entityid",
       "target": "ui_badge_badge"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_badge_badge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_badge_badge",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -20015,6 +21748,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -20054,6 +21798,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_button"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_button",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -20210,6 +21976,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -20249,6 +22026,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_button_button"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -20351,6 +22150,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -20379,6 +22189,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_card"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -20466,6 +22298,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -20494,6 +22337,39 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_card_card"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card_card",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_card_cardheader",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -20532,6 +22408,39 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card_cardheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card_cardheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_card_cardtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -20560,6 +22469,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_card_cardtitle"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card_cardtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card_cardtitle",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -20576,6 +22507,39 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card_carddescription",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card_carddescription",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "ui_card_cardcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -20604,6 +22568,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_card_cardcontent"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_card_cardcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_card_cardcontent",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -21271,6 +23257,28 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_dialog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/dialog.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -21375,6 +23383,28 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog_dialogcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_dialog_dialogcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.$entityId.tsx",
       "source_location": "L9",
       "weight": 1.0,
@@ -21392,6 +23422,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_dialog_dialogheader"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog_dialogheader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_dialog_dialogheader",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -21427,6 +23479,28 @@
       "target": "ui_dialog_dialogfooter"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog_dialogfooter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_dialog_dialogfooter",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -21458,6 +23532,39 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_dialog_dialogtitle"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog_dialogtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_dialog_dialogtitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "ui_dialog_dialogdescription",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -21992,6 +24099,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/input.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -22079,6 +24197,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_input_input",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/sidebar.tsx",
       "source_location": "L9",
       "weight": 1.0,
@@ -22129,6 +24258,17 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_label"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_label",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -22215,6 +24355,17 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "ui_label_label"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_label_label",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -22907,6 +25058,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_select",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/select.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -23032,6 +25194,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_select_selecttrigger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -23065,6 +25238,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_select_selectcontent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -23093,6 +25277,17 @@
       "confidence_score": 1.0,
       "source": "routes_entity_entityid",
       "target": "ui_select_selectitem"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_select_selectitem",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -24190,6 +26385,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_textarea",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/ui/textarea.tsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -24250,6 +26456,17 @@
       "confidence_score": 1.0,
       "source": "routes_entity_entityid",
       "target": "ui_textarea_textarea"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "ui_textarea_textarea",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -24494,6 +26711,17 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -24533,6 +26761,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "lib_api"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "lib_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "lib_api",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -24593,6 +26843,17 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -24632,6 +26893,28 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "lib_api_api"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "lib_api_api",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "lib_api_api",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -24714,6 +26997,28 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "routes_dashboard_entitystat",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/entity.create.tsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -24753,6 +27058,39 @@
       "confidence_score": 1.0,
       "source": "routes_index",
       "target": "lib_api_entitytype"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "lib_api_entitytype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "routes_dashboard_entitystat",
+      "target": "lib_api_entityrecord",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -24985,31 +27323,9 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L211",
-      "weight": 1.0,
-      "source": "routes_index_dashboard",
-      "target": "lib_auth_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/routes/index.tsx",
       "source_location": "L42",
       "weight": 1.0,
       "source": "routes_index_index",
-      "target": "lib_auth_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L378",
-      "weight": 1.0,
-      "source": "routes_index_settingsdialog",
       "target": "lib_auth_useauth"
     },
     {
@@ -25240,6 +27556,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_dashboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_dashboard_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -25350,6 +27688,28 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_templates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_templates_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -25368,6 +27728,28 @@
       "target": "routes_workflow_guide_route"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_workflows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "routes_workflows_route",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -25377,6 +27759,16 @@
       "confidence_score": 1.0,
       "source": "src_routetree_gen",
       "target": "src_router_getrouter"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "src_routetree_gen_dashboardroute",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -25502,11 +27894,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "src_routetree_gen_templatesroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
       "source_location": "L18",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_routetree_gen",
       "target": "src_routetree_gen_workflowguideroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_routetree_gen",
+      "target": "src_routetree_gen_workflowsroute",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -25540,6 +27952,17 @@
       "confidence_score": 1.0,
       "source": "src_routetree_gen_fileroutesbyid",
       "target": "routes_root_route"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "src_routetree_gen_fileroutesbypath",
+      "target": "routes_dashboard_route",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -25601,11 +28024,33 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "src_routetree_gen_fileroutesbypath",
+      "target": "routes_templates_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
       "source_location": "L100",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_routetree_gen_fileroutesbypath",
       "target": "routes_workflow_guide_route"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routeTree.gen.ts",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "src_routetree_gen_fileroutesbypath",
+      "target": "routes_workflows_route",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -25699,6 +28144,56 @@
       "confidence_score": 1.0,
       "source": "routes_root",
       "target": "routes_root_route"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "routes_dashboard_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "routes_dashboard_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "routes_dashboard_entitystat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "routes_dashboard_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/dashboard.tsx",
+      "source_location": "L231",
+      "weight": 1.0,
+      "source": "routes_dashboard",
+      "target": "routes_dashboard_statcard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -25864,16 +28359,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L210",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_index",
-      "target": "routes_index_dashboard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/routes/index.tsx",
       "source_location": "L41",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -25893,12 +28378,62 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "frontend/src/routes/index.tsx",
-      "source_location": "L371",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L16",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_index",
-      "target": "routes_index_settingsdialog"
+      "source": "routes_templates",
+      "target": "routes_templates_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "routes_templates_template",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "routes_templates_templateentity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "routes_templates_templatefield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "routes_templates_templates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/templates.tsx",
+      "source_location": "L296",
+      "weight": 1.0,
+      "source": "routes_templates",
+      "target": "routes_templates_templatespage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -25919,6 +28454,106 @@
       "confidence_score": 1.0,
       "source": "routes_workflow_guide",
       "target": "routes_workflow_guide_workflowguidecomponent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_action",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_action_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_condition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_operators",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_trigger_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_triggers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L220",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_workflowbuilder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/routes/workflows.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "routes_workflows",
+      "target": "routes_workflows_workflowspage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -26394,5 +29029,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "69378d99c30f79c2b77fe911e8fcdaf8c6f06229"
+  "built_at_commit": "91508186a25dafcc0255b617ba1a011a1c6da7d0"
 }

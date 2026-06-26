@@ -1,16 +1,16 @@
 # Graph Report - rent  (2026-06-26)
 
 ## Corpus Check
-- 126 files · ~33,307 words
+- 133 files · ~39,684 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 811 nodes · 1720 edges · 47 communities (40 shown, 7 thin omitted)
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 131 edges (avg confidence: 0.8)
+- 861 nodes · 1918 edges · 46 communities (42 shown, 4 thin omitted)
+- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 131 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `69378d99`
+- Built from commit: `91508186`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,6 +45,7 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
+- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
@@ -52,22 +53,20 @@
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 39|Community 39]]
-- [[_COMMUNITY_Community 40|Community 40]]
-- [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `cn()` - 70 edges
+1. `cn()` - 74 edges
 2. `Tenant` - 33 edges
-3. `compilerOptions` - 17 edges
-4. `FieldDefinition` - 16 edges
-5. `Permission` - 13 edges
-6. `Workflow` - 12 edges
-7. `JwtUtil` - 12 edges
-8. `useAuth()` - 12 edges
-9. `FieldValidator` - 11 edges
-10. `FilterNode` - 10 edges
+3. `EntityType` - 17 edges
+4. `compilerOptions` - 17 edges
+5. `FieldDefinition` - 16 edges
+6. `Button` - 16 edges
+7. `api()` - 14 edges
+8. `Permission` - 13 edges
+9. `useAuth()` - 13 edges
+10. `Workflow` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `AlertDialogHeader()` --calls--> `cn()`  [EXTRACTED]
@@ -84,47 +83,47 @@
 ## Import Cycles
 - None detected.
 
-## Communities (47 total, 7 thin omitted)
+## Communities (46 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (71): FieldInput(), QuickRecordDialog(), api(), EntityRecord, EntityType, FieldDef, FieldType, getToken() (+63 more)
+Cohesion: 0.15
+Nodes (12): FieldInput(), COLORS, Checkbox, Input, Table, TableBody, TableCaption, TableCell (+4 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.09
-Nodes (17): Authentication, BeforeEach, AuthController, AuthControllerTest, CorsTest, TenantController, TenantControllerTest, Tenant (+9 more)
+Cohesion: 0.05
+Nodes (33): Authentication, BeforeEach, Boolean, Claims, AuthController, AuthControllerTest, CorsTest, GlobalExceptionHandler (+25 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.04
 Nodes (53): dependencies, class-variance-authority, clsx, cmdk, date-fns, embla-carousel-react, @hookform/resolvers, input-otp (+45 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.06
-Nodes (36): AuthProvider(), consumeLastCapturedError(), renderErrorPage(), LovableErrorOptions, LovableEvents, reportLovableError(), Window, Route (+28 more)
+Cohesion: 0.05
+Nodes (42): AuthProvider(), consumeLastCapturedError(), renderErrorPage(), LovableErrorOptions, LovableEvents, reportLovableError(), Window, Route (+34 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
-Nodes (38): useIsMobile(), Separator, SheetContent, SheetContentProps, SheetDescription, SheetFooter(), SheetHeader(), SheetOverlay (+30 more)
+Nodes (37): useIsMobile(), Separator, SheetContent, SheetContentProps, SheetDescription, SheetFooter(), SheetHeader(), SheetOverlay (+29 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.10
-Nodes (16): Collection, Criteria, Double, EntityType, FieldDefinition, IllegalArgumentException, Object, FilterNode (+8 more)
+Cohesion: 0.13
+Nodes (13): Collection, Criteria, Double, EntityType, FieldDefinition, IllegalArgumentException, Object, FilterNode (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.22
-Nodes (3): EntityTypeController, EntityType, MetadataService
+Cohesion: 0.08
+Nodes (10): EntityTypeController, PermissionController, ViewController, DeleteMapping, View, EntityType, PostMapping, PutMapping (+2 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.12
-Nodes (13): Boolean, Claims, Date, FilterChain, Function, HttpServletRequest, HttpServletResponse, OncePerRequestFilter (+5 more)
+Cohesion: 0.14
+Nodes (20): Template, TemplateEntity, TemplateField, TEMPLATES, Button, CardDescription, Command, CommandEmpty (+12 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.05
-Nodes (32): AccessDeniedException, Action, EntityRecordController, GlobalExceptionHandler, PermissionController, ViewController, WorkflowController, DeleteMapping (+24 more)
+Cohesion: 0.07
+Nodes (25): AccessDeniedException, EntityRecordController, WorkflowController, EntityRecord, Permission, Workflow, WorkflowStep, EntityRecord (+17 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.14
-Nodes (17): cn(), ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), HoverCardContent, Pagination(), PaginationContent (+9 more)
+Cohesion: 0.16
+Nodes (17): NavItem(), cn(), ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), Pagination(), PaginationContent (+9 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.19
@@ -139,20 +138,20 @@ Cohesion: 0.11
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.29
-Nodes (7): scripts, build, build:dev, dev, format, lint, preview
+Cohesion: 0.16
+Nodes (18): AppShell(), SettingsDialog(), FieldDef, useAuth(), COLORS, CreateEntityType(), DraftField, FIELD_TYPES (+10 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.11
-Nodes (18): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+10 more)
+Cohesion: 0.07
+Nodes (29): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+21 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.12
 Nodes (11): Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarRadioItem, MenubarSeparator, MenubarShortcut() (+3 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.40
-Nodes (4): name, private, sideEffects, type
+Cohesion: 0.27
+Nodes (9): AppShellProps, ACCENT_COLORS, GalleryView(), GalleryViewProps, getPrimaryTextField(), KanbanViewProps, EntityRecord, EntityType (+1 more)
 
 ### Community 17 - "Community 17"
 Cohesion: 0.14
@@ -166,9 +165,17 @@ Nodes (11): 1. Architecture and Core Concepts, 2. Backend APIs, 3. Frontend Func
 Cohesion: 0.17
 Nodes (9): FormControl, FormDescription, FormFieldContext, FormFieldContextValue, FormItem, FormItemContext, FormItemContextValue, FormLabel (+1 more)
 
+### Community 20 - "Community 20"
+Cohesion: 0.25
+Nodes (8): QuickRecordDialog(), AuthScreen(), Index(), Label, labelVariants, TabsContent, TabsList, TabsTrigger
+
 ### Community 21 - "Community 21"
 Cohesion: 0.18
 Nodes (7): ChartConfig, ChartContainer, ChartContext, ChartContextProps, ChartLegendContent, ChartTooltipContent, THEMES
+
+### Community 22 - "Community 22"
+Cohesion: 0.29
+Nodes (8): api(), FieldType, getToken(), setToken(), AuthCtx, Ctx, Profile, PublicProfile
 
 ### Community 23 - "Community 23"
 Cohesion: 0.20
@@ -203,8 +210,8 @@ Cohesion: 0.33
 Nodes (5): ToggleGroup, ToggleGroupContext, ToggleGroupItem, Toggle, toggleVariants
 
 ### Community 33 - "Community 33"
-Cohesion: 0.40
-Nodes (4): Alert, AlertDescription, AlertTitle, alertVariants
+Cohesion: 0.09
+Nodes (13): Alert, AlertDescription, AlertTitle, alertVariants, HoverCardContent, PopoverContent, Progress, RadioGroup (+5 more)
 
 ### Community 34 - "Community 34"
 Cohesion: 0.40
@@ -219,28 +226,28 @@ Cohesion: 0.50
 Nodes (3): Avatar, AvatarFallback, AvatarImage
 
 ### Community 37 - "Community 37"
-Cohesion: 0.67
-Nodes (3): Badge(), BadgeProps, badgeVariants
+Cohesion: 0.09
+Nodes (26): CalendarView(), CalendarViewProps, DOW, getPrimaryTextField(), MONTHS, BADGE_COLORS, COLUMN_COLORS, getColumns() (+18 more)
 
 ## Knowledge Gaps
-- **301 isolated node(s):** `com.rnt:rent`, `WorkflowStep`, `SortSpec`, `PageSpec`, `EntityTypeRepository` (+296 more)
+- **319 isolated node(s):** `com.rnt:rent`, `WorkflowStep`, `SortSpec`, `PageSpec`, `EntityTypeRepository` (+314 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 29`, `Community 31`, `Community 33`, `Community 34`, `Community 35`, `Community 36`, `Community 37`, `Community 40`, `Community 41`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
-- **Why does `api()` connect `Community 0` to `Community 3`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Community 2` to `Community 16`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `Action` connect `Community 8` to `Community 37`?**
+  _High betweenness centrality (0.329) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 7`, `Community 13`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 29`, `Community 31`, `Community 33`, `Community 34`, `Community 35`, `Community 36`, `Community 37`?**
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+- **Why does `Button` connect `Community 7` to `Community 0`, `Community 4`, `Community 37`, `Community 9`, `Community 13`, `Community 16`, `Community 17`, `Community 20`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **What connects `com.rnt:rent`, `WorkflowStep`, `SortSpec` to the rest of the system?**
-  _301 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _319 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.056175047338523035 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1471861471861472 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08566895822316235 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.053267326732673266 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
