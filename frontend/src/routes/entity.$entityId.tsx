@@ -395,7 +395,7 @@ const COLORS = ["#6366f1","#8b5cf6","#ec4899","#f59e0b","#10b981","#3b82f6","#ef
 function renderBarChart(f: FieldDef, records: EntityRecord[]) {
   const data = records.map((r, i) => ({
     name: `#${i + 1}`,
-    value: Number(r.data[f.name]) || 0,
+    value: Number(r.data[f.key || f.name]) || 0,
   }));
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -413,7 +413,7 @@ function renderBarChart(f: FieldDef, records: EntityRecord[]) {
 function renderPieChart(f: FieldDef, records: EntityRecord[]) {
   const counts: Record<string, number> = {};
   records.forEach((r) => {
-    const val = String(r.data[f.name] ?? "Unknown");
+    const val = String(r.data[f.key || f.name] ?? "Unknown");
     counts[val] = (counts[val] || 0) + 1;
   });
   const data = Object.entries(counts).map(([name, value]) => ({ name, value }));
@@ -442,19 +442,79 @@ function RecordDialog({
   const [parentRecordId, setParentRecordId] = useState<string>("");
   const [saving, setSaving] = useState(false);
 
+  // Sub-records state
+  const [subRecords, setSubRecords] = useState<Record<string, { type: EntityType, records: EntityRecord[] }>>({});
+
+  // Create Sub-record state
+  const [creatingSubType, setCreatingSubType] = useState<EntityType | null>(null);
+
   useEffect(() => {
     if (open) {
       setData(editRecord ? { ...editRecord.data } : {});
       setParentRecordId(editRecord?.parentRecordId || "");
+
+      if (editRecord && type.subEntityTypes && type.subEntityTypes.length > 0) {
+        // Fetch sub entity types and their records matching parentRecordId
+        Promise.all(
+          type.subEntityTypes.map(async (subTypeId) => {
+            try {
+              const [subType, records] = await Promise.all([
+                api<EntityType>(`/api/entity-types/${subTypeId}`),
+                api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`)
+              ]);
+              // Filter to only those of this subType since getByParentRecordId returns all sub records
+              const filteredRecords = records.filter(r => r.entityTypeId === subTypeId);
+              return { subTypeId, data: { type: subType, records: filteredRecords } };
+            } catch (e) {
+              console.error(`Failed to load sub-entity ${subTypeId}`, e);
+              return null;
+            }
+          })
+        ).then(results => {
+          const newSubRecords: Record<string, { type: EntityType, records: EntityRecord[] }> = {};
+          results.forEach(res => {
+            if (res) newSubRecords[res.subTypeId] = res.data;
+          });
+          setSubRecords(newSubRecords);
+        });
+      } else {
+        setSubRecords({});
+      }
     }
-  }, [open, editRecord]);
+  }, [open, editRecord, type]);
+
+  const reloadSubRecords = () => {
+    if (editRecord && type.subEntityTypes && type.subEntityTypes.length > 0) {
+      Promise.all(
+        type.subEntityTypes.map(async (subTypeId) => {
+          try {
+            const [subType, records] = await Promise.all([
+              api<EntityType>(`/api/entity-types/${subTypeId}`),
+              api<EntityRecord[]>(`/api/records/parent/${editRecord.id}`)
+            ]);
+            const filteredRecords = records.filter(r => r.entityTypeId === subTypeId);
+            return { subTypeId, data: { type: subType, records: filteredRecords } };
+          } catch (e) {
+            console.error(`Failed to load sub-entity ${subTypeId}`, e);
+            return null;
+          }
+        })
+      ).then(results => {
+        const newSubRecords: Record<string, { type: EntityType, records: EntityRecord[] }> = {};
+        results.forEach(res => {
+          if (res) newSubRecords[res.subTypeId] = res.data;
+        });
+        setSubRecords(newSubRecords);
+      });
+    }
+  };
 
   const update = (k: string, v: any) => setData((d) => ({ ...d, [k]: v }));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     for (const f of type.fields) {
-      if (f.required && (data[f.name] === undefined || data[f.name] === "" || data[f.name] === null)) {
+      if (f.required && (data[f.key || f.name] === undefined || data[f.key || f.name] === "" || data[f.key || f.name] === null)) {
         return toast.error(`${f.name} is required`);
       }
     }
@@ -490,7 +550,7 @@ function RecordDialog({
         </DialogHeader>
         <form onSubmit={submit} className="space-y-4">
           {type.fields.map((f) => (
-            <FieldInput key={f.name} field={f} value={data[f.name]} onChange={(v) => update(f.name, v)} />
+            <FieldInput key={f.name} field={f} value={data[f.key || f.name]} onChange={(v) => update(f.key || f.name, v)} />
           ))}
           <div className="space-y-2">
             <Label className="text-muted-foreground text-xs">Parent Record ID (Optional)</Label>
@@ -501,6 +561,39 @@ function RecordDialog({
               className="h-8 text-sm"
             />
           </div>
+
+          {editRecord && Object.keys(subRecords).length > 0 && (
+            <div className="mt-6 space-y-4 border-t pt-4">
+              <h3 className="font-medium">Sub-Records</h3>
+              {Object.values(subRecords).map(({ type: subType, records }) => (
+                <div key={subType.id} className="border rounded-md p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium text-sm">{subType.name}</span>
+                    <Button type="button" variant="ghost" size="sm" onClick={() => setCreatingSubType(subType)}>
+                      <Plus className="size-3.5 mr-1" /> New
+                    </Button>
+                  </div>
+                  {records.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No {subType.name.toLowerCase()}s found.</p>
+                  ) : (
+                    <div className="space-y-2">
+                      {records.map(r => (
+                        <div key={r.id} className="text-xs flex items-center justify-between p-2 bg-muted/50 rounded">
+                          <span className="truncate pr-2">
+                            {r.id.slice(-6)}: {Object.values(r.data)[0] ? String(Object.values(r.data)[0]) : "Untitled"}
+                          </span>
+                          <Link to={`/entity/${subType.id}`} target="_blank" className="text-blue-500 hover:underline shrink-0">
+                            View
+                          </Link>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
           <DialogFooter>
             <Button type="button" variant="ghost" onClick={() => { onOpenChange(false); if (editRecord) onCreated(); }}>
               Cancel
@@ -511,6 +604,24 @@ function RecordDialog({
           </DialogFooter>
         </form>
       </DialogContent>
+
+      {creatingSubType && (
+        <RecordDialog
+          open={!!creatingSubType}
+          onOpenChange={(val) => { if (!val) setCreatingSubType(null); }}
+          type={creatingSubType}
+          editRecord={{
+            id: "",
+            entityTypeId: creatingSubType.id,
+            parentRecordId: editRecord?.id,
+            data: {}
+          }}
+          onCreated={() => {
+            setCreatingSubType(null);
+            reloadSubRecords();
+          }}
+        />
+      )}
     </Dialog>
   );
 }

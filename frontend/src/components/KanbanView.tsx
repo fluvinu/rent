@@ -205,7 +205,7 @@ function KanbanCard({
       {otherFields.length > 0 && (
         <div className="mt-2 space-y-1">
           {otherFields.map((f) => {
-            const val = record.data[f.name];
+            const val = record.data[f.key || f.name];
             if (val === undefined || val === null || val === "") return null;
             return (
               <div key={f.name} className="flex items-center gap-1.5 text-xs text-muted-foreground">
@@ -235,10 +235,11 @@ function getColumns(field: FieldDef | undefined): string[] {
 function getPrimaryTextField(type: EntityType): string | null {
   const priority = ["name", "title", "label", "subject", "summary"];
   for (const p of priority) {
-    if (type.fields.find((f) => f.name.toLowerCase() === p && f.type === "TEXT")) {
-      return type.fields.find((f) => f.name.toLowerCase() === p)!.name;
+    const found = type.fields.find((f) => f.name.toLowerCase() === p && f.type === "TEXT");
+    if (found) {
+      return found.key || found.name;
     }
   }
   const first = type.fields.find((f) => f.type === "TEXT");
-  return first?.name || null;
+  return first ? (first.key || first.name) : null;
 }

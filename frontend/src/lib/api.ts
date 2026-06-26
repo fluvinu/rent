@@ -65,6 +65,7 @@ export interface EntityType {
   name: string;
   description?: string;
   fields: FieldDef[];
+  subEntityTypes?: string[];
 }
 
 export interface EntityRecord {
