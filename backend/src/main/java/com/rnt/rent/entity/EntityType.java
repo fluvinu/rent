@@ -37,6 +37,6 @@ public class EntityType {
     }
 
     public enum FieldType {
-        TEXT, NUMBER, BOOLEAN, DATE, SELECT, MULTI_SELECT, RELATION, FILE, JSON
+        TEXT, NUMBER, BOOLEAN, DATE, SELECT, MULTI_SELECT, RELATION, FILE, JSON, SUBENTITY
     }
 }

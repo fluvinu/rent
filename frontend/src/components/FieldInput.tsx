@@ -145,6 +145,9 @@ export function FieldInput({
           label={label}
         />
       );
+    case "SUBENTITY":
+      // SUBENTITY fields are not filled out here, they are populated by linking child records to this record's ID
+      return null;
     default:
       return (
         <div className="space-y-2">

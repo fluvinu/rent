@@ -28,6 +28,7 @@ const FIELD_TYPES: FieldType[] = [
   "RELATION",
   "FILE",
   "JSON",
+  "SUBENTITY",
 ];
 
 interface DraftField extends FieldDef {
@@ -116,7 +117,7 @@ function EditEntityType() {
             .map((s) => s.trim())
             .filter(Boolean);
         }
-        if (f.type === "RELATION" && f.relationTargetType) {
+        if ((f.type === "RELATION" || f.type === "SUBENTITY") && f.relationTargetType) {
           def.relationTargetType = f.relationTargetType;
         }
         return def;
@@ -257,7 +258,7 @@ function EditEntityType() {
                       />
                     </div>
                   )}
-                  {f.type === "RELATION" && (
+                  {(f.type === "RELATION" || f.type === "SUBENTITY") && (
                     <div className="space-y-1">
                       <Label>Target Dataset</Label>
                       <Select

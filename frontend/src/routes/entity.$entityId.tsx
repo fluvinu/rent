@@ -37,7 +37,7 @@ import {
   type EntityType,
   type FieldDef,
 } from "@/lib/api";
-import { ArrowLeft, Plus, Trash2, Edit } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Edit, Eye } from "lucide-react";
 import { FieldInput } from "@/components/FieldInput";
 import {
   BarChart,
@@ -67,6 +67,8 @@ function EntityPage() {
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [editRecord, setEditRecord] = useState<EntityRecord | null>(null);
+  const [viewRecord, setViewRecord] = useState<EntityRecord | null>(null);
+  const [viewOpen, setViewOpen] = useState(false);
 
   useEffect(() => {
     if (ready && !token) navigate({ to: "/" });
@@ -217,6 +219,16 @@ function EntityPage() {
                             variant="ghost"
                             size="icon"
                             onClick={() => {
+                              setViewRecord(r);
+                              setViewOpen(true);
+                            }}
+                          >
+                            <Eye className="size-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => {
                               setEditRecord(r);
                               setOpen(true);
                             }}
@@ -285,6 +297,16 @@ function EntityPage() {
             setEditRecord(null);
             load();
           }}
+        />
+      )}
+
+      {type && (
+        <ViewRecordDialog
+          open={viewOpen}
+          onOpenChange={setViewOpen}
+          type={type}
+          record={viewRecord}
+          onRefresh={load}
         />
       )}
     </div>
@@ -380,7 +402,9 @@ function RecordDialog({
   type,
   editRecord,
   onCreated,
+  forcedParentId,
 }: {
+  forcedParentId?: string;
   open: boolean;
   onOpenChange: (v: boolean) => void;
   type: EntityType;
@@ -394,9 +418,9 @@ function RecordDialog({
   useEffect(() => {
     if (open) {
       setData(editRecord ? { ...editRecord.data } : {});
-      setParentRecordId(editRecord?.parentRecordId || "");
+      setParentRecordId(editRecord?.parentRecordId || forcedParentId || "");
     }
-  }, [open, editRecord]);
+  }, [open, editRecord, forcedParentId]);
 
   const update = (k: string, v: any) => setData((d) => ({ ...d, [k]: v }));
 
@@ -462,9 +486,10 @@ function RecordDialog({
               value={parentRecordId}
               onChange={(e) => setParentRecordId(e.target.value)}
               placeholder="e.g. 64b819f2a..."
+              disabled={!!forcedParentId}
             />
           </div>
-          {type.fields.map((f) => (
+          {type.fields.filter(f => f.type !== "SUBENTITY").map((f) => (
             <FieldInput
               key={f.name}
               field={f}
@@ -489,6 +514,159 @@ function RecordDialog({
           </DialogFooter>
         </form>
       </DialogContent>
+    </Dialog>
+  );
+}
+
+function ViewRecordDialog({
+  open,
+  onOpenChange,
+  type,
+  record,
+  onRefresh,
+}: {
+  open: boolean;
+  onOpenChange: (v: boolean) => void;
+  type: EntityType;
+  record: EntityRecord | null;
+  onRefresh: () => void;
+}) {
+  const [subEntities, setSubEntities] = useState<EntityRecord[]>([]);
+  const [subType, setSubType] = useState<EntityType | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [addSubOpen, setAddSubOpen] = useState(false);
+
+  const subentityField = type.fields.find(f => f.type === "SUBENTITY");
+
+  useEffect(() => {
+    if (open && record && subentityField?.relationTargetType) {
+      setLoading(true);
+
+      api<EntityType>(`/api/entity-types/${subentityField.relationTargetType}`)
+        .then(setSubType)
+        .catch(console.error);
+
+      api<EntityRecord[]>(`/api/records/parent/${record.id}`)
+        .then(d => setSubEntities(Array.isArray(d) ? d : []))
+        .catch(console.error)
+        .finally(() => setLoading(false));
+    }
+  }, [open, record, subentityField?.relationTargetType]);
+
+  const loadSubEntities = () => {
+    if (record) {
+      api<EntityRecord[]>(`/api/records/parent/${record.id}`)
+        .then(d => setSubEntities(Array.isArray(d) ? d : []))
+        .catch(console.error);
+    }
+  };
+
+  const deleteSubRecord = async (id: string) => {
+    if (!confirm("Delete this sub-record?")) return;
+    try {
+      await api(`/api/records/${id}`, { method: "DELETE" });
+      toast.success("Deleted");
+      loadSubEntities();
+    } catch (e: any) {
+      toast.error(e.message);
+    }
+  };
+
+  if (!record) return null;
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>View Record</DialogTitle>
+        </DialogHeader>
+
+        <div className="grid gap-6 py-4">
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">Details</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {type.fields.filter(f => f.type !== "SUBENTITY").map(f => (
+                <div key={f.name} className="space-y-1">
+                  <Label className="text-muted-foreground">{f.name}</Label>
+                  <div className="text-sm font-medium">
+                    {renderCell(record.data[f.name], f)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {subentityField && (
+            <div className="space-y-4 border-t pt-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-lg">{subentityField.name} (Sub-entities)</h3>
+                <Button size="sm" onClick={() => setAddSubOpen(true)} disabled={!subType}>
+                  <Plus className="size-4 mr-2" /> Add {subType?.name || "Record"}
+                </Button>
+              </div>
+
+              {loading ? (
+                <div className="text-sm text-muted-foreground">Loading sub-entities...</div>
+              ) : subEntities.length === 0 ? (
+                <div className="text-sm text-muted-foreground border border-dashed rounded p-6 text-center">
+                  No sub-entities found.
+                </div>
+              ) : (
+                <div className="rounded-lg border overflow-hidden">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        {subType?.fields.filter(f => f.type !== "SUBENTITY").map(f => (
+                          <TableHead key={f.name}>{f.name}</TableHead>
+                        ))}
+                        <TableHead className="w-12"></TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {subEntities.map(sub => (
+                        <TableRow key={sub.id}>
+                          {subType?.fields.filter(f => f.type !== "SUBENTITY").map(f => (
+                            <TableCell key={f.name}>
+                              {renderCell(sub.data[f.name], f)}
+                            </TableCell>
+                          ))}
+                          <TableCell>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => deleteSubRecord(sub.id)}
+                            >
+                              <Trash2 className="size-4 text-destructive" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        <DialogFooter>
+          <Button onClick={() => onOpenChange(false)}>Close</Button>
+        </DialogFooter>
+      </DialogContent>
+
+      {subType && (
+        <RecordDialog
+          open={addSubOpen}
+          onOpenChange={setAddSubOpen}
+          type={subType}
+          onCreated={() => {
+            setAddSubOpen(false);
+            loadSubEntities();
+            onRefresh();
+          }}
+          forcedParentId={record.id}
+        />
+      )}
     </Dialog>
   );
 }

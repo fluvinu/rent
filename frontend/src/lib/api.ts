@@ -49,7 +49,8 @@ export type FieldType =
   | "MULTI_SELECT"
   | "RELATION"
   | "FILE"
-  | "JSON";
+  | "JSON"
+  | "SUBENTITY";
 
 export interface FieldDef {
   key?: string;

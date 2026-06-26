@@ -51,7 +51,7 @@ public class FieldValidator {
             case SELECT -> validateSelect(value, field);
             case MULTI_SELECT -> validateMultiSelect(value, field);
             case RELATION -> validateRelationShape(value, field);
-            case FILE, JSON -> value;
+            case FILE, JSON, SUBENTITY -> value;
         };
     }
 
