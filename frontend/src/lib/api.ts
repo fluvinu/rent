@@ -1,4 +1,4 @@
-export const BASE_URL = "https://rent-0xm8.onrender.com";
+export const BASE_URL = "http://localhost:8080";
 
 export function getToken(): string | null {
   if (typeof window === "undefined") return null;
