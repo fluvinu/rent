@@ -1,16 +1,16 @@
-# Graph Report - rent  (2026-06-24)
+# Graph Report - rent  (2026-06-26)
 
 ## Corpus Check
-- 126 files · ~33,187 words
+- 126 files · ~33,307 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 808 nodes · 1704 edges · 49 communities (42 shown, 7 thin omitted)
-- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 129 edges (avg confidence: 0.8)
+- 811 nodes · 1720 edges · 47 communities (40 shown, 7 thin omitted)
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 131 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4efe4bc9`
+- Built from commit: `69378d99`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,9 +45,7 @@
 - [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
-- [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
-- [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 35|Community 35]]
@@ -86,14 +84,14 @@
 ## Import Cycles
 - None detected.
 
-## Communities (49 total, 7 thin omitted)
+## Communities (47 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
 Nodes (71): FieldInput(), QuickRecordDialog(), api(), EntityRecord, EntityType, FieldDef, FieldType, getToken() (+63 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (17): Authentication, BeforeEach, AuthController, AuthControllerTest, CorsTest, TenantController, TenantControllerTest, Tenant (+9 more)
 
 ### Community 2 - "Community 2"
@@ -109,24 +107,24 @@ Cohesion: 0.05
 Nodes (38): useIsMobile(), Separator, SheetContent, SheetContentProps, SheetDescription, SheetFooter(), SheetHeader(), SheetOverlay (+30 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.15
-Nodes (13): Collection, Criteria, Double, FieldDefinition, IllegalArgumentException, Object, FilterNode, PageSpec (+5 more)
+Cohesion: 0.10
+Nodes (16): Collection, Criteria, Double, EntityType, FieldDefinition, IllegalArgumentException, Object, FilterNode (+8 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.14
-Nodes (7): EntityTypeController, DeleteMapping, EntityType, PutMapping, RentApplication, MetadataService, String
+Cohesion: 0.22
+Nodes (3): EntityTypeController, EntityType, MetadataService
 
 ### Community 7 - "Community 7"
-Cohesion: 0.13
+Cohesion: 0.12
 Nodes (13): Boolean, Claims, Date, FilterChain, Function, HttpServletRequest, HttpServletResponse, OncePerRequestFilter (+5 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.17
-Nodes (6): PermissionController, Permission, List, EntityRecordRepository, PermissionRepository, PermissionService
+Cohesion: 0.05
+Nodes (32): AccessDeniedException, Action, EntityRecordController, GlobalExceptionHandler, PermissionController, ViewController, WorkflowController, DeleteMapping (+24 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.11
-Nodes (19): cn(), ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), HoverCardContent, Pagination(), PaginationContent (+11 more)
+Cohesion: 0.14
+Nodes (17): cn(), ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), HoverCardContent, Pagination(), PaginationContent (+9 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.19
@@ -141,20 +139,20 @@ Cohesion: 0.11
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.23
-Nodes (5): EntityRecord, EventType, QueryRequest, EntityRecordService, WorkflowEngine
+Cohesion: 0.29
+Nodes (7): scripts, build, build:dev, dev, format, lint, preview
 
 ### Community 14 - "Community 14"
-Cohesion: 0.07
-Nodes (29): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+21 more)
+Cohesion: 0.11
+Nodes (18): devDependencies, eslint, eslint-config-prettier, @eslint/js, eslint-plugin-prettier, eslint-plugin-react-hooks, eslint-plugin-react-refresh, globals (+10 more)
 
 ### Community 15 - "Community 15"
 Cohesion: 0.12
 Nodes (11): Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarRadioItem, MenubarSeparator, MenubarShortcut() (+3 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.15
-Nodes (8): AccessDeniedException, Action, GlobalExceptionHandler, EntityRecord, ExceptionHandler, Map, RelationService, ScriptService
+Cohesion: 0.40
+Nodes (4): name, private, sideEffects, type
 
 ### Community 17 - "Community 17"
 Cohesion: 0.14
@@ -168,17 +166,9 @@ Nodes (11): 1. Architecture and Core Concepts, 2. Backend APIs, 3. Frontend Func
 Cohesion: 0.17
 Nodes (9): FormControl, FormDescription, FormFieldContext, FormFieldContextValue, FormItem, FormItemContext, FormItemContextValue, FormLabel (+1 more)
 
-### Community 20 - "Community 20"
-Cohesion: 0.17
-Nodes (5): EntityRecordController, ViewController, View, GetMapping, ViewRepository
-
 ### Community 21 - "Community 21"
 Cohesion: 0.18
 Nodes (7): ChartConfig, ChartContainer, ChartContext, ChartContextProps, ChartLegendContent, ChartTooltipContent, THEMES
-
-### Community 22 - "Community 22"
-Cohesion: 0.24
-Nodes (4): WorkflowController, Workflow, WorkflowStep, WorkflowRepository
 
 ### Community 23 - "Community 23"
 Cohesion: 0.20
@@ -240,17 +230,17 @@ Nodes (3): Badge(), BadgeProps, badgeVariants
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 15`, `Community 17`, `Community 19`, `Community 21`, `Community 23`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 29`, `Community 31`, `Community 33`, `Community 34`, `Community 35`, `Community 36`, `Community 37`, `Community 40`, `Community 41`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 22`, `Community 23`, `Community 24`, `Community 26`, `Community 27`, `Community 28`, `Community 29`, `Community 31`, `Community 33`, `Community 34`, `Community 35`, `Community 36`, `Community 37`, `Community 40`, `Community 41`?**
+  _High betweenness centrality (0.079) - this node is a cross-community bridge._
 - **Why does `api()` connect `Community 0` to `Community 3`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Community 2` to `Community 14`?**
+- **Why does `dependencies` connect `Community 2` to `Community 16`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `com.rnt:rent`, `WorkflowStep`, `SortSpec` to the rest of the system?**
   _301 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.056175047338523035 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.08397337429595494 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08566895822316235 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
