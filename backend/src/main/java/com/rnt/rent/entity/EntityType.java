@@ -2,6 +2,7 @@ package com.rnt.rent.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class EntityType {
         private FieldType type;
         private boolean required;
         private boolean unique;
+        @JsonProperty("isHidden")
+        private boolean isHidden;
         private Object defaultValue;
 
         // SELECT / MULTI_SELECT allowed values

@@ -47,7 +47,7 @@ export function KanbanView({
   onNew,
 }: KanbanViewProps) {
   const selectFields = type.fields.filter(
-    (f) => f.type === "SELECT" || f.type === "BOOLEAN",
+    (f) => !f.isHidden && (f.type === "SELECT" || f.type === "BOOLEAN"),
   );
 
   const [groupBy, setGroupBy] = useState<string>(
@@ -175,6 +175,7 @@ function KanbanCard({
   const otherFields = type.fields
     .filter(
       (f) =>
+        !f.isHidden &&
         f.name !== titleField &&
         f.name !== groupByField &&
         f.type !== "JSON" &&

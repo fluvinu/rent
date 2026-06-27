@@ -56,6 +56,7 @@ export interface FieldDef {
   name: string;
   type: FieldType;
   required?: boolean;
+  isHidden?: boolean;
   options?: string[];
   relationTargetType?: string;
 }

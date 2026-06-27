@@ -425,7 +425,7 @@ function TemplatesPage() {
                         <span className="ml-auto text-xs text-muted-foreground">{entity.fields.length} fields</span>
                       </div>
                       <div className="px-3 py-2 flex flex-wrap gap-1.5">
-                        {entity.fields.map(f => (
+                        {entity.fields.filter((f: any) => !f.isHidden).map((f: any) => (
                           <span key={f.name} className="text-xs bg-muted px-2 py-0.5 rounded-full">
                             {f.name}
                             <span className="text-muted-foreground ml-1">({f.type.toLowerCase()})</span>
