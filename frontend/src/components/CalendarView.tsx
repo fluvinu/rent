@@ -25,7 +25,7 @@ const MONTHS = [
 const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
 export function CalendarView({ type, records, onEdit, onNew }: CalendarViewProps) {
-  const dateFields = type.fields.filter((f) => f.type === "DATE");
+  const dateFields = type.fields.filter((f) => !f.isHidden && f.type === "DATE");
   const [dateField, setDateField] = useState(dateFields[0]?.name || "");
 
   const now = new Date();

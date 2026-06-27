@@ -41,7 +41,7 @@ export function GalleryView({ type, records, onEdit, onDelete, onNew }: GalleryV
 
   const titleField = getPrimaryTextField(type);
   const previewFields = type.fields
-    .filter(f => f.name !== titleField && f.type !== "JSON" && f.type !== "FILE")
+    .filter(f => !f.isHidden && f.name !== titleField && f.type !== "JSON" && f.type !== "FILE")
     .slice(0, 4);
 
   return (

@@ -88,6 +88,7 @@ function CreateEntityType() {
           name: f.name.trim(),
           type: f.type,
           required: !!f.required,
+          isHidden: !!f.isHidden,
         };
         if (
           (f.type === "SELECT" || f.type === "MULTI_SELECT") &&
@@ -271,15 +272,27 @@ function CreateEntityType() {
                       </Select>
                     </div>
                   )}
-                  <div className="flex items-center gap-2">
-                    <Checkbox
-                      id={`req-${i}`}
-                      checked={!!f.required}
-                      onCheckedChange={(v) => update(i, { required: !!v })}
-                    />
-                    <Label htmlFor={`req-${i}`} className="font-normal">
-                      Required
-                    </Label>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      <Checkbox
+                        id={`req-${i}`}
+                        checked={!!f.required}
+                        onCheckedChange={(v) => update(i, { required: !!v })}
+                      />
+                      <Label htmlFor={`req-${i}`} className="font-normal">
+                        Required
+                      </Label>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Checkbox
+                        id={`hide-${i}`}
+                        checked={!!f.isHidden}
+                        onCheckedChange={(v) => update(i, { isHidden: !!v })}
+                      />
+                      <Label htmlFor={`hide-${i}`} className="font-normal">
+                        Hidden
+                      </Label>
+                    </div>
                   </div>
                 </div>
               ))}

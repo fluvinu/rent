@@ -239,7 +239,7 @@ export function QuickRecordDialog({
           {selectedType && (
             <div className="space-y-4 border-t pt-4">
               <h3 className="font-medium text-sm">Record Data</h3>
-              {selectedType.fields.map((f) => (
+              {selectedType.fields.filter(f => !f.isHidden).map((f) => (
                 <FieldInput
                   key={f.name}
                   field={f}

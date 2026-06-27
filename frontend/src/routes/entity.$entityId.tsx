@@ -114,9 +114,10 @@ function EntityPage() {
 
   const exportCSV = () => {
     if (!type || !records) return;
-    const headers = ["id", ...type.fields.map((f) => f.name)];
+    const visibleFields = type.fields.filter(f => !f.isHidden);
+    const headers = ["id", ...visibleFields.map((f) => f.name)];
     const rows = records.map((r) =>
-      [r.id, ...type.fields.map((f) => {
+      [r.id, ...visibleFields.map((f) => {
         const v = r.data?.[f.key || f.name];
         if (v === null || v === undefined) return "";
         if (Array.isArray(v)) return v.join("|");
@@ -222,7 +223,7 @@ function EntityPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    {type?.fields?.map((f) => (
+                    {type?.fields?.filter(f => !f.isHidden).map((f) => (
                       <TableHead key={f.name}>{f.name}</TableHead>
                     ))}
                     <TableHead className="w-20" />
@@ -232,7 +233,7 @@ function EntityPage() {
                   {!filteredRecords && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 1}
+                        colSpan={(type?.fields?.filter(f => !f.isHidden).length || 1) + 1}
                         className="text-center text-muted-foreground py-12"
                       >
                         Loading...
@@ -242,7 +243,7 @@ function EntityPage() {
                   {filteredRecords && filteredRecords.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={(type?.fields?.length || 1) + 1}
+                        colSpan={(type?.fields?.filter(f => !f.isHidden).length || 1) + 1}
                         className="text-center text-muted-foreground py-12"
                       >
                         {search ? "No records match your search." : "No records yet. Create one to get started."}
@@ -251,7 +252,7 @@ function EntityPage() {
                   )}
                   {filteredRecords?.map((r) => (
                     <TableRow key={r.id} className="group">
-                      {type?.fields?.map((f) => (
+                      {type?.fields?.filter(f => !f.isHidden).map((f) => (
                         <TableCell key={f.name}>
                           {renderCell(r.data?.[f.key || f.name], f)}
                         </TableCell>
@@ -322,7 +323,7 @@ function EntityPage() {
             {type && filteredRecords && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {type.fields
-                  .filter((f) => ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type))
+                  .filter((f) => !f.isHidden && ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type))
                   .map((f) => (
                     <div key={f.name} className="border rounded-lg p-4">
                       <h3 className="text-sm font-medium mb-4 text-center">{f.name}</h3>
@@ -334,7 +335,7 @@ function EntityPage() {
                     </div>
                   ))}
                 {type.fields.filter((f) =>
-                  ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type),
+                  !f.isHidden && ["NUMBER", "BOOLEAN", "SELECT"].includes(f.type),
                 ).length === 0 && (
                   <div className="col-span-2 text-center text-muted-foreground py-16 border rounded-lg border-dashed">
                     Add a Number, Boolean, or Select field to see charts.
@@ -548,7 +549,7 @@ function RecordDialog({
           <DialogTitle>{editRecord ? "Edit" : "New"} {type.name}</DialogTitle>
         </DialogHeader>
         <form onSubmit={submit} className="space-y-4">
-          {type.fields.map((f) => (
+          {type.fields.filter(f => !f.isHidden).map((f) => (
             <FieldInput key={f.name} field={f} value={data[f.key || f.name]} onChange={(v) => update(f.key || f.name, v)} />
           ))}
           <div className="space-y-2">

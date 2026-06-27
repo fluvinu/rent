@@ -368,7 +368,7 @@ function WorkflowBuilder({
                   <Select value={cond.field} onValueChange={v => setConditions(c => c.map((x,j) => j===i?{...x,field:v}:x))}>
                     <SelectTrigger><SelectValue placeholder="Field" /></SelectTrigger>
                     <SelectContent>
-                      {selectedType?.fields.map(f => <SelectItem key={f.name} value={f.name}>{f.name}</SelectItem>)}
+                      {selectedType?.fields.filter(f => !f.isHidden).map(f => <SelectItem key={f.name} value={f.name}>{f.name}</SelectItem>)}
                     </SelectContent>
                   </Select>
                   <Select value={cond.operator} onValueChange={v => setConditions(c => c.map((x,j) => j===i?{...x,operator:v}:x))}>
@@ -440,7 +440,7 @@ function WorkflowBuilder({
                         <Select value={action.field||""} onValueChange={v => setActions(a=>a.map((x,j)=>j===i?{...x,field:v}:x))}>
                           <SelectTrigger className="h-8"><SelectValue placeholder="Field" /></SelectTrigger>
                           <SelectContent>
-                            {selectedType?.fields.map(f=><SelectItem key={f.name} value={f.name}>{f.name}</SelectItem>)}
+                            {selectedType?.fields.filter(f => !f.isHidden).map(f=><SelectItem key={f.name} value={f.name}>{f.name}</SelectItem>)}
                           </SelectContent>
                         </Select>
                       </div>
