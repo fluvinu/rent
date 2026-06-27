@@ -159,7 +159,8 @@ function getPrimaryTextField(type: EntityType): string | null {
   const priority = ["name","title","label","subject","summary"];
   for (const p of priority) {
     const f = type.fields.find(f => f.name.toLowerCase() === p && f.type === "TEXT");
-    if (f) return f.name;
+    if (f) return f.key || f.name;
   }
-  return type.fields.find(f => f.type === "TEXT")?.name || null;
+  const fallback = type.fields.find(f => f.type === "TEXT");
+  return fallback ? (fallback.key || fallback.name) : null;
 }

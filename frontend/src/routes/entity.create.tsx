@@ -49,6 +49,7 @@ function CreateEntityType() {
   const [fields, setFields] = useState<DraftField[]>([
     { name: "", type: "TEXT", required: false },
   ]);
+  const [subEntityTypes, setSubEntityTypes] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [entityTypes, setEntityTypes] = useState<EntityType[]>([]);
 
@@ -81,6 +82,7 @@ function CreateEntityType() {
     const payload = {
       name: name.trim(),
       description: description.trim(),
+      subEntityTypes,
       fields: fields.map((f) => {
         const def: FieldDef = {
           name: f.name.trim(),
@@ -148,6 +150,32 @@ function CreateEntityType() {
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Optional"
                 />
+              </div>
+              <div className="space-y-2">
+                <Label>Sub Entities (Optional)</Label>
+                <div className="flex flex-wrap gap-2 p-3 border rounded-md">
+                  {entityTypes.map((t) => {
+                    const checked = subEntityTypes.includes(t.id);
+                    return (
+                      <label key={t.id} className="flex items-center gap-2 text-sm cursor-pointer">
+                        <Checkbox
+                          checked={checked}
+                          onCheckedChange={(c) => {
+                            if (c) setSubEntityTypes([...subEntityTypes, t.id]);
+                            else setSubEntityTypes(subEntityTypes.filter((x) => x !== t.id));
+                          }}
+                        />
+                        {t.name}
+                      </label>
+                    );
+                  })}
+                  {entityTypes.length === 0 && (
+                    <span className="text-sm text-muted-foreground">No other entity types available.</span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Select which entities can be added as child records to this one.
+                </p>
               </div>
             </CardContent>
           </Card>

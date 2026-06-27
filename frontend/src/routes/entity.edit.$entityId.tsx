@@ -48,6 +48,7 @@ function EditEntityType() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [fields, setFields] = useState<DraftField[]>([]);
+  const [subEntityTypes, setSubEntityTypes] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(true);
   const [entityTypes, setEntityTypes] = useState<EntityType[]>([]);
@@ -76,6 +77,7 @@ function EditEntityType() {
             relationTargetType: f.relationTargetType,
           })),
         );
+        setSubEntityTypes(type.subEntityTypes || []);
       })
       .catch((err) => {
         toast.error(err.message || "Failed to load entity type");
@@ -101,6 +103,7 @@ function EditEntityType() {
     const payload = {
       name: name.trim(),
       description: description.trim(),
+      subEntityTypes,
       fields: fields.map((f) => {
         const def: FieldDef = {
           key: f.key, // Preserve the key!
@@ -177,6 +180,32 @@ function EditEntityType() {
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Optional"
                 />
+              </div>
+              <div className="space-y-2">
+                <Label>Sub Entities (Optional)</Label>
+                <div className="flex flex-wrap gap-2 p-3 border rounded-md">
+                  {entityTypes.map((t) => {
+                    const checked = subEntityTypes.includes(t.id);
+                    return (
+                      <label key={t.id} className="flex items-center gap-2 text-sm cursor-pointer">
+                        <Checkbox
+                          checked={checked}
+                          onCheckedChange={(c) => {
+                            if (c) setSubEntityTypes([...subEntityTypes, t.id]);
+                            else setSubEntityTypes(subEntityTypes.filter((x) => x !== t.id));
+                          }}
+                        />
+                        {t.name}
+                      </label>
+                    );
+                  })}
+                  {entityTypes.length === 0 && (
+                    <span className="text-sm text-muted-foreground">No other entity types available.</span>
+                  )}
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Select which entities can be added as child records to this one.
+                </p>
               </div>
             </CardContent>
           </Card>

@@ -91,7 +91,7 @@ export function GalleryView({ type, records, onEdit, onDelete, onNew }: GalleryV
                 <p className="font-semibold text-sm truncate mb-2">{title}</p>
                 <div className="space-y-1.5">
                   {previewFields.map((f) => {
-                    const val = record.data[f.name];
+                    const val = record.data[f.key || f.name];
                     if (val === undefined || val === null || val === "") return null;
                     return (
                       <div key={f.name} className="flex items-center gap-1.5 text-xs">
@@ -125,7 +125,8 @@ function getPrimaryTextField(type: EntityType): string | null {
   const priority = ["name","title","label","subject","summary"];
   for (const p of priority) {
     const f = type.fields.find(f => f.name.toLowerCase() === p && f.type === "TEXT");
-    if (f) return f.name;
+    if (f) return f.key || f.name;
   }
-  return type.fields.find(f => f.type === "TEXT")?.name || null;
+  const fallback = type.fields.find(f => f.type === "TEXT");
+  return fallback ? (fallback.key || fallback.name) : null;
 }

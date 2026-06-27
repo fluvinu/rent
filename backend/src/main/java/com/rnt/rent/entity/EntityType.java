@@ -14,6 +14,7 @@ public class EntityType {
     private String name; // e.g. Customer, Task
     private String description;
     private List<FieldDefinition> fields;
+    private List<String> subEntityTypes;
     private int version;
 
     @Data
