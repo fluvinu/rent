@@ -1,16 +1,16 @@
 # Graph Report - rent  (2026-06-27)
 
 ## Corpus Check
-- 133 files · ~40,367 words
+- 134 files · ~40,565 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 887 nodes · 2155 edges · 45 communities (41 shown, 4 thin omitted)
+- 890 nodes · 2157 edges · 52 communities (48 shown, 4 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 131 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bc85d810`
+- Built from commit: `59aafa53`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,10 +50,16 @@
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 35|Community 35]]
+- [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
 - [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
 - [[_COMMUNITY_Community 42|Community 42]]
 - [[_COMMUNITY_Community 43|Community 43]]
+- [[_COMMUNITY_Community 50|Community 50]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `cn()` - 74 edges
@@ -70,10 +76,10 @@
 ## Surprising Connections (you probably didn't know these)
 - `FieldDefinition` --references--> `FieldType`  [EXTRACTED]
   backend/src/main/java/com/rnt/rent/entity/EntityType.java → frontend/src/lib/api.ts
-- `AlertDialogHeader()` --calls--> `cn()`  [EXTRACTED]
-  frontend/src/components/ui/alert-dialog.tsx → frontend/src/lib/utils.ts
-- `AlertDialogFooter()` --calls--> `cn()`  [EXTRACTED]
-  frontend/src/components/ui/alert-dialog.tsx → frontend/src/lib/utils.ts
+- `AppShellProps` --references--> `EntityType`  [EXTRACTED]
+  frontend/src/components/AppShell.tsx → frontend/src/lib/api.ts
+- `NavItem()` --calls--> `cn()`  [EXTRACTED]
+  frontend/src/components/AppShell.tsx → frontend/src/lib/utils.ts
 - `BreadcrumbSeparator()` --calls--> `cn()`  [EXTRACTED]
   frontend/src/components/ui/breadcrumb.tsx → frontend/src/lib/utils.ts
 - `BreadcrumbEllipsis()` --calls--> `cn()`  [EXTRACTED]
@@ -82,15 +88,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (45 total, 4 thin omitted)
+## Communities (52 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.15
-Nodes (12): FieldInput(), COLORS, Checkbox, Input, Table, TableBody, TableCaption, TableCell (+4 more)
+Cohesion: 0.14
+Nodes (13): FieldInput(), COLORS, Input, Label, labelVariants, Table, TableBody, TableCaption (+5 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.05
-Nodes (31): AutoConfigureMockMvc, BeforeEach, AuthController, AuthControllerTest, CorsTest, EntityRecordController, EntityTypeController, TenantController (+23 more)
+Cohesion: 0.06
+Nodes (41): Authentication, AutoConfigureMockMvc, BeforeEach, Boolean, Claims, Component, AuthController, AuthControllerTest (+33 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.04
@@ -102,31 +108,31 @@ Nodes (42): AuthProvider(), consumeLastCapturedError(), renderErrorPage(), Lovab
 
 ### Community 4 - "Community 4"
 Cohesion: 0.05
-Nodes (38): useIsMobile(), Separator, SheetContent, SheetContentProps, SheetDescription, SheetFooter(), SheetHeader(), SheetOverlay (+30 more)
+Nodes (37): useIsMobile(), Separator, SheetContent, SheetContentProps, SheetDescription, SheetFooter(), SheetHeader(), SheetOverlay (+29 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.08
-Nodes (25): AccessDeniedException, GlobalExceptionHandler, Double, FieldDefinition, EntityRecord, ExceptionHandler, HttpClient, IllegalArgumentException (+17 more)
+Cohesion: 0.13
+Nodes (19): Collection, Criteria, Data, Double, FieldDefinition, FilterOperator, IllegalArgumentException, JsonIgnoreProperties (+11 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.29
 Nodes (7): scripts, build, build:dev, dev, format, lint, preview
 
 ### Community 7 - "Community 7"
-Cohesion: 0.14
-Nodes (20): Template, TemplateEntity, TemplateField, TEMPLATES, Button, CardDescription, Command, CommandEmpty (+12 more)
+Cohesion: 0.11
+Nodes (21): AppShellProps, NavItem(), Template, TemplateEntity, TemplateField, TEMPLATES, ACTION_TYPES, Condition (+13 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.07
-Nodes (33): Collection, PermissionController, WorkflowController, Criteria, Data, Document, EntityRecord, EntityType (+25 more)
+Cohesion: 0.19
+Nodes (8): Document, EntityRecord, EntityType, WorkflowStep, Instant, Map, Action, StepType
 
 ### Community 9 - "Community 9"
-Cohesion: 0.11
-Nodes (22): NavItem(), cn(), ButtonProps, buttonVariants, Calendar(), CalendarDayButton(), DrawerContent, DrawerDescription (+14 more)
+Cohesion: 0.07
+Nodes (35): cn(), AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter(), AlertDialogHeader(), AlertDialogOverlay (+27 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.08
-Nodes (29): AbstractMongoClientConfiguration, Authentication, Bean, Boolean, Claims, Component, MongoConfig, SecurityConfig (+21 more)
+Cohesion: 0.20
+Nodes (12): AbstractMongoClientConfiguration, Bean, MongoConfig, SecurityConfig, Configuration, CorsConfigurationSource, EnableWebSecurity, HttpSecurity (+4 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.10
@@ -137,8 +143,8 @@ Cohesion: 0.11
 Nodes (18): aliases, components, hooks, lib, ui, utils, iconLibrary, registries (+10 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.16
-Nodes (18): AppShell(), SettingsDialog(), FieldDef, useAuth(), COLORS, CreateEntityType(), DraftField, FIELD_TYPES (+10 more)
+Cohesion: 0.18
+Nodes (16): AppShell(), FieldDef, FieldType, COLORS, DraftField, FIELD_TYPES, DraftField, FIELD_TYPES (+8 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.11
@@ -149,8 +155,8 @@ Cohesion: 0.12
 Nodes (11): Menubar, MenubarCheckboxItem, MenubarContent, MenubarItem, MenubarLabel, MenubarRadioItem, MenubarSeparator, MenubarShortcut() (+3 more)
 
 ### Community 16 - "Community 16"
-Cohesion: 0.27
-Nodes (9): AppShellProps, ACCENT_COLORS, GalleryView(), GalleryViewProps, getPrimaryTextField(), KanbanViewProps, EntityRecord, EntityType (+1 more)
+Cohesion: 0.14
+Nodes (5): EntityTypeController, DeleteMapping, EntityType, PutMapping, MetadataService
 
 ### Community 17 - "Community 17"
 Cohesion: 0.14
@@ -165,16 +171,16 @@ Cohesion: 0.17
 Nodes (9): FormControl, FormDescription, FormFieldContext, FormFieldContextValue, FormItem, FormItemContext, FormItemContextValue, FormLabel (+1 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.25
-Nodes (8): QuickRecordDialog(), AuthScreen(), Index(), Label, labelVariants, TabsContent, TabsList, TabsTrigger
+Cohesion: 0.13
+Nodes (18): SettingsDialog(), QuickRecordDialog(), api(), getToken(), setToken(), AuthCtx, Ctx, Profile (+10 more)
 
 ### Community 21 - "Community 21"
 Cohesion: 0.18
 Nodes (7): ChartConfig, ChartContainer, ChartContext, ChartContextProps, ChartLegendContent, ChartTooltipContent, THEMES
 
 ### Community 22 - "Community 22"
-Cohesion: 0.29
-Nodes (8): api(), FieldType, getToken(), setToken(), AuthCtx, Ctx, Profile, PublicProfile
+Cohesion: 0.20
+Nodes (8): WorkflowController, Workflow, EntityRecord, EventType, Integer, WorkflowRepository, WorkflowEngine, Workflow
 
 ### Community 23 - "Community 23"
 Cohesion: 0.20
@@ -189,8 +195,8 @@ Cohesion: 0.25
 Nodes (7): 1. Advanced Business Logic (The Immediate Priority), 2. Complex Relationships and Data Integrity, 3. Fine-Grained Security and Row-Level Permissions, 4. Audit Logging and Versioning, 5. Advanced UI Components (Frontend), Action Plan, Gap Analysis for Extending the Dynamic Metadata Platform
 
 ### Community 26 - "Community 26"
-Cohesion: 0.22
-Nodes (8): AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter(), AlertDialogHeader(), AlertDialogOverlay, AlertDialogTitle
+Cohesion: 0.23
+Nodes (5): AccessDeniedException, PermissionController, Permission, PermissionRepository, PermissionService
 
 ### Community 27 - "Community 27"
 Cohesion: 0.25
@@ -212,17 +218,41 @@ Nodes (4): Alert, AlertDescription, AlertTitle, alertVariants
 Cohesion: 0.33
 Nodes (5): ToggleGroup, ToggleGroupContext, ToggleGroupItem, Toggle, toggleVariants
 
+### Community 32 - "Community 32"
+Cohesion: 0.19
+Nodes (7): EntityRecordController, ViewController, View, GetMapping, List, ViewRepository, ViewType
+
 ### Community 33 - "Community 33"
-Cohesion: 0.08
-Nodes (16): AccordionContent, AccordionItem, AccordionTrigger, HoverCardContent, InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot (+8 more)
+Cohesion: 0.40
+Nodes (4): InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot
 
 ### Community 34 - "Community 34"
-Cohesion: 0.50
-Nodes (3): Avatar, AvatarFallback, AvatarImage
+Cohesion: 0.23
+Nodes (10): Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut() (+2 more)
+
+### Community 35 - "Community 35"
+Cohesion: 0.27
+Nodes (7): HttpClient, Logger, ObjectMapper, ScriptEngine, Service, ScriptService, WebhookService
 
 ### Community 37 - "Community 37"
-Cohesion: 0.09
-Nodes (26): CalendarView(), CalendarViewProps, DOW, getPrimaryTextField(), MONTHS, BADGE_COLORS, COLUMN_COLORS, getColumns() (+18 more)
+Cohesion: 0.11
+Nodes (25): CalendarView(), CalendarViewProps, DOW, getPrimaryTextField(), MONTHS, ACCENT_COLORS, GalleryView(), GalleryViewProps (+17 more)
+
+### Community 38 - "Community 38"
+Cohesion: 0.32
+Nodes (3): Repository, EntityRecordRepository, EntityTypeRepository
+
+### Community 40 - "Community 40"
+Cohesion: 0.25
+Nodes (6): DrawerContent, DrawerDescription, DrawerFooter(), DrawerHeader(), DrawerOverlay, DrawerTitle
+
+### Community 41 - "Community 41"
+Cohesion: 0.53
+Nodes (3): GlobalExceptionHandler, ExceptionHandler, RestControllerAdvice
+
+### Community 50 - "Community 50"
+Cohesion: 0.50
+Nodes (3): AccordionContent, AccordionItem, AccordionTrigger
 
 ## Knowledge Gaps
 - **315 isolated node(s):** `com.rnt:rent`, `com.rnt:rent`, `$schema`, `style`, `rsc` (+310 more)
@@ -232,17 +262,17 @@ Nodes (26): CalendarView(), CalendarViewProps, DOW, getPrimaryTextField(), MONTH
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `FieldType` connect `Community 22` to `Community 8`, `Community 13`, `Community 5`, `Community 7`?**
-  _High betweenness centrality (0.283) - this node is a cross-community bridge._
-- **Why does `FieldDefinition` connect `Community 5` to `Community 8`, `Community 1`, `Community 22`?**
-  _High betweenness centrality (0.219) - this node is a cross-community bridge._
-- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 7`, `Community 13`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 24`, `Community 26`, `Community 27`, `Community 29`, `Community 30`, `Community 31`, `Community 33`, `Community 34`, `Community 37`?**
-  _High betweenness centrality (0.150) - this node is a cross-community bridge._
+- **Why does `FieldType` connect `Community 13` to `Community 8`, `Community 34`, `Community 37`, `Community 5`?**
+  _High betweenness centrality (0.281) - this node is a cross-community bridge._
+- **Why does `FieldDefinition` connect `Community 5` to `Community 32`, `Community 1`, `Community 8`, `Community 13`, `Community 16`?**
+  _High betweenness centrality (0.218) - this node is a cross-community bridge._
+- **Why does `cn()` connect `Community 9` to `Community 0`, `Community 4`, `Community 7`, `Community 13`, `Community 15`, `Community 17`, `Community 19`, `Community 20`, `Community 21`, `Community 23`, `Community 24`, `Community 27`, `Community 29`, `Community 30`, `Community 31`, `Community 33`, `Community 34`, `Community 37`, `Community 40`, `Community 50`?**
+  _High betweenness centrality (0.149) - this node is a cross-community bridge._
 - **What connects `com.rnt:rent`, `com.rnt:rent`, `$schema` to the rest of the system?**
   _315 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.1471861471861472 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1383399209486166 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.055036344755970926 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.03773584905660377 - nodes in this community are weakly interconnected._
