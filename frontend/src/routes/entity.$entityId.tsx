@@ -1,6 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -59,25 +60,26 @@ import {
 } from "recharts";
 
 export const Route = createFileRoute("/entity/$entityId")({
+  validateSearch: z.object({
+    parentRecordId: z.string().optional(),
+  }),
   head: () => ({ meta: [{ title: "Records — AppBuilder" }] }),
   component: EntityPage,
 });
 
 function EntityPage() {
   const { entityId } = Route.useParams();
+  const searchParams = Route.useSearch();
+
   const { token, ready } = useAuth();
   const navigate = useNavigate();
 
   const [type, setType] = useState<EntityType | null>(null);
   const [records, setRecords] = useState<EntityRecord[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const [editRecord, setEditRecord] = useState<EntityRecord | null>(null);
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    if (ready && !token) navigate({ to: "/" });
-  }, [ready, token, navigate]);
 
   const load = () => {
     api<EntityType>(`/api/entity-types/${entityId}`)
@@ -105,7 +107,7 @@ function EntityPage() {
     if (!confirm("Delete this entire entity type and all records?")) return;
     try {
       await api(`/api/entity-types/${entityId}`, { method: "DELETE" });
-      toast.success("Entity type deleted");
+      toast.success("Deleted dataset");
       navigate({ to: "/dashboard" });
     } catch (e: any) {
       toast.error(e.message);
@@ -114,15 +116,20 @@ function EntityPage() {
 
   const exportCSV = () => {
     if (!type || !records) return;
-    const visibleFields = type.fields.filter(f => !f.isHidden);
-    const headers = ["id", ...visibleFields.map((f) => f.name)];
+    const fields = type.fields;
+    const headers = ["ID", ...fields.map((f) => f.name)];
     const rows = records.map((r) =>
-      [r.id, ...visibleFields.map((f) => {
-        const v = r.data?.[f.key || f.name];
-        if (v === null || v === undefined) return "";
-        if (Array.isArray(v)) return v.join("|");
-        return String(v).replace(/,/g, ";");
-      })].join(","),
+      [
+        r.id,
+        ...fields.map((f) => {
+          const val = r.data[f.key || f.name];
+          if (val === null || val === undefined) return "";
+          if (typeof val === "object") return JSON.stringify(val);
+          return String(val).replace(/"/g, '""');
+        }),
+      ]
+        .map((v) => `"${v}"`)
+        .join(","),
     );
     const csv = [headers.join(","), ...rows].join("\n");
     const blob = new Blob([csv], { type: "text/csv" });
@@ -136,6 +143,7 @@ function EntityPage() {
 
   const filteredRecords = records
     ? records.filter((r) => {
+        if (searchParams.parentRecordId && r.parentRecordId !== searchParams.parentRecordId) return false;
         if (!search) return true;
         return Object.values(r.data || {}).some((v) =>
           String(v).toLowerCase().includes(search.toLowerCase()),
@@ -184,6 +192,15 @@ function EntityPage() {
             </Button>
           </div>
         </div>
+
+        {searchParams.parentRecordId && (
+          <div className="rounded-md border border-blue-500/50 bg-blue-50 text-blue-700 text-sm p-3 mb-4 flex items-center justify-between">
+            <span>Viewing records filtered by parent: {searchParams.parentRecordId.slice(-6)}</span>
+            <Button variant="ghost" size="sm" onClick={() => navigate({ to: `/entity/${type?.id}` })}>
+              Clear Filter
+            </Button>
+          </div>
+        )}
 
         {error && (
           <div className="rounded-md border border-destructive/50 bg-destructive/5 text-destructive text-sm p-4 mb-4">
@@ -258,19 +275,22 @@ function EntityPage() {
                         </TableCell>
                       ))}
                       <TableCell>
-                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="size-7"
-                            onClick={() => { setEditRecord(r); setOpen(true); }}
+                            className="size-8"
+                            onClick={() => {
+                              setEditRecord(r);
+                              setOpen(true);
+                            }}
                           >
                             <Edit className="size-3.5" />
                           </Button>
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="size-7"
+                            className="size-8 text-destructive hover:text-destructive"
                             onClick={() => deleteRecord(r.id)}
                           >
                             <Trash2 className="size-3.5" />
@@ -353,9 +373,9 @@ function EntityPage() {
           onOpenChange={setOpen}
           type={type}
           editRecord={editRecord}
+          defaultParentRecordId={searchParams.parentRecordId}
           onCreated={() => {
             setOpen(false);
-            setEditRecord(null);
             load();
           }}
         />
@@ -431,13 +451,14 @@ function renderPieChart(f: FieldDef, records: EntityRecord[]) {
 }
 
 function RecordDialog({
-  open, onOpenChange, type, editRecord, onCreated,
+  open, onOpenChange, type, editRecord, onCreated, defaultParentRecordId
 }: {
   open: boolean;
   onOpenChange: (v: boolean) => void;
   type: EntityType;
   editRecord?: EntityRecord | null;
   onCreated: () => void;
+  defaultParentRecordId?: string;
 }) {
   const [data, setData] = useState<Record<string, any>>({});
   const [parentRecordId, setParentRecordId] = useState<string>("");
@@ -452,7 +473,7 @@ function RecordDialog({
   useEffect(() => {
     if (open) {
       setData(editRecord ? { ...editRecord.data } : {});
-      setParentRecordId(editRecord?.parentRecordId || "");
+      setParentRecordId(editRecord?.parentRecordId || defaultParentRecordId || "");
 
       if (editRecord?.id && type.subEntityTypes && type.subEntityTypes.length > 0) {
         // Fetch all parent's child records once
@@ -482,7 +503,7 @@ function RecordDialog({
         setSubRecords({});
       }
     }
-  }, [open, editRecord, type]);
+  }, [open, editRecord, type, defaultParentRecordId]);
 
   const reloadSubRecords = () => {
     if (editRecord?.id && type.subEntityTypes && type.subEntityTypes.length > 0) {
@@ -521,7 +542,7 @@ function RecordDialog({
     setSaving(true);
     try {
       const payloadParentId = parentRecordId.trim() || undefined;
-      if (editRecord) {
+      if (editRecord && editRecord.id) {
         await api(`/api/records/${editRecord.id}`, {
           method: "PUT",
           body: JSON.stringify({ ...editRecord, data, parentRecordId: payloadParentId }),
@@ -569,9 +590,14 @@ function RecordDialog({
                 <div key={subType.id} className="border rounded-md p-3">
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-sm">{subType.name}</span>
-                    <Button type="button" variant="ghost" size="sm" onClick={() => setCreatingSubType(subType)}>
-                      <Plus className="size-3.5 mr-1" /> New
-                    </Button>
+                    <div className="flex items-center gap-2">
+                      <Link to={`/entity/${subType.id}`} search={{ parentRecordId: editRecord.id }} className="text-blue-500 hover:underline text-xs">
+                        View All
+                      </Link>
+                      <Button type="button" variant="ghost" size="sm" onClick={() => setCreatingSubType(subType)}>
+                        <Plus className="size-3.5 mr-1" /> New
+                      </Button>
+                    </div>
                   </div>
                   {records.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No {subType.name.toLowerCase()}s found.</p>
@@ -582,7 +608,7 @@ function RecordDialog({
                           <span className="truncate pr-2">
                             {r.id.slice(-6)}: {Object.values(r.data)[0] ? String(Object.values(r.data)[0]) : "Untitled"}
                           </span>
-                          <Link to={`/entity/${subType.id}`} target="_blank" className="text-blue-500 hover:underline shrink-0">
+                          <Link to={`/entity/${subType.id}`} search={{ parentRecordId: editRecord.id }} className="text-blue-500 hover:underline shrink-0">
                             View
                           </Link>
                         </div>
@@ -610,12 +636,7 @@ function RecordDialog({
           open={!!creatingSubType}
           onOpenChange={(val) => { if (!val) setCreatingSubType(null); }}
           type={creatingSubType}
-          editRecord={{
-            id: "",
-            entityTypeId: creatingSubType.id,
-            parentRecordId: editRecord?.id,
-            data: {}
-          }}
+          defaultParentRecordId={editRecord?.id}
           onCreated={() => {
             setCreatingSubType(null);
             reloadSubRecords();
