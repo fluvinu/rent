@@ -542,7 +542,7 @@ function RecordDialog({
     setSaving(true);
     try {
       const payloadParentId = parentRecordId.trim() || undefined;
-      if (editRecord) {
+      if (editRecord && editRecord.id) {
         await api(`/api/records/${editRecord.id}`, {
           method: "PUT",
           body: JSON.stringify({ ...editRecord, data, parentRecordId: payloadParentId }),
@@ -636,12 +636,6 @@ function RecordDialog({
           open={!!creatingSubType}
           onOpenChange={(val) => { if (!val) setCreatingSubType(null); }}
           type={creatingSubType}
-          editRecord={{
-            id: "",
-            entityTypeId: creatingSubType.id,
-            parentRecordId: editRecord?.id,
-            data: {}
-          }}
           defaultParentRecordId={editRecord?.id}
           onCreated={() => {
             setCreatingSubType(null);
